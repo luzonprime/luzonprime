@@ -38,7 +38,7 @@ Storage    : Supabase Storage (property images)
 Email      : Brevo (transactional) via SMTP / API
 SEO        : Next.js Metadata API + next-sitemap
 Analytics  : Vercel Analytics + custom admin dashboard
-Maps       : Mapbox GL JS (property locations)
+Maps       : OpenStreetMap embed (static pin point of property location, no map SDK)
 Deployment : Vercel (auto-deploy from GitHub main branch)
 ```
 
@@ -92,7 +92,6 @@ BREVO_SMTP_PASS=                # Brevo SMTP key
 # App
 NEXT_PUBLIC_SITE_URL=https://luzonprime.com
 NEXT_PUBLIC_WHATSAPP_NUMBER=    # e.g. 2348012345678
-NEXT_PUBLIC_MAPBOX_TOKEN=
 
 # Admin bootstrap (used only during initial DB seed)
 ADMIN_BOOTSTRAP_EMAIL=
@@ -323,7 +322,7 @@ luzonprime/
 │   │   │   ├── PropertyCard.tsx
 │   │   │   ├── PropertyGrid.tsx
 │   │   │   ├── PropertyFilters.tsx
-│   │   │   ├── PropertyMap.tsx
+│   │   │   ├── PropertyLocationPin.tsx   ← static OpenStreetMap pin embed, not interactive map
 │   │   │   ├── ImageGallery.tsx
 │   │   │   └── InquiryForm.tsx
 │   │   ├── dashboard/
@@ -423,7 +422,7 @@ Sizes:   Mobile-first, scale via Tailwind responsive prefixes
 
 ### 8.2 Listings (`/listings`)
 - Filter sidebar (mobile: bottom sheet) — type, location, beds, price range, features
-- Toggle: Grid view / Map view (Mapbox)
+- Grid view only (no interactive map view — each property's location pin is shown on its own detail page)
 - Infinite scroll / pagination
 - Sort: Newest, Price ↑↓, Featured
 - Property card: image (carousel on hover), price, beds/baths, area, status badge
@@ -432,7 +431,7 @@ Sizes:   Mobile-first, scale via Tailwind responsive prefixes
 - Full-screen image gallery (lightbox)
 - Sticky sidebar: price, CTA buttons (Enquire, Book Visit, WhatsApp)
 - Details: type, size, beds/baths, features checklist
-- Map pin (Mapbox)
+- Static map pin showing the property's recorded coordinates (OpenStreetMap embed, no SDK/API key)
 - Agent card (name, photo, contact)
 - Related listings (same area)
 - Enquiry modal → creates inquiry record + sends email via Brevo
@@ -550,7 +549,7 @@ All emails sent from `info@luzonprime.com` via Brevo SMTP.
 
 ### Phase 4 — Polish (Week 7–8)
 - [ ] Framer Motion animations (all pages)
-- [ ] Mapbox integration
+- [ ] Property location pin embed (OpenStreetMap)
 - [ ] Blog/Insights section
 - [ ] SEO finalization (sitemap, JSON-LD, metadata)
 - [ ] Performance audit (images, lazy load, bundle size)
