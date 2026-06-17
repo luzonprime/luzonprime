@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 
@@ -64,10 +63,18 @@ export function Footer() {
   async function handleSubscribe(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
-    const supabase = createClient();
-    const { error } = await supabase.from("subscribers").insert({ email });
-    setStatus(error ? "error" : "done");
-    if (!error) setEmail("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("done");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (

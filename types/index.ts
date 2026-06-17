@@ -1,0 +1,59 @@
+export type UserRole = "client" | "agent" | "admin";
+
+export interface Profile {
+  id: string;
+  role: UserRole;
+  full_name: string | null;
+  phone: string | null;
+  avatar_url: string | null;
+  bio: string | null;
+  verified: boolean;
+  created_at: string;
+}
+
+export type ListingType = "for_sale" | "for_rent" | "off_plan";
+export type PropertyStatus = "available" | "sold" | "rented";
+
+export interface Property {
+  id: string;
+  agent_id: string | null;
+  title: string;
+  slug: string;
+  description: string | null;
+  property_type: string | null;
+  listing_type: ListingType | null;
+  status: PropertyStatus;
+  price: number | null;
+  price_label: string | null;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  size_sqm: number | null;
+  location: string | null;
+  area: string | null;
+  city: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  features: string[] | null;
+  is_featured: boolean;
+  is_published: boolean;
+  images: string[] | null;
+  video_url: string | null;
+  virtual_tour_url: string | null;
+  created_at: string;
+  updated_at: string;
+  agent?: Profile | null;
+}
+
+export interface Inquiry {
+  id: string;
+  property_id: string | null;
+  user_id: string | null;
+  name: string;
+  email: string;
+  phone: string | null;
+  message: string | null;
+  inquiry_type: string | null;
+  status: "new" | "contacted" | "closed";
+  assigned_agent: string | null;
+  created_at: string;
+}
