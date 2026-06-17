@@ -33,7 +33,7 @@ Animation  : Framer Motion (page transitions, scroll reveals, hover)
 Icons      : Lucide React
 Forms      : React Hook Form + Zod validation
 Database   : Supabase (PostgreSQL)
-Auth       : Supabase Auth (email/password + 6 digit otp)
+Auth       : Supabase Auth (email/password + 6 digit otp (expires after 300 seconds))
 Storage    : Supabase Storage (property images)
 Email      : Brevo (transactional) via SMTP / API
 SEO        : Next.js Metadata API + next-sitemap
@@ -66,11 +66,11 @@ Deployment : Vercel (auto-deploy from GitHub main branch)
 }
 ```
 
-> Keys are sourced from `.env.local` — never hardcode them.
+> Keys are sourced from `.env` — never hardcode them.
 
 ---
 
-## 3. Environment Variables (.env.local)
+## 3. Environment Variables (.env)
 
 ```bash
 # Supabase
@@ -491,11 +491,11 @@ Sizes:   Mobile-first, scale via Tailwind responsive prefixes
 
 ---
 
-## 10. Email Flows (Brevo)
+## 10. Email Flows (Brevo + Supabase)
 
 | Trigger                  | Recipients             | Template              |
 |--------------------------|------------------------|-----------------------|
-| New user signup          | User                   | Welcome email         |
+| New user signup          | User                   | Supabase default      |
 | Password reset           | User                   | Supabase default      |
 | Property inquiry         | User + Admin + Agent   | Inquiry confirmation  |
 | Booking confirmed        | User + Agent           | Booking details       |
@@ -503,7 +503,7 @@ Sizes:   Mobile-first, scale via Tailwind responsive prefixes
 | Admin: new inquiry alert | Admin (info@)          | Lead notification     |
 | Agent: new lead assigned | Agent                  | Lead assigned         |
 
-All emails sent from `info@luzonprime.com` via Brevo SMTP.
+All emails sent from `noreply@luzonprime.com` for Supabase Auth & `info@luzonprime.com` via Brevo SMTP.
 
 ---
 
@@ -521,7 +521,7 @@ All emails sent from `info@luzonprime.com` via Brevo SMTP.
 
 ## 12. Build Phases
 
-### Phase 1 — Foundation (Week 1–2)
+### Phase 1 — Foundation 
 - [ ] Init Next.js project, install dependencies
 - [ ] Configure Tailwind, design tokens, dark/light mode
 - [ ] Supabase project: schema migrations, RLS policies
@@ -531,7 +531,7 @@ All emails sent from `info@luzonprime.com` via Brevo SMTP.
 - [ ] Home page (static, no data)
 - [ ] Vercel deploy + domain
 
-### Phase 2 — Core Features (Week 3–4)
+### Phase 2 — Core Features
 - [ ] Property CRUD (admin + agent)
 - [ ] Supabase Storage for images
 - [ ] Listings page with filters
@@ -540,14 +540,14 @@ All emails sent from `info@luzonprime.com` via Brevo SMTP.
 - [ ] WhatsApp floating button
 - [ ] Newsletter subscribe
 
-### Phase 3 — Dashboards (Week 5–6)
+### Phase 3 — Dashboards 
 - [ ] Admin dashboard (full)
 - [ ] Agent dashboard
 - [ ] Client dashboard
 - [ ] Booking system
 - [ ] Analytics charts (Recharts)
 
-### Phase 4 — Polish (Week 7–8)
+### Phase 4 — Polish 
 - [ ] Framer Motion animations (all pages)
 - [ ] Property location pin embed (OpenStreetMap)
 - [ ] Blog/Insights section

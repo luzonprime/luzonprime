@@ -43,6 +43,6 @@ next-env.d.ts
 .vercel
 
 /ui-sample
-
+/prompts
 
 CLAUDE.md
