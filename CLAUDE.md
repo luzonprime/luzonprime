@@ -12,7 +12,7 @@
 | Field            | Value                                      |
 |------------------|--------------------------------------------|
 | Domain           | luzonprime.com                             |
-| Brand Name       | LuzonPrime                                 |
+| Brand Name       | LuzonPrimeRealtors                                 |
 | Primary Email    | info@luzonprime.com                        |
 | Support Email    | support@luzonprime.com                     |
 | Email Provider   | Zoho Mail (domain only — no SMTP service) |
@@ -33,7 +33,7 @@ Animation  : Framer Motion (page transitions, scroll reveals, hover)
 Icons      : Lucide React
 Forms      : React Hook Form + Zod validation
 Database   : Supabase (PostgreSQL)
-Auth       : Supabase Auth (email/password + magic link)
+Auth       : Supabase Auth (email/password + 6 digit otp)
 Storage    : Supabase Storage (property images)
 Email      : Brevo (transactional) via SMTP / API
 SEO        : Next.js Metadata API + next-sitemap
@@ -366,10 +366,10 @@ luzonprime/
 ```css
 /* globals.css — Light Mode */
 :root {
-  --color-primary:    #1B2D5B;   /* deep navy blue (from logo) */
+  --color-primary:    #091F46;   /* exact logo background navy — buttons, widgets, CTAs */
   --color-primary-light: #2A4080;
   --color-accent:     #C9A84C;   /* warm gold */
-  --color-bg:         #FFFFFF;
+  --color-bg:         #FFFFFF;   /* white background in light mode */
   --color-bg-muted:   #F7F8FA;
   --color-surface:    #FFFFFF;
   --color-border:     #E5E7EB;
@@ -379,9 +379,9 @@ luzonprime/
 
 /* Dark Mode */
 .dark {
-  --color-primary:    #4F72C2;   /* lighter navy for dark bg */
+  --color-primary:    #091F46;   /* same exact logo navy — buttons, widgets, CTAs */
   --color-accent:     #C9A84C;
-  --color-bg:         #0F1623;   /* very dark navy */
+  --color-bg:         #000000;   /* black background in dark mode */
   --color-bg-muted:   #1A2540;
   --color-surface:    #1E2D4A;
   --color-border:     #2D3E5E;
