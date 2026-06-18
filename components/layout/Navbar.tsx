@@ -71,14 +71,14 @@ export function Navbar() {
         <Link href="/" className="flex min-w-0 items-center gap-2">
           <Image
             src="/logo.png"
-            alt="LuzonPrime"
+            alt="Luzon Prime Realtors logo"
             width={36}
             height={37}
             priority
             className="h-8 w-8 shrink-0 sm:h-9 sm:w-9"
           />
           <span className="font-heading truncate text-base font-bold text-[var(--color-primary)] sm:text-lg dark:text-[var(--color-text)]">
-            LuzonPrime
+            Luzon Prime
           </span>
         </Link>
 
@@ -147,7 +147,7 @@ export function Navbar() {
               className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm flex-col overflow-y-auto bg-[var(--color-bg)] px-6 py-4 shadow-2xl lg:hidden"
             >
               <div className="flex items-center justify-between">
-                <Image src="/logo.png" alt="LuzonPrime" width={32} height={33} className="h-8 w-8" />
+                <Image src="/logo.png" alt="Luzon Prime Realtors logo" width={32} height={33} className="h-8 w-8" />
                 <button
                   type="button"
                   aria-label="Close menu"

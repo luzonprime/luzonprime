@@ -50,7 +50,7 @@ export async function AgentsPreview() {
                 </div>
                 <div className="p-4">
                   <p className="text-sm font-semibold text-[var(--color-text)]">
-                    {agent.full_name ?? "LuzonPrime Agent"}
+                    {agent.full_name ?? "Luzon Prime Agent"}
                   </p>
                   {agent.verified && (
                     <span className="mt-1 inline-block text-xs font-medium text-[var(--color-accent)]">

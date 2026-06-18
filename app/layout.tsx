@@ -17,9 +17,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "LuzonPrime | Find Your Prime Property",
+  title: "Luzon Prime Realtors | Find Your Prime Property",
   description:
-    "LuzonPrime helps you buy, sell, and rent properties with confidence.",
+    "Luzon Prime Realtors helps you buy, sell, and rent properties with confidence.",
 };
 
 export default function RootLayout({

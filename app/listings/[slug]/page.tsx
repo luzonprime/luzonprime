@@ -32,11 +32,11 @@ async function getProperty(slug: string) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const property = await getProperty(slug);
-  if (!property) return { title: "Property not found | LuzonPrime" };
+  if (!property) return { title: "Property not found | Luzon Prime Realtors" };
 
   return {
-    title: `${property.title} | LuzonPrime`,
-    description: property.description ?? `${property.title} — available on LuzonPrime.`,
+    title: `${property.title} | Luzon Prime Realtors`,
+    description: property.description ?? `${property.title} — available on Luzon Prime Realtors.`,
     openGraph: {
       images: property.images?.length ? [property.images[0]] : [],
     },

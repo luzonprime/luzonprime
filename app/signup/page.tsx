@@ -55,7 +55,7 @@ export default function SignupPage() {
           Create your account
         </h1>
         <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-          Join LuzonPrime to save favourites, book consultations, and more.
+          Join Luzon Prime Realtors to save favourites, book consultations, and more.
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 flex flex-col gap-4">

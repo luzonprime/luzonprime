@@ -40,7 +40,7 @@ async function main() {
   const { error: profileError } = await supabase.from("profiles").upsert({
     id: userId,
     role: "admin",
-    full_name: "LuzonPrime Admin",
+    full_name: "Luzon Prime Realtors Admin",
   });
 
   if (profileError) {

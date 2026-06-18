@@ -30,7 +30,7 @@ export function WhyUs() {
       <div className="mx-auto max-w-6xl">
         <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
         <h2 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
-          Why choose LuzonPrime
+          Why choose Luzon Prime Realtors
         </h2>
 
         <AnimatedStagger className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

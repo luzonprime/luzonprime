@@ -7,7 +7,7 @@ const TESTIMONIALS = [
     name: "Adaeze O.",
     role: "Bought a duplex in Lekki",
     quote:
-      "LuzonPrime made the whole process feel effortless. Our agent understood exactly what we wanted and never wasted our time with mismatched listings.",
+      "Luzon Prime Realtors made the whole process feel effortless. Our agent understood exactly what we wanted and never wasted our time with mismatched listings.",
   },
   {
     name: "Emeka U.",

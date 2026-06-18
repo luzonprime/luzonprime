@@ -15,7 +15,7 @@ export function AgentCard({ agent }: { agent: Profile }) {
         )}
       </div>
       <div>
-        <p className="font-semibold text-[var(--color-text)]">{agent.full_name ?? "LuzonPrime Agent"}</p>
+        <p className="font-semibold text-[var(--color-text)]">{agent.full_name ?? "Luzon Prime Agent"}</p>
         {agent.verified && (
           <p className="text-xs font-medium text-[var(--color-accent)]">Verified Agent</p>
         )}

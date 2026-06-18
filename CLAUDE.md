@@ -1,4 +1,4 @@
-# CLAUDE.md — LuzonPrime Real Estate Website
+# CLAUDE.md — Luzon Prime Realtors Real Estate Website
 ## Master Build Plan & Context File
 
 > **Purpose:** This file is the persistent context anchor for Claude Code sessions.
@@ -12,7 +12,7 @@
 | Field            | Value                                      |
 |------------------|--------------------------------------------|
 | Domain           | luzonprime.com                             |
-| Brand Name       | LuzonPrimeRealtors                                 |
+| Brand Name       | Luzon Prime Realtors (compact: "Luzon Prime")      |
 | Primary Email    | info@luzonprime.com                        |
 | Support Email    | support@luzonprime.com                     |
 | Email Provider   | Zoho Mail (domain only — no SMTP service) |

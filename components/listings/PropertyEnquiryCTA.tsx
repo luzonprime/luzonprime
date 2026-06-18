@@ -11,7 +11,7 @@ export function PropertyEnquiryCTA({ property }: { property: Property }) {
   const [open, setOpen] = useState(false);
   const price = formatNaira(property.price) ?? property.price_label ?? "Price on request";
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-  const whatsappMessage = encodeURIComponent(`Hi, I'm interested in "${property.title}" on LuzonPrime.`);
+  const whatsappMessage = encodeURIComponent(`Hi, I'm interested in "${property.title}" on Luzon Prime Realtors.`);
 
   return (
     <>

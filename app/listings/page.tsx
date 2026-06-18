@@ -5,7 +5,7 @@ import { PropertyFilters } from "@/components/listings/PropertyFilters";
 import { AnimatedStagger, AnimatedStaggerItem } from "@/components/shared/AnimatedSection";
 
 export const metadata = {
-  title: "Listings | LuzonPrime",
+  title: "Listings | Luzon Prime Realtors",
   description: "Browse verified properties for sale, rent, and off-plan across Lagos.",
 };
 

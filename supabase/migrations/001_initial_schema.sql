@@ -1,4 +1,4 @@
--- LuzonPrime initial schema (CLAUDE.md Section 5)
+-- Luzon Prime Realtors initial schema (CLAUDE.md Section 5)
 
 -- profiles (extends auth.users)
 create table profiles (
