@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -59,7 +60,11 @@ export function AnimatedStaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div variants={fadeInUp} transition={{ duration: 0.5, ease: "easeOut" }} className={className}>
+    <motion.div
+      variants={fadeInUp}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={cn("h-full", className)}
+    >
       {children}
     </motion.div>
   );

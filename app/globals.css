@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Make Tailwind's `dark:` variant follow the .dark class (next-themes),
+   not the OS prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --color-primary: #091f46;
   --color-primary-light: #2a4080;

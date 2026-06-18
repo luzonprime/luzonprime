@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 
@@ -26,8 +27,16 @@ export function NewsletterBanner() {
   }
 
   return (
-    <section className="bg-[var(--color-primary)] px-4 py-14 sm:px-[1.125rem]">
-      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+    <section className="relative overflow-hidden px-4 py-14 sm:px-[1.125rem]">
+      <Image
+        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=70"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-[#091f46]/88" />
+      <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
         <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">
           Get exclusive listings in your inbox
         </h2>
@@ -48,7 +57,11 @@ export function NewsletterBanner() {
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white"
           />
-          <Button type="submit" disabled={status === "loading"} className="shrink-0">
+          <Button
+            type="submit"
+            disabled={status === "loading"}
+            className="shrink-0 bg-[var(--color-accent)] text-[var(--color-primary)] hover:brightness-105"
+          >
             {status === "loading" ? "Subscribing…" : "Subscribe"}
           </Button>
         </form>

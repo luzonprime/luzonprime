@@ -17,7 +17,7 @@ export async function FeaturedListings() {
   const properties = (data ?? []) as Property[];
 
   return (
-    <section className="bg-[var(--color-bg)] px-4 py-16 sm:px-[1.125rem]">
+    <section className="bg-[var(--color-bg)] px-4 py-12 sm:px-[1.125rem]">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           eyebrow="Featured"

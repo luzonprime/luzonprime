@@ -18,7 +18,7 @@ export async function AgentsPreview() {
   if (agents.length === 0) return null;
 
   return (
-    <section className="bg-[var(--color-bg-muted)] px-4 py-16 sm:px-[1.125rem]">
+    <section className="bg-[var(--color-bg-muted)] px-4 py-12 sm:px-[1.125rem]">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-end justify-between">
           <div>

@@ -15,7 +15,10 @@ export default async function AdminAwardsPage() {
         primaryField="title"
         secondaryField="year"
         addLabel="Add award"
+        searchPlaceholder="Search awards…"
+        detailFields={[{ name: "year", label: "Year" }]}
         fields={[
+          { name: "image_url", label: "Badge image", type: "image" },
           { name: "year", label: "Year", placeholder: "2025" },
           { name: "title", label: "Title", placeholder: "Award name" },
           { name: "sort_order", label: "Sort order", type: "number" },

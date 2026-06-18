@@ -3,11 +3,11 @@ import { AnimatedSection } from "@/components/shared/AnimatedSection";
 
 export function BlueprintStatement() {
   return (
-    <section className="relative overflow-hidden bg-[var(--color-bg)] px-4 py-20 sm:px-[1.125rem]">
+    <section className="relative overflow-hidden bg-[var(--color-bg)] px-4 py-14 sm:px-[1.125rem]">
       <SkylineSketch
         aria-hidden
-        strokeWidth={1.4}
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-full w-full text-[var(--color-primary)] opacity-[0.07] dark:text-white dark:opacity-[0.09]"
+        strokeWidth={2}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-full w-full text-[var(--color-primary)] opacity-25 dark:text-[#9aa3b2] dark:opacity-30"
       />
       <div className="relative mx-auto max-w-4xl text-center">
         <AnimatedSection>

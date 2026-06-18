@@ -72,6 +72,7 @@ export interface Award {
   id: string;
   year: string | null;
   title: string;
+  image_url: string | null;
   sort_order: number;
   is_active: boolean;
   created_at: string;

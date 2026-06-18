@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   Building2,
   ClipboardCheck,
@@ -13,6 +12,7 @@ import {
   AnimatedStagger,
   AnimatedStaggerItem,
 } from "@/components/shared/AnimatedSection";
+import { CtaBanner } from "@/components/shared/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Services | Luzon Prime Realtors",
@@ -105,29 +105,12 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-[1.125rem] lg:px-8">
-        <AnimatedSection className="overflow-hidden rounded-3xl bg-[var(--color-primary)] px-6 py-12 text-center sm:px-12">
-          <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">
-            Ready to make your next move?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/80">
-            Tell us what you&apos;re looking for and we&apos;ll match you with
-            the right property and the right agent.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/listings"
-              className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-transform hover:-translate-y-0.5"
-            >
-              Browse listings
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-full border border-white/40 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Talk to us
-            </Link>
-          </div>
-        </AnimatedSection>
+        <CtaBanner
+          title="Ready to make your next move?"
+          description="Tell us what you're looking for and we'll match you with the right property and the right agent."
+          primary={{ href: "/listings", label: "Browse listings" }}
+          secondary={{ href: "/contact", label: "Talk to us" }}
+        />
       </section>
     </div>
   );

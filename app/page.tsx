@@ -18,11 +18,11 @@ export default async function Home() {
   const supabase = await createClient();
   const { data: awardData } = await supabase
     .from("awards")
-    .select("year, title")
+    .select("year, title, image_url")
     .eq("is_active", true)
     .order("sort_order")
     .limit(4);
-  const awards = (awardData ?? []) as Pick<Award, "year" | "title">[];
+  const awards = (awardData ?? []) as Pick<Award, "year" | "title" | "image_url">[];
 
   return (
     <>

@@ -19,7 +19,7 @@ export async function PropertyMarquee() {
   if (properties.length < 3) return null;
 
   return (
-    <section className="bg-[var(--color-bg-muted)] py-16">
+    <section className="bg-[var(--color-bg-muted)] py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-[1.125rem]">
         <SectionHeader
           eyebrow="Signature"

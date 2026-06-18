@@ -19,8 +19,15 @@ export default async function AdminNavigationPage() {
         table="nav_items"
         rows={(data ?? []) as CrudRow[]}
         primaryField="label"
-        secondaryField="href"
         addLabel="Add nav item"
+        searchPlaceholder="Search navigation…"
+        groupBy="grp"
+        groupLabels={{
+          popular: "Popular (before divider)",
+          inline: "Inline",
+          more: "More dropdown",
+        }}
+        detailFields={[{ name: "href", label: "Link" }]}
         fields={[
           { name: "label", label: "Label" },
           { name: "href", label: "Link (href)", placeholder: "/listings" },

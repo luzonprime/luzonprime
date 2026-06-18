@@ -11,10 +11,12 @@ export default async function AdminMembersPage() {
       primaryField="name"
       secondaryField="title"
       addLabel="Add member"
+      searchPlaceholder="Search members…"
+      detailFields={[{ name: "title", label: "Role" }]}
       fields={[
+        { name: "image_url", label: "Photo", type: "image" },
         { name: "name", label: "Name" },
         { name: "title", label: "Title", placeholder: "Head of Sales" },
-        { name: "image_url", label: "Image URL", placeholder: "https://…" },
         { name: "about", label: "About", type: "textarea" },
         { name: "sort_order", label: "Sort order", type: "number" },
         { name: "is_active", label: "Visible on site", type: "checkbox" },

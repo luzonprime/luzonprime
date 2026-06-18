@@ -18,8 +18,15 @@ export default async function AdminTaxonomiesPage() {
         table="taxonomy_terms"
         rows={(data ?? []) as CrudRow[]}
         primaryField="label"
-        secondaryField="kind"
         addLabel="Add option"
+        searchPlaceholder="Search options…"
+        groupBy="kind"
+        groupLabels={{
+          property_type: "Property types",
+          listing_type: "Listing types",
+          status: "Statuses",
+        }}
+        detailFields={[{ name: "slug", label: "Slug" }]}
         fields={[
           {
             name: "kind",

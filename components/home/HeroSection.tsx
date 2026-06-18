@@ -17,7 +17,7 @@ const DEFAULT_AWARDS = [
 export function HeroSection({
   awards,
 }: {
-  awards?: { year: string | null; title: string }[];
+  awards?: { year: string | null; title: string; image_url?: string | null }[];
 }) {
   const items = awards && awards.length > 0 ? awards : DEFAULT_AWARDS;
   const ref = useRef<HTMLDivElement>(null);
@@ -83,7 +83,13 @@ export function HeroSection({
                 className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
               >
                 <div className="flex items-center gap-2">
-                  <Award size={18} className="text-[var(--color-accent)]" />
+                  {"image_url" in a && a.image_url ? (
+                    <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded">
+                      <Image src={a.image_url} alt="" fill sizes="32px" className="object-contain" />
+                    </span>
+                  ) : (
+                    <Award size={18} className="text-[var(--color-accent)]" />
+                  )}
                   <span className="text-lg font-bold text-white">{a.year}</span>
                 </div>
                 <p className="mt-1.5 text-xs leading-snug text-white/80">{a.title}</p>

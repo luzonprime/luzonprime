@@ -25,7 +25,7 @@ const TESTIMONIALS = [
 
 export function TestimonialsCarousel() {
   return (
-    <section className="bg-[var(--color-bg)] px-4 py-16 sm:px-[1.125rem]">
+    <section className="bg-[var(--color-bg)] px-4 py-12 sm:px-[1.125rem]">
       <div className="mx-auto max-w-6xl">
         <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
         <h2 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">

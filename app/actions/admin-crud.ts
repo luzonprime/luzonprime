@@ -16,7 +16,7 @@ const ALLOWED: Record<string, TableConfig> = {
     revalidate: ["/admin/navigation", "/"],
   },
   awards: {
-    columns: ["year", "title", "sort_order", "is_active"],
+    columns: ["year", "title", "image_url", "sort_order", "is_active"],
     revalidate: ["/admin/awards", "/"],
   },
   members: {
