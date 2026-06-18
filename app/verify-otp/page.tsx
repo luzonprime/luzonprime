@@ -57,7 +57,7 @@ function VerifyOtpForm() {
   return (
     <div className="flex flex-1 items-center justify-center bg-[var(--color-bg)] px-6 py-16">
       <div className="w-full max-w-md rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-center">
-        <h1 className="font-heading text-2xl font-bold text-[var(--color-primary)]">
+        <h1 className="font-heading text-2xl font-bold text-[var(--color-heading)]">
           Verify your email
         </h1>
         <p className="mt-2 text-sm text-[var(--color-text-muted)]">

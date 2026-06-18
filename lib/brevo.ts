@@ -27,7 +27,7 @@ function wrapTemplate(title: string, bodyHtml: string) {
           <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:16px;overflow:hidden;">
             <tr>
               <td style="background-color:#091f46;padding:32px;text-align:center;">
-                <span style="color:#ffffff;font-size:22px;font-weight:bold;letter-spacing:0.5px;">LuzonPrime</span>
+                <span style="color:#ffffff;font-size:22px;font-weight:bold;letter-spacing:0.5px;">Luzon Prime</span>
               </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@ function wrapTemplate(title: string, bodyHtml: string) {
             <tr>
               <td style="padding:20px 32px;background-color:#f7f8fa;text-align:center;">
                 <span style="color:#9ca3af;font-size:12px;">
-                  &copy; LuzonPrime Realtors &middot; info@luzonprime.com
+                  &copy; Luzon Prime Realtors &middot; info@luzonprime.com
                 </span>
               </td>
             </tr>
@@ -120,11 +120,11 @@ function renderTemplate<T extends keyof EmailTemplateMap>(
     case "welcome_email": {
       const p = params as WelcomeEmailParams;
       return {
-        subject: "Welcome to LuzonPrime",
+        subject: "Welcome to Luzon Prime Realtors",
         html: wrapTemplate(
-          "Welcome to LuzonPrime",
+          "Welcome to Luzon Prime Realtors",
           paragraph(
-            `Hi ${p.name ?? "there"}, you're now subscribed to LuzonPrime updates. Expect new listings, market insights, and off-market opportunities in your inbox.`
+            `Hi ${p.name ?? "there"}, you're now subscribed to Luzon Prime Realtors updates. Expect new listings, market insights, and off-market opportunities in your inbox.`
           )
         ),
       };
@@ -155,7 +155,7 @@ export async function sendEmail<T extends keyof EmailTemplateMap>(
   const { subject, html } = renderTemplate(templateId, params);
 
   await getTransporter().sendMail({
-    from: `"LuzonPrime" <${process.env.SMTP_FROM_EMAIL ?? "info@luzonprime.com"}>`,
+    from: `"Luzon Prime Realtors" <${process.env.SMTP_FROM_EMAIL ?? "info@luzonprime.com"}>`,
     to,
     subject,
     html,

@@ -6,6 +6,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import type { Property } from "@/types";
 import { formatNaira, LISTING_TYPE_LABELS, STATUS_LABELS } from "@/lib/utils";
 import { deleteProperty, publishProperty } from "@/app/actions/properties";
+import { DataTable, type DataTableColumn } from "@/components/dashboard/DataTable";
 
 export function PropertiesDataTable({
   properties,
@@ -47,82 +48,81 @@ export function PropertiesDataTable({
     });
   }
 
-  if (rows.length === 0) {
-    return (
-      <div className="rounded-2xl border border-dashed border-[var(--color-border)] p-12 text-center text-sm text-[var(--color-text-muted)]">
-        No properties yet.
-      </div>
-    );
-  }
+  const columns: DataTableColumn<Property>[] = [
+    { key: "title", header: "Title", sortable: true },
+    {
+      key: "listing_type",
+      header: "Type",
+      sortable: true,
+      render: (p) => (p.listing_type ? LISTING_TYPE_LABELS[p.listing_type] ?? p.listing_type : "—"),
+    },
+    {
+      key: "status",
+      header: "Status",
+      sortable: true,
+      render: (p) => STATUS_LABELS[p.status] ?? p.status,
+    },
+    ...(role === "admin"
+      ? [
+          {
+            key: "agent_id",
+            header: "Agent",
+            render: (p: Property) => (p.agent_id && agentNames[p.agent_id]) ?? "Unassigned",
+          } as DataTableColumn<Property>,
+        ]
+      : []),
+    {
+      key: "price",
+      header: "Price",
+      sortable: true,
+      render: (p) => formatNaira(p.price) ?? p.price_label ?? "—",
+    },
+    ...(role === "admin"
+      ? [
+          {
+            key: "is_published",
+            header: "Published",
+            render: (p: Property) => (
+              <button
+                type="button"
+                disabled={isPending && pendingId === p.id}
+                onClick={() => handleTogglePublish(p.id, !p.is_published)}
+                className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                  p.is_published ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"
+                }`}
+              >
+                {p.is_published ? "Published" : "Draft"}
+              </button>
+            ),
+          } as DataTableColumn<Property>,
+        ]
+      : []),
+  ];
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-[var(--color-border)]">
-      <table className="w-full min-w-[760px] text-left text-sm">
-        <thead className="bg-[var(--color-bg-muted)] text-xs uppercase text-[var(--color-text-muted)]">
-          <tr>
-            <th className="px-4 py-3">Title</th>
-            <th className="px-4 py-3">Type</th>
-            <th className="px-4 py-3">Status</th>
-            {role === "admin" && <th className="px-4 py-3">Agent</th>}
-            <th className="px-4 py-3">Price</th>
-            {role === "admin" && <th className="px-4 py-3">Published</th>}
-            <th className="px-4 py-3 text-right">Actions</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-[var(--color-border)]">
-          {rows.map((property) => (
-            <tr key={property.id} className="text-[var(--color-text)]">
-              <td className="px-4 py-3 font-medium">{property.title}</td>
-              <td className="px-4 py-3 text-[var(--color-text-muted)]">
-                {property.listing_type ? LISTING_TYPE_LABELS[property.listing_type] : "—"}
-              </td>
-              <td className="px-4 py-3 text-[var(--color-text-muted)]">
-                {STATUS_LABELS[property.status] ?? property.status}
-              </td>
-              {role === "admin" && (
-                <td className="px-4 py-3 text-[var(--color-text-muted)]">
-                  {(property.agent_id && agentNames[property.agent_id]) ?? "Unassigned"}
-                </td>
-              )}
-              <td className="px-4 py-3">{formatNaira(property.price) ?? property.price_label ?? "—"}</td>
-              {role === "admin" && (
-                <td className="px-4 py-3">
-                  <button
-                    type="button"
-                    disabled={isPending && pendingId === property.id}
-                    onClick={() => handleTogglePublish(property.id, !property.is_published)}
-                    className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
-                      property.is_published
-                        ? "bg-green-100 text-green-700"
-                        : "bg-gray-100 text-gray-600"
-                    }`}
-                  >
-                    {property.is_published ? "Published" : "Draft"}
-                  </button>
-                </td>
-              )}
-              <td className="px-4 py-3 text-right">
-                <div className="flex justify-end gap-2">
-                  <Link
-                    href={`${basePath}/${property.id}/edit`}
-                    className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-bg-muted)]"
-                  >
-                    <Pencil size={15} />
-                  </Link>
-                  <button
-                    type="button"
-                    disabled={isPending && pendingId === property.id}
-                    onClick={() => handleDelete(property.id)}
-                    className="flex h-8 w-8 items-center justify-center rounded-full text-red-500 hover:bg-red-50"
-                  >
-                    <Trash2 size={15} />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <DataTable
+      columns={columns}
+      rows={rows}
+      searchPlaceholder="Search properties..."
+      emptyMessage="No properties yet."
+      rowActions={(property) => (
+        <>
+          <Link
+            href={`${basePath}/${property.id}/edit`}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-bg-muted)]"
+          >
+            <Pencil size={15} />
+          </Link>
+          <button
+            type="button"
+            disabled={isPending && pendingId === property.id}
+            onClick={() => handleDelete(property.id)}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-red-500 hover:bg-red-50"
+          >
+            <Trash2 size={15} />
+          </button>
+        </>
+      )}
+    />
   );
 }

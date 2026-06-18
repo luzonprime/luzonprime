@@ -48,13 +48,13 @@ export function SearchBar() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-3xl rounded-2xl bg-white/95 p-3 shadow-2xl backdrop-blur-sm sm:rounded-full sm:p-2"
+      className="mx-auto w-full max-w-3xl rounded-2xl bg-white/95 p-3 shadow-2xl backdrop-blur-sm sm:rounded-full sm:p-2"
     >
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-1">
         <select
           value={listingType}
           onChange={(e) => setListingType(e.target.value)}
-          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none sm:w-auto"
+          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none transition-shadow focus:ring-2 focus:ring-[var(--color-primary)]/20 sm:w-auto"
         >
           {LISTING_TYPES.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -70,7 +70,7 @@ export function SearchBar() {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder="Location, e.g. Ikoyi"
-          className="w-full min-w-0 flex-1 rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm text-gray-900 outline-none placeholder:text-gray-400"
+          className="w-full min-w-0 flex-1 rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm text-gray-900 outline-none transition-shadow placeholder:text-gray-400 focus:ring-2 focus:ring-[var(--color-primary)]/20"
         />
 
         <span className="hidden h-6 w-px bg-gray-200 sm:block" />
@@ -78,7 +78,7 @@ export function SearchBar() {
         <select
           value={bedrooms}
           onChange={(e) => setBedrooms(e.target.value)}
-          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none sm:w-auto"
+          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none transition-shadow focus:ring-2 focus:ring-[var(--color-primary)]/20 sm:w-auto"
         >
           {BEDROOMS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -92,7 +92,7 @@ export function SearchBar() {
         <select
           value={priceRange}
           onChange={(e) => setPriceRange(e.target.value)}
-          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none sm:w-auto"
+          className="w-full rounded-xl border-0 bg-transparent px-3 py-2.5 text-sm font-medium text-gray-900 outline-none transition-shadow focus:ring-2 focus:ring-[var(--color-primary)]/20 sm:w-auto"
         >
           {PRICE_RANGES.map((opt) => (
             <option key={opt.value} value={opt.value}>

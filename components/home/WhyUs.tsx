@@ -37,7 +37,7 @@ export function WhyUs() {
           {POINTS.map(({ icon: Icon, title, description }) => (
             <AnimatedStaggerItem key={title}>
               <div className="h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] dark:text-[var(--color-text)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-heading)]">
                   <Icon size={20} />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-[var(--color-text)]">

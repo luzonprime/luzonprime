@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, User } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { Logo } from "@/components/shared/Logo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -59,25 +59,19 @@ export function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur-md transition-shadow",
-        scrolled
-          ? "border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-md"
-          : "border-transparent bg-[var(--color-surface)]/80"
-      )}
-    >
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur-md transition-shadow",
+          scrolled
+            ? "border-[var(--color-border)] bg-[var(--color-surface)]/95 shadow-md"
+            : "border-transparent bg-[var(--color-surface)]/80"
+        )}
+      >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Luzon Prime Realtors logo"
-            width={36}
-            height={37}
-            priority
-            className="h-8 w-8 shrink-0 sm:h-9 sm:w-9"
-          />
-          <span className="font-heading truncate text-base font-bold text-[var(--color-primary)] sm:text-lg dark:text-[var(--color-text)]">
+          <Logo priority className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+          <span className="font-heading truncate text-base font-bold text-[var(--color-heading)] sm:text-lg">
             Luzon Prime
           </span>
         </Link>
@@ -126,6 +120,7 @@ export function Navbar() {
           </button>
         </div>
       </div>
+      </header>
 
       <AnimatePresence>
         {menuOpen && (
@@ -147,7 +142,7 @@ export function Navbar() {
               className="fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm flex-col overflow-y-auto bg-[var(--color-bg)] px-6 py-4 shadow-2xl lg:hidden"
             >
               <div className="flex items-center justify-between">
-                <Image src="/logo.png" alt="Luzon Prime Realtors logo" width={32} height={33} className="h-8 w-8" />
+                <Logo width={32} height={33} className="h-8 w-8" />
                 <button
                   type="button"
                   aria-label="Close menu"
@@ -201,6 +196,6 @@ export function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

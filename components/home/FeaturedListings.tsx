@@ -27,7 +27,7 @@ export async function FeaturedListings() {
           </div>
           <Link
             href="/listings"
-            className="hidden text-sm font-semibold text-[var(--color-primary)] sm:inline-block dark:text-[var(--color-text)]"
+            className="hidden text-sm font-semibold text-[var(--color-heading)] sm:inline-block"
           >
             View all →
           </Link>
@@ -43,7 +43,7 @@ export async function FeaturedListings() {
           <div className="mt-8 rounded-2xl border border-dashed border-[var(--color-border)] p-12 text-center">
             <p className="text-sm text-[var(--color-text-muted)]">
               New listings are on the way. Check back soon, or{" "}
-              <Link href="/contact" className="font-semibold text-[var(--color-primary)] dark:text-[var(--color-text)]">
+              <Link href="/contact" className="font-semibold text-[var(--color-heading)]">
                 tell us what you&apos;re looking for
               </Link>
               .

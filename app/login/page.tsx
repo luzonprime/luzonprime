@@ -55,7 +55,7 @@ function LoginForm() {
   return (
     <div className="flex flex-1 items-center justify-center bg-[var(--color-bg)] px-6 py-16">
       <div className="w-full max-w-md rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8">
-        <h1 className="font-heading text-2xl font-bold text-[var(--color-primary)]">
+        <h1 className="font-heading text-2xl font-bold text-[var(--color-heading)]">
           Welcome back
         </h1>
         <p className="mt-2 text-sm text-[var(--color-text-muted)]">
@@ -81,7 +81,7 @@ function LoginForm() {
           {serverError && <p className="text-sm text-red-500">{serverError}</p>}
 
           <div className="text-right text-sm">
-            <a href="/forgot-password" className="text-[var(--color-primary)]">
+            <a href="/forgot-password" className="text-[var(--color-heading)]">
               Forgot password?
             </a>
           </div>
@@ -93,7 +93,7 @@ function LoginForm() {
 
         <p className="mt-6 text-center text-sm text-[var(--color-text-muted)]">
           Don&apos;t have an account?{" "}
-          <a href="/signup" className="font-medium text-[var(--color-primary)]">
+          <a href="/signup" className="font-medium text-[var(--color-heading)]">
             Sign up
           </a>
         </p>

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Logo } from "@/components/shared/Logo";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -83,9 +83,9 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="LuzonPrime" width={32} height={33} />
-              <span className="font-heading text-lg font-bold text-[var(--color-primary)] dark:text-[var(--color-text)]">
-                LuzonPrime
+              <Logo width={32} height={33} />
+              <span className="font-heading text-lg font-bold text-[var(--color-heading)]">
+                Luzon Prime
               </span>
             </Link>
             <p className="mt-3 text-sm text-[var(--color-text-muted)]">
@@ -169,7 +169,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-[var(--color-border)] pt-6 text-center text-xs text-[var(--color-text-muted)]">
-          © {new Date().getFullYear()} LuzonPrime Realtors. All rights reserved.
+          © {new Date().getFullYear()} Luzon Prime Realtors. All rights reserved.
         </div>
       </div>
     </footer>

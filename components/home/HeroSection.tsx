@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SkylineSketch } from "./SkylineSketch";
 import { SearchBar } from "./SearchBar";
@@ -18,8 +19,25 @@ export function HeroSection() {
       ref={ref}
       className="relative -mt-16 flex min-h-[100vh] items-center overflow-hidden bg-[#091f46] sm:-mt-20"
     >
-      {/* gradient backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#1b3a73_0%,_#091f46_55%,_#040d20_100%)]" />
+      {/* background photo with slow Ken Burns pan/zoom */}
+      <motion.div
+        initial={{ scale: 1, x: 0, y: 0 }}
+        animate={{ scale: 1.12, x: -18, y: -10 }}
+        transition={{ duration: 24, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1618828665347-d870c38c95c7?w=2400&q=80&auto=format&fit=crop"
+          alt="Lagos waterfront skyline at golden hour"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </motion.div>
+
+      {/* gradient backdrop / scrim */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(27,58,115,0.55)_0%,_rgba(9,31,70,0.75)_55%,_rgba(4,13,32,0.92)_100%)]" />
 
       {/* animated glow accents */}
       <motion.div
@@ -34,10 +52,10 @@ export function HeroSection() {
       />
 
       {/* skyline sketch */}
-      <motion.div style={{ y: skylineY }} className="absolute inset-x-0 bottom-0 text-white/60">
+      <motion.div style={{ y: skylineY }} className="absolute inset-x-0 bottom-0 text-white/50">
         <SkylineSketch className="h-[28vh] w-full sm:h-[34vh]" />
       </motion.div>
-      <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 bg-[#040d20]" />
+      <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 bg-gradient-to-b from-transparent via-[#040d20]/40 to-[#040d20]" />
 
       {/* content */}
       <motion.div

@@ -391,7 +391,7 @@ luzonprime/
 
 ### Typography
 ```
-Font:    Inter (body) + Playfair Display (headings / hero)
+Font:    Plus Jakarta Sans (body) + Playfair Display (headings / hero)
 Sizes:   Mobile-first, scale via Tailwind responsive prefixes
 ```
 

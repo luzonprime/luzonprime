@@ -29,7 +29,7 @@ export async function AgentsPreview() {
           </div>
           <Link
             href="/agents"
-            className="hidden text-sm font-semibold text-[var(--color-primary)] sm:inline-block dark:text-[var(--color-text)]"
+            className="hidden text-sm font-semibold text-[var(--color-heading)] sm:inline-block"
           >
             View all →
           </Link>

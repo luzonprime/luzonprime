@@ -57,3 +57,45 @@ export interface Inquiry {
   assigned_agent: string | null;
   created_at: string;
 }
+
+export interface Subscriber {
+  id: string;
+  email: string;
+  name: string | null;
+  status: "active" | "unsubscribed";
+  created_at: string;
+}
+
+export interface Booking {
+  id: string;
+  user_id: string | null;
+  agent_id: string | null;
+  property_id: string | null;
+  scheduled_at: string;
+  status: "pending" | "confirmed" | "cancelled";
+  notes: string | null;
+  created_at: string;
+}
+
+export interface Post {
+  id: string;
+  author_id: string | null;
+  title: string;
+  slug: string;
+  content: string | null;
+  cover_image: string | null;
+  published: boolean;
+  created_at: string;
+}
+
+export interface SiteSettings {
+  id: number;
+  contact_email: string | null;
+  contact_phone: string | null;
+  office_address: string | null;
+  facebook_url: string | null;
+  instagram_url: string | null;
+  twitter_url: string | null;
+  linkedin_url: string | null;
+  featured_areas: string[] | null;
+}

@@ -71,7 +71,7 @@ export function PropertyCard({ property }: { property: Property }) {
       </div>
 
       <div className="p-4">
-        <p className="text-lg font-bold text-[var(--color-primary)] dark:text-[var(--color-text)]">
+        <p className="text-lg font-bold text-[var(--color-heading)]">
           {price ?? property.price_label ?? "Price on request"}
         </p>
         <h3 className="mt-1 truncate text-sm font-semibold text-[var(--color-text)]">
