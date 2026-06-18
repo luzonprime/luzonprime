@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  Award,
   Building2,
   CalendarCheck,
   ChevronLeft,
@@ -11,8 +12,11 @@ import {
   Inbox,
   LayoutDashboard,
   Mail,
+  Navigation,
   Settings,
   ShieldCheck,
+  Tags,
+  UserSquare,
   Users,
   X,
   type LucideIcon,
@@ -22,11 +26,15 @@ import { Logo } from "@/components/shared/Logo";
 
 const ICON_RULES: { match: RegExp; icon: LucideIcon }[] = [
   { match: /propert/i, icon: Building2 },
+  { match: /member/i, icon: UserSquare },
   { match: /agent/i, icon: ShieldCheck },
   { match: /user/i, icon: Users },
   { match: /inquir/i, icon: Inbox },
   { match: /subscrib/i, icon: Mail },
   { match: /booking/i, icon: CalendarCheck },
+  { match: /taxonom/i, icon: Tags },
+  { match: /navigation/i, icon: Navigation },
+  { match: /award/i, icon: Award },
   { match: /setting/i, icon: Settings },
 ];
 
@@ -144,11 +152,11 @@ export function Sidebar({
               aria-hidden
             />
             <motion.aside
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
+              exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-              className="fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-[var(--color-border)] bg-[var(--color-surface)] lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 flex w-64 flex-col border-l border-[var(--color-border)] bg-[var(--color-surface)] lg:hidden"
             >
               <div className="flex h-16 items-center justify-between border-b border-[var(--color-border)] px-4">
                 <Link href="/" aria-label="Luzon Prime Realtors home" onClick={onCloseMobile} className="flex items-center gap-2">

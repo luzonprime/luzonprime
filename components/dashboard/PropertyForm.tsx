@@ -1,19 +1,33 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Property, Profile } from "@/types";
+import { createClient } from "@/lib/supabase/client";
 import { ImageDropzone } from "@/components/dashboard/ImageDropzone";
+import { MediaDropzone } from "@/components/dashboard/MediaDropzone";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
-const PROPERTY_TYPES = ["apartment", "duplex", "bungalow", "land", "commercial", "office", "warehouse"];
-const LISTING_TYPES = [
-  { value: "for_sale", label: "For Sale" },
-  { value: "for_rent", label: "For Rent" },
-  { value: "off_plan", label: "Off-Plan" },
+type Term = { slug: string; label: string };
+
+// Fallbacks until admin-managed taxonomy_terms load.
+const DEFAULT_PROPERTY_TYPES: Term[] = [
+  { slug: "apartment", label: "Apartment" },
+  { slug: "duplex", label: "Duplex" },
+  { slug: "land", label: "Land" },
+  { slug: "commercial", label: "Commercial" },
 ];
-const STATUSES = ["available", "sold", "rented"];
+const DEFAULT_LISTING_TYPES: Term[] = [
+  { slug: "for_sale", label: "For Sale" },
+  { slug: "for_rent", label: "For Rent" },
+  { slug: "off_plan", label: "Off-Plan" },
+];
+const DEFAULT_STATUSES: Term[] = [
+  { slug: "available", label: "Available" },
+  { slug: "sold", label: "Sold" },
+  { slug: "rented", label: "Rented" },
+];
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -44,6 +58,29 @@ export function PropertyForm({
   const formRef = useRef<HTMLFormElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [propertyTypes, setPropertyTypes] = useState<Term[]>(DEFAULT_PROPERTY_TYPES);
+  const [listingTypes, setListingTypes] = useState<Term[]>(DEFAULT_LISTING_TYPES);
+  const [statuses, setStatuses] = useState<Term[]>(DEFAULT_STATUSES);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase
+      .from("taxonomy_terms")
+      .select("kind, slug, label")
+      .eq("is_active", true)
+      .order("sort_order")
+      .then(({ data }) => {
+        if (!data) return;
+        const by = (kind: string) =>
+          data.filter((t) => t.kind === kind).map((t) => ({ slug: t.slug, label: t.label }));
+        const pt = by("property_type");
+        const lt = by("listing_type");
+        const st = by("status");
+        if (pt.length) setPropertyTypes(pt);
+        if (lt.length) setListingTypes(lt);
+        if (st.length) setStatuses(st);
+      });
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -89,9 +126,9 @@ export function PropertyForm({
         <Field label="Property type">
           <select name="property_type" defaultValue={property?.property_type ?? ""} className={selectClass}>
             <option value="">Select type</option>
-            {PROPERTY_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
+            {propertyTypes.map((t) => (
+              <option key={t.slug} value={t.slug}>
+                {t.label}
               </option>
             ))}
           </select>
@@ -99,8 +136,8 @@ export function PropertyForm({
         <Field label="Listing type">
           <select name="listing_type" defaultValue={property?.listing_type ?? ""} className={selectClass}>
             <option value="">Select listing type</option>
-            {LISTING_TYPES.map((t) => (
-              <option key={t.value} value={t.value}>
+            {listingTypes.map((t) => (
+              <option key={t.slug} value={t.slug}>
                 {t.label}
               </option>
             ))}
@@ -108,9 +145,9 @@ export function PropertyForm({
         </Field>
         <Field label="Status">
           <select name="status" defaultValue={property?.status ?? "available"} className={selectClass}>
-            {STATUSES.map((s) => (
-              <option key={s} value={s}>
-                {s}
+            {statuses.map((s) => (
+              <option key={s.slug} value={s.slug}>
+                {s.label}
               </option>
             ))}
           </select>
@@ -149,11 +186,21 @@ export function PropertyForm({
       </Field>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Video URL (optional)">
-          <Input name="video_url" defaultValue={property?.video_url ?? ""} />
+        <Field label="Videos">
+          <MediaDropzone
+            name="videos"
+            accept="video/mp4,video/webm,video/quicktime,video/ogg"
+            label="Add property videos"
+            existing={property?.videos ?? []}
+          />
         </Field>
-        <Field label="Virtual tour URL (optional)">
-          <Input name="virtual_tour_url" defaultValue={property?.virtual_tour_url ?? ""} />
+        <Field label="Virtual tours">
+          <MediaDropzone
+            name="tours"
+            accept="video/mp4,video/webm,video/quicktime,image/jpeg,image/png,image/webp"
+            label="Add virtual tour files"
+            existing={property?.virtual_tours ?? []}
+          />
         </Field>
       </div>
 

@@ -194,11 +194,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* City skyline silhouette anchored to the footer bottom */}
+      {/* City skyline silhouette anchored to the footer bottom:
+          dark navy on light backgrounds, grey on dark backgrounds. */}
       <SkylineSketch
         aria-hidden
-        strokeWidth={1.6}
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 w-full text-[var(--color-primary)] opacity-40 dark:text-white dark:opacity-25 sm:h-44"
+        strokeWidth={1.8}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 w-full text-[var(--color-primary)] opacity-55 dark:text-[#9aa3b2] dark:opacity-60 sm:h-44"
       />
     </footer>
   );

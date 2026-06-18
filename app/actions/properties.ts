@@ -7,6 +7,9 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { slugify } from "@/lib/utils";
 
 const BUCKET = "property-images";
+const MAX_MEDIA_BYTES = 50 * 1024 * 1024; // 50MB
+const VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime", "video/ogg"];
+const TOUR_TYPES = [...VIDEO_TYPES, "image/jpeg", "image/png", "image/webp"];
 
 async function getActor() {
   const supabase = await createClient();
@@ -102,6 +105,44 @@ async function uploadImages(
   return urls;
 }
 
+async function uploadMedia(
+  client: ReturnType<typeof createAdminClient>,
+  agentId: string,
+  propertyId: string,
+  files: File[],
+  subdir: string,
+  allowedTypes: string[]
+): Promise<string[]> {
+  const urls: string[] = [];
+
+  for (const [index, file] of files.entries()) {
+    if (!(file instanceof File) || file.size === 0) continue;
+    if (file.size > MAX_MEDIA_BYTES) {
+      throw new Error(`"${file.name}" exceeds the 50MB limit.`);
+    }
+    if (file.type && !allowedTypes.includes(file.type)) {
+      throw new Error(`"${file.name}" has an unsupported file type.`);
+    }
+    const ext = file.name.split(".").pop() ?? "mp4";
+    const path = `${agentId}/${propertyId}/${subdir}/${Date.now()}-${index}.${ext}`;
+
+    const { error } = await client.storage.from(BUCKET).upload(path, file, {
+      contentType: file.type,
+      upsert: false,
+    });
+    if (error) throw new Error(`Upload failed: ${error.message}`);
+
+    const { data } = client.storage.from(BUCKET).getPublicUrl(path);
+    urls.push(data.publicUrl);
+  }
+
+  return urls;
+}
+
+function fileList(formData: FormData, key: string): File[] {
+  return formData.getAll(key).filter((f): f is File => f instanceof File);
+}
+
 export async function createProperty(formData: FormData) {
   const actor = await getActor();
   const db = dbClientFor(actor);
@@ -115,9 +156,10 @@ export async function createProperty(formData: FormData) {
   const id = randomUUID();
   const slug = await uniqueSlug(title);
 
-  const newFiles = formData.getAll("images").filter((f): f is File => f instanceof File);
   const uploadClient = actor.role === "admin" ? createAdminClient() : actor.sessionClient;
-  const images = await uploadImages(uploadClient, agentId, id, newFiles);
+  const images = await uploadImages(uploadClient, agentId, id, fileList(formData, "images"));
+  const videos = await uploadMedia(uploadClient, agentId, id, fileList(formData, "videos"), "videos", VIDEO_TYPES);
+  const virtual_tours = await uploadMedia(uploadClient, agentId, id, fileList(formData, "tours"), "tours", TOUR_TYPES);
 
   const payload = {
     id,
@@ -140,8 +182,8 @@ export async function createProperty(formData: FormData) {
     longitude: num(formData, "longitude"),
     features: features(formData),
     images,
-    video_url: str(formData, "video_url"),
-    virtual_tour_url: str(formData, "virtual_tour_url"),
+    videos,
+    virtual_tours,
     is_published: actor.role === "admin" ? formData.get("is_published") === "on" : false,
     is_featured: actor.role === "admin" ? formData.get("is_featured") === "on" : false,
   };
@@ -162,7 +204,7 @@ export async function updateProperty(propertyId: string, formData: FormData) {
 
   const { data: existing, error: fetchError } = await db
     .from("properties")
-    .select("id, agent_id, slug, title, images")
+    .select("id, agent_id, slug, title, images, videos, virtual_tours")
     .eq("id", propertyId)
     .single();
 
@@ -174,11 +216,19 @@ export async function updateProperty(propertyId: string, formData: FormData) {
   const title = str(formData, "title") ?? existing.title;
   const slug = title !== existing.title ? await uniqueSlug(title, propertyId) : existing.slug;
 
-  const keptImages = formData.getAll("existing_images").map(String);
-  const newFiles = formData.getAll("images").filter((f): f is File => f instanceof File);
   const uploadClient = actor.role === "admin" ? createAdminClient() : actor.sessionClient;
-  const newImages = await uploadImages(uploadClient, existing.agent_id, propertyId, newFiles);
+
+  const keptImages = formData.getAll("existing_images").map(String);
+  const newImages = await uploadImages(uploadClient, existing.agent_id, propertyId, fileList(formData, "images"));
   const images = [...keptImages, ...newImages];
+
+  const keptVideos = formData.getAll("existing_videos").map(String);
+  const newVideos = await uploadMedia(uploadClient, existing.agent_id, propertyId, fileList(formData, "videos"), "videos", VIDEO_TYPES);
+  const videos = [...keptVideos, ...newVideos];
+
+  const keptTours = formData.getAll("existing_tours").map(String);
+  const newTours = await uploadMedia(uploadClient, existing.agent_id, propertyId, fileList(formData, "tours"), "tours", TOUR_TYPES);
+  const virtual_tours = [...keptTours, ...newTours];
 
   const payload: Record<string, unknown> = {
     title,
@@ -199,8 +249,8 @@ export async function updateProperty(propertyId: string, formData: FormData) {
     longitude: num(formData, "longitude"),
     features: features(formData),
     images,
-    video_url: str(formData, "video_url"),
-    virtual_tour_url: str(formData, "virtual_tour_url"),
+    videos,
+    virtual_tours,
     updated_at: new Date().toISOString(),
   };
 

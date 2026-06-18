@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { BookingsDataTable } from "@/components/dashboard/BookingsDataTable";
+import { BookingsManager } from "@/components/dashboard/BookingsManager";
 import type { Booking, Profile, Property } from "@/types";
 
 export default async function AdminBookingsPage() {
@@ -25,7 +25,7 @@ export default async function AdminBookingsPage() {
       <p className="mb-4 text-sm text-[var(--color-text-muted)]">
         {rows.length} consultation{rows.length === 1 ? "" : "s"} booked.
       </p>
-      <BookingsDataTable bookings={rows} propertyTitles={propertyTitles} names={names} />
+      <BookingsManager bookings={rows} propertyTitles={propertyTitles} names={names} />
     </div>
   );
 }

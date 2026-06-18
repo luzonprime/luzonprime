@@ -17,15 +17,18 @@ function youTubeEmbed(url: string): string | null {
 export function ImageGallery({
   images,
   title,
+  videos = [],
   videoUrl,
 }: {
   images: string[];
   title: string;
+  videos?: string[];
   videoUrl?: string | null;
 }) {
+  const allVideos = [...videos, ...(videoUrl ? [videoUrl] : [])];
   const media: MediaItem[] = [
     ...images.map((src) => ({ type: "image" as const, src })),
-    ...(videoUrl ? [{ type: "video" as const, src: videoUrl }] : []),
+    ...allVideos.map((src) => ({ type: "video" as const, src })),
   ];
 
   const [active, setActive] = useState(0);

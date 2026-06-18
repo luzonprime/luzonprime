@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import type { Property } from "@/types";
 import { PropertyCard } from "@/components/listings/PropertyCard";
+import { SectionHeader } from "@/components/home/SectionHeader";
 
 export async function FeaturedListings() {
   const supabase = await createClient();
@@ -18,20 +19,12 @@ export async function FeaturedListings() {
   return (
     <section className="bg-[var(--color-bg)] px-4 py-16 sm:px-[1.125rem]">
       <div className="mx-auto max-w-6xl">
-        <div className="flex items-end justify-between">
-          <div>
-            <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
-            <h2 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
-              Featured listings
-            </h2>
-          </div>
-          <Link
-            href="/listings"
-            className="hidden text-sm font-semibold text-[var(--color-heading)] sm:inline-block"
-          >
-            View all →
-          </Link>
-        </div>
+        <SectionHeader
+          eyebrow="Featured"
+          title="Featured listings"
+          description="Hand-picked homes and investments, refreshed regularly."
+          seeAllHref="/listings"
+        />
 
         {properties.length > 0 ? (
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

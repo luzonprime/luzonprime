@@ -6,11 +6,19 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { CurrencySwitcher } from "@/components/shared/CurrencySwitcher";
+import { AvatarUpload } from "@/components/dashboard/AvatarUpload";
 
 export function AccountSettings({
   profile,
 }: {
-  profile: { full_name: string | null; phone: string | null; bio: string | null; role: string };
+  profile: {
+    id: string;
+    full_name: string | null;
+    phone: string | null;
+    bio: string | null;
+    avatar_url: string | null;
+    role: string;
+  };
 }) {
   const [fullName, setFullName] = useState(profile.full_name ?? "");
   const [phone, setPhone] = useState(profile.phone ?? "");
@@ -45,7 +53,16 @@ export function AccountSettings({
         <p className="mt-1 text-sm text-[var(--color-text-muted)]">
           Update how your name and details appear across Luzon Prime Realtors.
         </p>
-        <form onSubmit={onSubmit} className="mt-4 flex max-w-xl flex-col gap-4">
+
+        <div className="mt-4">
+          <AvatarUpload
+            userId={profile.id}
+            currentUrl={profile.avatar_url}
+            name={profile.full_name}
+          />
+        </div>
+
+        <form onSubmit={onSubmit} className="mt-5 flex max-w-xl flex-col gap-4">
           <Input
             label="Full name"
             value={fullName}

@@ -133,6 +133,7 @@ export default async function PropertyDetailPage({
       <ImageGallery
         images={property.images ?? []}
         title={property.title}
+        videos={property.videos ?? []}
         videoUrl={property.video_url}
       />
 

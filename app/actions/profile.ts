@@ -29,3 +29,21 @@ export async function updateOwnProfile(input: {
   revalidatePath("/agent/settings");
   revalidatePath("/admin/settings");
 }
+
+export async function updateAvatar(url: string | null) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("You must be signed in.");
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ avatar_url: url })
+    .eq("id", user.id);
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/client/settings");
+  revalidatePath("/agent/settings");
+  revalidatePath("/admin/settings");
+}

@@ -9,12 +9,10 @@ import { cn } from "@/lib/utils";
 export function DashboardShell({
   title,
   navItems,
-  notificationCount,
   children,
 }: {
   title: string;
   navItems: { href: string; label: string }[];
-  notificationCount?: number;
   children: React.ReactNode;
 }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -43,11 +41,7 @@ export function DashboardShell({
           collapsed ? "lg:pl-[76px]" : "lg:pl-64"
         )}
       >
-        <TopBar
-          pageTitle={sectionTitle}
-          notificationCount={notificationCount}
-          onOpenMobile={() => setMobileOpen(true)}
-        />
+        <TopBar pageTitle={sectionTitle} onOpenMobile={() => setMobileOpen(true)} />
         <main className="flex-1 px-4 py-6 sm:px-[1.125rem]">{children}</main>
       </div>
     </div>

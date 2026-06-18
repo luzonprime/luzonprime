@@ -39,9 +39,53 @@ export interface Property {
   images: string[] | null;
   video_url: string | null;
   virtual_tour_url: string | null;
+  videos: string[] | null;
+  virtual_tours: string[] | null;
   created_at: string;
   updated_at: string;
   agent?: Profile | null;
+}
+
+export type TaxonomyKind = "property_type" | "listing_type" | "status";
+
+export interface TaxonomyTerm {
+  id: string;
+  kind: TaxonomyKind;
+  slug: string;
+  label: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface NavItem {
+  id: string;
+  label: string;
+  href: string;
+  grp: "popular" | "inline" | "more";
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface Award {
+  id: string;
+  year: string | null;
+  title: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface Member {
+  id: string;
+  name: string;
+  title: string | null;
+  image_url: string | null;
+  about: string | null;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
 }
 
 export interface Inquiry {

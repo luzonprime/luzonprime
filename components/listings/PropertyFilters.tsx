@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 
@@ -48,6 +49,26 @@ export function PropertyFilters() {
   }
 
   const [draft, setDraft] = useState(currentValues);
+  const [listingTypeOpts, setListingTypeOpts] = useState(LISTING_TYPES);
+  const [propertyTypeOpts, setPropertyTypeOpts] = useState<{ value: string; label: string }[]>(
+    PROPERTY_TYPES.map((t) => ({ value: t, label: t === "" ? "Any type" : t }))
+  );
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase
+      .from("taxonomy_terms")
+      .select("kind, slug, label")
+      .eq("is_active", true)
+      .order("sort_order")
+      .then(({ data }) => {
+        if (!data) return;
+        const lt = data.filter((t) => t.kind === "listing_type").map((t) => ({ value: t.slug, label: t.label }));
+        const pt = data.filter((t) => t.kind === "property_type").map((t) => ({ value: t.slug, label: t.label }));
+        if (lt.length) setListingTypeOpts([{ value: "", label: "Any type" }, ...lt]);
+        if (pt.length) setPropertyTypeOpts([{ value: "", label: "Any type" }, ...pt]);
+      });
+  }, []);
 
   function update(key: string, value: string) {
     setDraft((prev) => ({ ...prev, [key]: value }));
@@ -90,7 +111,7 @@ export function PropertyFilters() {
       <div>
         <label className="mb-1.5 block text-sm font-medium text-[var(--color-text)]">Listing type</label>
         <select value={draft.listing_type} onChange={(e) => update("listing_type", e.target.value)} className={selectClass}>
-          {LISTING_TYPES.map((t) => (
+          {listingTypeOpts.map((t) => (
             <option key={t.value} value={t.value}>
               {t.label}
             </option>
@@ -101,9 +122,9 @@ export function PropertyFilters() {
       <div>
         <label className="mb-1.5 block text-sm font-medium text-[var(--color-text)]">Property type</label>
         <select value={draft.property_type} onChange={(e) => update("property_type", e.target.value)} className={selectClass}>
-          {PROPERTY_TYPES.map((t) => (
-            <option key={t} value={t}>
-              {t === "" ? "Any type" : t}
+          {propertyTypeOpts.map((t) => (
+            <option key={t.value} value={t.value}>
+              {t.label}
             </option>
           ))}
         </select>
