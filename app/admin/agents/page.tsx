@@ -1,5 +1,5 @@
 import { createAdminClient } from "@/lib/supabase/admin";
-import { UsersDataTable, type UserRow } from "@/components/dashboard/UsersDataTable";
+import { UsersCardGrid, type UserRow } from "@/components/dashboard/UsersCardGrid";
 
 export default async function AdminAgentsPage() {
   const admin = createAdminClient();
@@ -18,6 +18,7 @@ export default async function AdminAgentsPage() {
     role: p.role,
     verified: p.verified,
     suspended: p.suspended ?? false,
+    avatar_url: p.avatar_url ?? null,
     created_at: p.created_at,
   }));
 
@@ -26,7 +27,7 @@ export default async function AdminAgentsPage() {
       <p className="mb-4 text-sm text-[var(--color-text-muted)]">
         {rows.length} agent{rows.length === 1 ? "" : "s"}.
       </p>
-      <UsersDataTable users={rows} />
+      <UsersCardGrid users={rows} />
     </div>
   );
 }

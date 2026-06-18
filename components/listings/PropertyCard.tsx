@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BedDouble, Bath, Maximize, MapPin } from "lucide-react";
 import type { Property } from "@/types";
-import { formatNaira, LISTING_TYPE_LABELS, STATUS_LABELS, cn } from "@/lib/utils";
+import { LISTING_TYPE_LABELS, STATUS_LABELS, cn } from "@/lib/utils";
+import { Price } from "@/components/shared/Price";
 
 export function PropertyCard({ property }: { property: Property }) {
   const images = property.images?.length ? property.images : [];
@@ -18,12 +19,10 @@ export function PropertyCard({ property }: { property: Property }) {
     setActiveImage(Math.min(images.length - 1, Math.floor(ratio * images.length)));
   }
 
-  const price = formatNaira(property.price);
-
   return (
     <Link
       href={`/listings/${property.slug}`}
-      className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition-shadow hover:shadow-xl"
+      className="group block overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div
         onMouseMove={handleMouseMove}
@@ -71,9 +70,11 @@ export function PropertyCard({ property }: { property: Property }) {
       </div>
 
       <div className="p-4">
-        <p className="text-lg font-bold text-[var(--color-heading)]">
-          {price ?? property.price_label ?? "Price on request"}
-        </p>
+        <Price
+          amount={property.price}
+          fallback={property.price_label}
+          className="text-lg font-bold text-[var(--color-heading)]"
+        />
         <h3 className="mt-1 truncate text-sm font-semibold text-[var(--color-text)]">
           {property.title}
         </h3>

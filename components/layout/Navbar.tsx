@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, LayoutDashboard } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { CurrencySwitcher } from "@/components/shared/CurrencySwitcher";
 import { Logo } from "@/components/shared/Logo";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [dashboardHref, setDashboardHref] = useState("/client");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -33,9 +35,27 @@ export function Navbar() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => setIsLoggedIn(!!data.user));
+
+    async function resolveDashboard(userId: string) {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", userId)
+        .single();
+      const role = (profile as { role?: string } | null)?.role;
+      setDashboardHref(
+        role === "admin" ? "/admin" : role === "agent" ? "/agent" : "/client"
+      );
+    }
+
+    supabase.auth.getUser().then(({ data }) => {
+      setIsLoggedIn(!!data.user);
+      if (data.user) resolveDashboard(data.user.id);
+    });
+
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsLoggedIn(!!session?.user);
+      if (session?.user) resolveDashboard(session.user.id);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -68,11 +88,11 @@ export function Navbar() {
             : "border-transparent bg-[var(--color-surface)]/80"
         )}
       >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-[1.125rem] lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-2">
           <Logo priority className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
-          <span className="font-heading truncate text-base font-bold text-[var(--color-heading)] sm:text-lg">
-            Luzon Prime
+          <span className="font-heading hidden truncate text-base font-bold text-[var(--color-heading)] sm:inline sm:text-lg">
+            Luzon Prime Realtors
           </span>
         </Link>
 
@@ -89,14 +109,15 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <CurrencySwitcher />
           <ThemeToggle />
           {isLoggedIn ? (
             <Link
-              href="/client"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary)] text-white"
-              aria-label="My account"
+              href={dashboardHref}
+              className="flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-light)]"
             >
-              <User size={18} />
+              <LayoutDashboard size={16} />
+              Dashboard
             </Link>
           ) : (
             <Link
@@ -173,14 +194,22 @@ export function Navbar() {
                 <ThemeToggle />
               </div>
 
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm font-medium text-[var(--color-text-muted)]">
+                  Currency
+                </span>
+                <CurrencySwitcher />
+              </div>
+
               <div className="mt-auto pt-6">
                 {isLoggedIn ? (
                   <Link
-                    href="/client"
+                    href={dashboardHref}
                     onClick={() => setMenuOpen(false)}
-                    className="block w-full rounded-full bg-[var(--color-primary)] px-5 py-3 text-center text-sm font-semibold text-white"
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-3 text-center text-sm font-semibold text-white"
                   >
-                    My account
+                    <LayoutDashboard size={16} />
+                    Dashboard
                   </Link>
                 ) : (
                   <Link

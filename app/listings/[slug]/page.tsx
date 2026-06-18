@@ -1,14 +1,17 @@
 import { notFound } from "next/navigation";
-import { Check, BedDouble, Bath, Maximize, MapPin } from "lucide-react";
+import { Check, BedDouble, Bath, Building2, Maximize, MapPin } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { Property, Profile } from "@/types";
 import { ImageGallery } from "@/components/listings/ImageGallery";
 import { PropertyLocationPin } from "@/components/listings/PropertyLocationPin";
 import { AgentCard } from "@/components/listings/AgentCard";
+import { AgentContactButtons } from "@/components/listings/AgentContactButtons";
 import { PropertyEnquiryCTA } from "@/components/listings/PropertyEnquiryCTA";
 import { PropertyCard } from "@/components/listings/PropertyCard";
 import { LISTING_TYPE_LABELS, STATUS_LABELS } from "@/lib/utils";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://luzonprime.com";
 
 export const revalidate = 3600;
 
@@ -34,10 +37,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const property = await getProperty(slug);
   if (!property) return { title: "Property not found | Luzon Prime Realtors" };
 
+  const description =
+    property.description?.replace(/\s+/g, " ").slice(0, 155) ??
+    `${property.title} — available on Luzon Prime Realtors.`;
+
   return {
     title: `${property.title} | Luzon Prime Realtors`,
-    description: property.description ?? `${property.title} — available on Luzon Prime Realtors.`,
+    description,
+    alternates: { canonical: `/listings/${property.slug}` },
     openGraph: {
+      title: property.title,
+      description,
+      url: `/listings/${property.slug}`,
+      type: "website",
       images: property.images?.length ? [property.images[0]] : [],
     },
   };
@@ -69,9 +81,60 @@ export default async function PropertyDetailPage({
 
   const relatedProperties = (related ?? []) as Property[];
 
+  const canonicalUrl = `${siteUrl}/listings/${property.slug}`;
+  const listingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: property.title,
+    url: canonicalUrl,
+    description: property.description ?? undefined,
+    image: property.images?.length ? property.images : undefined,
+    datePosted: property.created_at,
+    ...(property.area || property.city
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: property.area ?? property.city ?? undefined,
+            addressRegion: property.city ?? undefined,
+          },
+        }
+      : {}),
+    ...(property.latitude != null && property.longitude != null
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: property.latitude,
+            longitude: property.longitude,
+          },
+        }
+      : {}),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Listings", item: `${siteUrl}/listings` },
+      { "@type": "ListItem", position: 3, name: property.title, item: canonicalUrl },
+    ],
+  };
+
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-24 pt-8 sm:px-6 lg:px-8 lg:pb-12">
-      <ImageGallery images={property.images ?? []} title={property.title} />
+    <div className="mx-auto max-w-7xl px-4 pb-24 pt-8 sm:px-[1.125rem] lg:px-8 lg:pb-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <ImageGallery
+        images={property.images ?? []}
+        title={property.title}
+        videoUrl={property.video_url}
+      />
 
       <div className="mt-8 flex flex-col gap-8 lg:flex-row">
         <div className="min-w-0 flex-1">
@@ -146,14 +209,33 @@ export default async function PropertyDetailPage({
             </div>
           )}
 
-          {agent && (
-            <div className="mt-6">
-              <h2 className="text-lg font-semibold text-[var(--color-text)]">Listed by</h2>
-              <div className="mt-3">
+          <div className="mt-6">
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">Listed by</h2>
+            <div className="mt-3">
+              {agent ? (
                 <AgentCard agent={agent as Profile} />
-              </div>
+              ) : (
+                <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-heading)]">
+                    <Building2 size={22} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-[var(--color-text)]">
+                      Luzon Prime Realtors
+                    </p>
+                    <p className="text-sm text-[var(--color-text-muted)]">
+                      Official listing
+                    </p>
+                  </div>
+                  <AgentContactButtons
+                    phone="09066792730"
+                    email="support@luzonprime.com"
+                    name="Luzon Prime Realtors"
+                  />
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
 
         <PropertyEnquiryCTA property={property} />

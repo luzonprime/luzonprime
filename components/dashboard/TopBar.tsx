@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Bell, LogOut } from "lucide-react";
+import { Bell, LogOut, Menu } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { Logo } from "@/components/shared/Logo";
 
 function initials(name: string | null | undefined, fallback: string) {
   if (!name) return fallback.slice(0, 2).toUpperCase();
@@ -20,9 +22,11 @@ const ROLE_LABELS: Record<string, string> = {
 export function TopBar({
   pageTitle,
   notificationCount = 0,
+  onOpenMobile,
 }: {
   pageTitle: string;
   notificationCount?: number;
+  onOpenMobile?: () => void;
 }) {
   const router = useRouter();
   const { profile, signOut } = useAuth();
@@ -33,10 +37,23 @@ export function TopBar({
   }
 
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] pb-4">
-      <h1 className="font-heading truncate text-xl font-bold text-[var(--color-heading)] sm:text-2xl">
-        {pageTitle}
-      </h1>
+    <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 px-4 py-3 backdrop-blur sm:px-[1.125rem]">
+      <div className="flex min-w-0 items-center gap-2">
+        <button
+          type="button"
+          onClick={onOpenMobile}
+          aria-label="Open menu"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--color-text)] hover:bg-[var(--color-bg-muted)] lg:hidden"
+        >
+          <Menu size={20} />
+        </button>
+        <Link href="/" aria-label="Luzon Prime Realtors home" className="shrink-0 lg:hidden">
+          <Logo width={30} height={31} className="h-7 w-7" />
+        </Link>
+        <h1 className="font-heading truncate text-lg font-bold text-[var(--color-heading)] sm:text-xl">
+          {pageTitle}
+        </h1>
+      </div>
 
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <button
@@ -70,11 +87,11 @@ export function TopBar({
           type="button"
           onClick={handleSignOut}
           aria-label="Sign out"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-red-500 hover:bg-red-50"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10"
         >
           <LogOut size={17} />
         </button>
       </div>
-    </div>
+    </header>
   );
 }

@@ -10,7 +10,7 @@ const STATS = [
 
 export function StatsBar() {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-12 sm:px-6">
+    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-12 sm:px-[1.125rem]">
       <AnimatedStagger className="mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-4">
         {STATS.map((stat) => (
           <AnimatedStaggerItem key={stat.label} className="text-center">

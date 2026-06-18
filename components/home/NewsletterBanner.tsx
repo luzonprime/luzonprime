@@ -26,7 +26,7 @@ export function NewsletterBanner() {
   }
 
   return (
-    <section className="bg-[var(--color-primary)] px-4 py-14 sm:px-6">
+    <section className="bg-[var(--color-primary)] px-4 py-14 sm:px-[1.125rem]">
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
         <h2 className="font-heading text-2xl font-bold text-white sm:text-3xl">
           Get exclusive listings in your inbox

@@ -33,8 +33,9 @@ export async function updateSession(request: NextRequest) {
 
   const { data: { user } } = await supabase.auth.getUser();
 
-  const protectedPrefix = Object.keys(ROLE_PREFIXES).find((prefix) =>
-    request.nextUrl.pathname.startsWith(prefix)
+  const path = request.nextUrl.pathname;
+  const protectedPrefix = Object.keys(ROLE_PREFIXES).find(
+    (prefix) => path === prefix || path.startsWith(`${prefix}/`)
   );
 
   if (protectedPrefix) {

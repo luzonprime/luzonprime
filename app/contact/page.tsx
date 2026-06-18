@@ -46,7 +46,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-[1.125rem] lg:px-8">
       <h1 className="font-heading text-3xl font-bold text-[var(--color-text)]">Contact us</h1>
       <p className="mt-2 max-w-xl text-sm text-[var(--color-text-muted)]">
         Whether you&apos;re buying, selling, or just exploring options, our
@@ -67,15 +67,24 @@ export default function ContactPage() {
             <Mail size={18} className="mt-0.5 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
             <div>
               <p className="font-semibold text-[var(--color-text)]">Email</p>
-              <p className="text-sm text-[var(--color-text-muted)]">info@luzonprime.com</p>
-              <p className="text-sm text-[var(--color-text-muted)]">support@luzonprime.com</p>
+              <a
+                href="mailto:support@luzonprime.com"
+                className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+              >
+                support@luzonprime.com
+              </a>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <Phone size={18} className="mt-0.5 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
             <div>
               <p className="font-semibold text-[var(--color-text)]">Phone</p>
-              <p className="text-sm text-[var(--color-text-muted)]">Available via WhatsApp</p>
+              <a
+                href="tel:+2349066792730"
+                className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+              >
+                0906 679 2730
+              </a>
             </div>
           </div>
 

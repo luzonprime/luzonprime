@@ -60,20 +60,20 @@ export function HeroSection() {
       {/* content */}
       <motion.div
         style={{ y: textY }}
-        className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pt-28 pb-16 text-center sm:px-6 sm:pt-32"
+        className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pt-28 pb-16 text-center sm:px-[1.125rem] sm:pt-32"
       >
         <span className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[var(--color-accent)] backdrop-blur-sm">
-          Lagos Real Estate, Intelligently Curated
+          Global Real Estate, Intelligently Curated
         </span>
 
         <h1 className="font-heading max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
-          Find your prime property in Lagos
+          Find your prime property, anywhere
         </h1>
 
         <p className="mt-5 max-w-2xl text-base text-white/75 sm:text-lg">
-          Discover verified homes, land, and commercial assets across Ikoyi,
-          Victoria Island, Banana Island, and Lekki — backed by a team that
-          knows the market.
+          Discover verified homes, land, and commercial assets across multiple
+          cities and currencies — from Lagos to London — backed by a team that
+          knows every market.
         </p>
 
         <div className="mt-9 w-full px-1 sm:px-0">

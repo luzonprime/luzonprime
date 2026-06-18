@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { CurrencyProvider } from "@/components/shared/CurrencyProvider";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -16,10 +15,55 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://luzonprime.com";
+
 export const metadata: Metadata = {
-  title: "Luzon Prime Realtors | Find Your Prime Property",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Luzon Prime Realtors | Find Your Prime Property",
+    template: "%s | Luzon Prime Realtors",
+  },
   description:
-    "Luzon Prime Realtors helps you buy, sell, and rent properties with confidence.",
+    "Luzon Prime Realtors helps you buy, sell, and rent properties with confidence — across multiple cities and currencies.",
+  applicationName: "Luzon Prime Realtors",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Luzon Prime Realtors",
+    title: "Luzon Prime Realtors | Find Your Prime Property",
+    description:
+      "Buy, sell, and rent prime real estate with confidence — across multiple cities and currencies.",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luzon Prime Realtors | Find Your Prime Property",
+    description:
+      "Buy, sell, and rent prime real estate with confidence — across multiple cities and currencies.",
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Luzon Prime Realtors",
+  url: siteUrl,
+  email: "support@luzonprime.com",
+  description:
+    "A premium real estate company connecting buyers, investors, and developers to high-value property across multiple cities and currencies.",
+  areaServed: "Global",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Luzon Prime Realtors",
+  url: siteUrl,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/listings?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export default function RootLayout({
@@ -34,11 +78,18 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="light">
-          <Navbar />
-          <main className="flex flex-1 flex-col pt-16 sm:pt-20">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <CurrencyProvider>
+            <SiteChrome>{children}</SiteChrome>
+          </CurrencyProvider>
         </ThemeProvider>
       </body>
     </html>

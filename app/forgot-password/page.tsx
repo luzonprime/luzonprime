@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -12,8 +13,8 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
 export default function ForgotPasswordPage() {
+  const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
 
   const {
     register,
@@ -25,16 +26,15 @@ export default function ForgotPasswordPage() {
     setServerError(null);
     const supabase = createClient();
 
-    const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/reset-password`,
-    });
+    // Sends the recovery email containing a 6-digit code ({{ .Token }}).
+    const { error } = await supabase.auth.resetPasswordForEmail(values.email);
 
     if (error) {
       setServerError(error.message);
       return;
     }
 
-    setSent(true);
+    router.push(`/reset-password?email=${encodeURIComponent(values.email)}`);
   }
 
   return (
@@ -44,31 +44,25 @@ export default function ForgotPasswordPage() {
           Reset your password
         </h1>
         <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-          Enter your email and we&apos;ll send you a link to reset your
+          Enter your email and we&apos;ll send you a 6-digit code to reset your
           password.
         </p>
 
-        {sent ? (
-          <p className="mt-6 text-sm text-[var(--color-text)]">
-            Check your inbox for the reset link.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-6 flex flex-col gap-4">
-            <Input
-              label="Email"
-              type="email"
-              placeholder="you@example.com"
-              {...register("email")}
-              error={errors.email?.message}
-            />
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-6 flex flex-col gap-4">
+          <Input
+            label="Email"
+            type="email"
+            placeholder="you@example.com"
+            {...register("email")}
+            error={errors.email?.message}
+          />
 
-            {serverError && <p className="text-sm text-red-500">{serverError}</p>}
+          {serverError && <p className="text-sm text-red-500">{serverError}</p>}
 
-            <Button type="submit" disabled={isSubmitting} className="w-full">
-              {isSubmitting ? "Sending…" : "Send reset link"}
-            </Button>
-          </form>
-        )}
+          <Button type="submit" disabled={isSubmitting} className="w-full">
+            {isSubmitting ? "Sending…" : "Send reset code"}
+          </Button>
+        </form>
       </div>
     </div>
   );

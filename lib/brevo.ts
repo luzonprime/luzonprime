@@ -27,7 +27,7 @@ function wrapTemplate(title: string, bodyHtml: string) {
           <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:16px;overflow:hidden;">
             <tr>
               <td style="background-color:#091f46;padding:32px;text-align:center;">
-                <span style="color:#ffffff;font-size:22px;font-weight:bold;letter-spacing:0.5px;">Luzon Prime</span>
+                <span style="color:#ffffff;font-size:22px;font-weight:bold;letter-spacing:0.5px;">Luzon Prime Realtors</span>
               </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@ function wrapTemplate(title: string, bodyHtml: string) {
             <tr>
               <td style="padding:20px 32px;background-color:#f7f8fa;text-align:center;">
                 <span style="color:#9ca3af;font-size:12px;">
-                  &copy; Luzon Prime Realtors &middot; info@luzonprime.com
+                  &copy; Luzon Prime Realtors &middot; support@luzonprime.com
                 </span>
               </td>
             </tr>
@@ -155,7 +155,7 @@ export async function sendEmail<T extends keyof EmailTemplateMap>(
   const { subject, html } = renderTemplate(templateId, params);
 
   await getTransporter().sendMail({
-    from: `"Luzon Prime Realtors" <${process.env.SMTP_FROM_EMAIL ?? "info@luzonprime.com"}>`,
+    from: `"Luzon Prime Realtors" <${process.env.SMTP_FROM_EMAIL ?? "support@luzonprime.com"}>`,
     to,
     subject,
     html,

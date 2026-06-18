@@ -50,3 +50,6 @@ next-env.d.ts
 /prompts
 
 CLAUDE.md
+
+# graphify cache
+/graphify-out/cache/

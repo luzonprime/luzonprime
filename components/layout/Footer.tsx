@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Logo } from "@/components/shared/Logo";
+import { SkylineSketch } from "@/components/home/SkylineSketch";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -78,32 +79,69 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg-muted)]">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative overflow-hidden border-t border-[var(--color-border)] bg-[var(--color-bg-muted)]">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-44 pt-12 sm:px-[1.125rem] sm:pb-52 lg:px-8">
+        {/* Brand + newsletter */}
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
           <div>
             <Link href="/" className="flex items-center gap-2">
               <Logo width={32} height={33} />
               <span className="font-heading text-lg font-bold text-[var(--color-heading)]">
-                Luzon Prime
+                Luzon Prime Realtors
               </span>
             </Link>
-            <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-              Your trusted partner for buying, selling, and renting prime
-              real estate.
+            <p className="mt-3 max-w-md text-sm text-[var(--color-text-muted)]">
+              Your trusted partner for buying, selling, and renting prime real
+              estate — across multiple cities and currencies.
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold text-[var(--color-text)]">
+              Newsletter
+            </h3>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+              Get the latest listings and market insights delivered to your inbox.
+            </p>
+            <form onSubmit={handleSubscribe} className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <Input
+                type="email"
+                required
+                aria-label="Email address"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="sm:flex-1"
+              />
+              <Button type="submit" disabled={status === "loading"} className="shrink-0">
+                {status === "loading" ? "Subscribing…" : "Subscribe"}
+              </Button>
+            </form>
+            {status === "done" && (
+              <span className="mt-2 block text-xs text-[var(--color-text-muted)]">
+                Thanks for subscribing!
+              </span>
+            )}
+            {status === "error" && (
+              <span className="mt-2 block text-xs text-red-500">
+                Something went wrong, please try again.
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Link + contact columns: 2 across on mobile, 3 on tablet+ */}
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-[var(--color-border)] pt-8 sm:grid-cols-3">
+          <div>
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">
               Quick links
             </h3>
-            <ul className="mt-3 flex flex-col gap-2">
+            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-1">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+                    className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-primary)]"
                   >
                     {link.label}
                   </Link>
@@ -117,10 +155,24 @@ export function Footer() {
               Contact
             </h3>
             <ul className="mt-3 flex flex-col gap-2 text-sm text-[var(--color-text-muted)]">
-              <li>info@luzonprime.com</li>
-              <li>support@luzonprime.com</li>
+              <li>
+                <a href="mailto:support@luzonprime.com" className="hover:text-[var(--color-primary)]">
+                  support@luzonprime.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+2349066792730" className="hover:text-[var(--color-primary)]">
+                  0906 679 2730
+                </a>
+              </li>
             </ul>
-            <div className="mt-4 flex gap-3">
+          </div>
+
+          <div className="col-span-2 sm:col-span-1">
+            <h3 className="text-sm font-semibold text-[var(--color-text)]">
+              Follow us on
+            </h3>
+            <div className="mt-3 grid w-fit grid-cols-2 gap-3 sm:flex">
               {SOCIALS.map(({ href, icon: Icon, label }) => (
                 <a
                   key={label}
@@ -128,50 +180,25 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary)] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary)] hover:text-white"
                 >
                   <Icon width={16} height={16} />
                 </a>
               ))}
             </div>
           </div>
-
-          <div>
-            <h3 className="text-sm font-semibold text-[var(--color-text)]">
-              Newsletter
-            </h3>
-            <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-              Get the latest listings and market insights.
-            </p>
-            <form onSubmit={handleSubscribe} className="mt-3 flex flex-col gap-2">
-              <Input
-                type="email"
-                required
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button type="submit" disabled={status === "loading"}>
-                {status === "loading" ? "Subscribing…" : "Subscribe"}
-              </Button>
-              {status === "done" && (
-                <span className="text-xs text-[var(--color-text-muted)]">
-                  Thanks for subscribing!
-                </span>
-              )}
-              {status === "error" && (
-                <span className="text-xs text-red-500">
-                  Something went wrong, please try again.
-                </span>
-              )}
-            </form>
-          </div>
         </div>
 
-        <div className="mt-10 border-t border-[var(--color-border)] pt-6 text-center text-xs text-[var(--color-text-muted)]">
+        <div className="mt-10 text-center text-xs text-[var(--color-text-muted)] sm:text-left">
           © {new Date().getFullYear()} Luzon Prime Realtors. All rights reserved.
         </div>
       </div>
+
+      {/* City skyline silhouette anchored to the footer bottom */}
+      <SkylineSketch
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 w-full text-[var(--color-primary)] opacity-[0.18] dark:text-[var(--color-text)] dark:opacity-10 sm:h-44"
+      />
     </footer>
   );
 }

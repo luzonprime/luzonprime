@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import type { Property, Profile } from "@/types";
-import { PropertiesDataTable } from "@/components/dashboard/PropertiesDataTable";
+import { PropertiesCardGrid } from "@/components/dashboard/PropertiesCardGrid";
 
 export default async function AdminPropertiesPage() {
   const supabase = await createClient();
@@ -31,7 +31,7 @@ export default async function AdminPropertiesPage() {
       </div>
 
       <div className="mt-6">
-        <PropertiesDataTable
+        <PropertiesCardGrid
           properties={(properties ?? []) as Property[]}
           role="admin"
           basePath="/admin/properties"

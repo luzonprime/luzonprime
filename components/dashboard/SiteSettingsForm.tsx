@@ -34,7 +34,7 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
           name="contact_email"
           type="email"
           defaultValue={settings.contact_email ?? ""}
-          placeholder="info@luzonprime.com"
+          placeholder="support@luzonprime.com"
         />
         <Input
           label="Contact phone"

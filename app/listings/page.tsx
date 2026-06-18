@@ -2,7 +2,10 @@ import { createClient } from "@/lib/supabase/server";
 import type { Property } from "@/types";
 import { PropertyCard } from "@/components/listings/PropertyCard";
 import { PropertyFilters } from "@/components/listings/PropertyFilters";
+import { Pagination } from "@/components/listings/Pagination";
 import { AnimatedStagger, AnimatedStaggerItem } from "@/components/shared/AnimatedSection";
+
+const PAGE_SIZE = 9;
 
 export const metadata = {
   title: "Listings | Luzon Prime Realtors",
@@ -16,6 +19,7 @@ interface ListingsSearchParams {
   bedrooms?: string;
   price_range?: string;
   features?: string;
+  page?: string;
 }
 
 export default async function ListingsPage({
@@ -26,7 +30,10 @@ export default async function ListingsPage({
   const params = await searchParams;
   const supabase = await createClient();
 
-  let query = supabase.from("properties").select("*").eq("is_published", true);
+  let query = supabase
+    .from("properties")
+    .select("*", { count: "exact" })
+    .eq("is_published", true);
 
   if (params.listing_type) query = query.eq("listing_type", params.listing_type);
   if (params.property_type) query = query.eq("property_type", params.property_type);
@@ -50,16 +57,33 @@ export default async function ListingsPage({
     if (features.length) query = query.overlaps("features", features);
   }
 
-  const { data } = await query.order("created_at", { ascending: false });
+  const page = Math.max(1, Number(params.page) || 1);
+  const from = (page - 1) * PAGE_SIZE;
+
+  const { data, count } = await query
+    .order("created_at", { ascending: false })
+    .range(from, from + PAGE_SIZE - 1);
   const properties = (data ?? []) as Property[];
+  const total = count ?? 0;
+  const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+  function makeHref(p: number) {
+    const sp = new URLSearchParams();
+    for (const [key, value] of Object.entries(params)) {
+      if (value && key !== "page") sp.set(key, String(value));
+    }
+    if (p > 1) sp.set("page", String(p));
+    const qs = sp.toString();
+    return qs ? `/listings?${qs}` : "/listings";
+  }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-[1.125rem] lg:px-8">
       <h1 className="font-heading text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
         Listings
       </h1>
       <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-        {properties.length} {properties.length === 1 ? "property" : "properties"} found
+        {total} {total === 1 ? "property" : "properties"} found
       </p>
 
       <div className="mt-6 flex flex-col gap-6 lg:flex-row">
@@ -81,6 +105,8 @@ export default async function ListingsPage({
               </p>
             </div>
           )}
+
+          <Pagination currentPage={page} pageCount={pageCount} makeHref={makeHref} />
         </div>
       </div>
     </div>
