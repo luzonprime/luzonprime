@@ -39,7 +39,7 @@ export default async function AgentsPage() {
     <div className="bg-[var(--color-bg)]">
       <section className="mx-auto max-w-6xl px-4 pt-12 pb-4 sm:px-[1.125rem] lg:px-8">
         <AnimatedSection>
-          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
+          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
           <h1 className="font-heading mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             Meet our agents
           </h1>
@@ -65,11 +65,14 @@ export default async function AgentsPage() {
           <AnimatedStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {agents.map((agent) => (
               <AnimatedStaggerItem key={agent.id}>
-                <div className="group flex h-full flex-col items-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-center transition-shadow hover:shadow-lg">
+                <div className="group relative flex h-full flex-col items-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  {/* Stretched link makes the whole card clickable */}
                   <Link
                     href={`/agents/${agent.id}`}
-                    className="relative h-24 w-24 overflow-hidden rounded-full bg-[var(--color-bg-muted)]"
-                  >
+                    aria-label={`View ${agent.full_name ?? "agent"}'s profile`}
+                    className="absolute inset-0 z-0 rounded-2xl"
+                  />
+                  <div className="relative h-24 w-24 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
                     {agent.avatar_url ? (
                       <Image
                         src={agent.avatar_url}
@@ -83,11 +86,8 @@ export default async function AgentsPage() {
                         <User size={30} />
                       </div>
                     )}
-                  </Link>
-                  <Link
-                    href={`/agents/${agent.id}`}
-                    className="mt-4 flex items-center justify-center gap-1.5 text-sm font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)]"
-                  >
+                  </div>
+                  <p className="mt-4 flex items-center justify-center gap-1.5 text-sm font-semibold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
                     {agent.full_name ?? "Luzon Prime Agent"}
                     {agent.verified && (
                       <BadgeCheck
@@ -96,13 +96,13 @@ export default async function AgentsPage() {
                         aria-label="Verified agent"
                       />
                     )}
-                  </Link>
+                  </p>
                   {agent.bio && (
                     <p className="mt-2 line-clamp-2 text-xs text-[var(--color-text-muted)]">
                       {agent.bio}
                     </p>
                   )}
-                  <div className="mt-auto pt-4">
+                  <div className="relative z-10 mt-auto pt-4">
                     <AgentContactButtons phone={agent.phone} name={agent.full_name} />
                   </div>
                 </div>

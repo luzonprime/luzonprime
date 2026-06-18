@@ -15,6 +15,7 @@ export function DashboardCardGrid<T extends { id: string }>({
   searchPlaceholder = "Search...",
   emptyMessage = "Nothing to show yet.",
   pageSize = 12,
+  action,
 }: {
   rows: T[];
   searchableText: (row: T) => string;
@@ -22,6 +23,7 @@ export function DashboardCardGrid<T extends { id: string }>({
   searchPlaceholder?: string;
   emptyMessage?: string;
   pageSize?: number;
+  action?: React.ReactNode;
 }) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -41,22 +43,25 @@ export function DashboardCardGrid<T extends { id: string }>({
 
   return (
     <div>
-      <div className="relative mb-4 max-w-xs">
-        <Search
-          size={15}
-          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
-        />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setPage(1);
-          }}
-          placeholder={searchPlaceholder}
-          aria-label={searchPlaceholder}
-          className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2 pl-9 pr-3 text-sm text-[var(--color-text)] outline-none transition-all placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
-        />
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative w-full sm:max-w-xs">
+          <Search
+            size={15}
+            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
+          />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setPage(1);
+            }}
+            placeholder={searchPlaceholder}
+            aria-label={searchPlaceholder}
+            className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2 pl-9 pr-3 text-sm text-[var(--color-text)] outline-none transition-all placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+          />
+        </div>
+        {action ? <div className="shrink-0">{action}</div> : null}
       </div>
 
       {filtered.length === 0 ? (

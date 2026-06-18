@@ -14,11 +14,13 @@ export function PropertiesCardGrid({
   role,
   basePath,
   agentNames = {},
+  action,
 }: {
   properties: Property[];
   role: "agent" | "admin";
   basePath: string;
   agentNames?: Record<string, string>;
+  action?: React.ReactNode;
 }) {
   const [rows, setRows] = useState(properties);
   const [isPending, startTransition] = useTransition();
@@ -52,6 +54,7 @@ export function PropertiesCardGrid({
   return (
     <DashboardCardGrid
       rows={rows}
+      action={action}
       searchPlaceholder="Search properties..."
       emptyMessage="No properties yet."
       searchableText={(p) =>
@@ -143,7 +146,7 @@ export function PropertiesCardGrid({
                 </p>
               )}
 
-              <div className="mt-auto flex items-center justify-end gap-1.5 border-t border-[var(--color-border)] pt-3">
+              <div className="mt-4 flex items-center justify-end gap-1.5 border-t border-[var(--color-border)] pt-4">
                 <Link
                   href={`${basePath}/${p.id}/edit`}
                   aria-label={`Edit ${p.title}`}

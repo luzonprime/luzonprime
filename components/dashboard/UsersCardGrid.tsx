@@ -119,7 +119,7 @@ export function UsersCardGrid({ users }: { users: UserRow[] }) {
               </span>
             </div>
 
-            <div className="mt-auto flex flex-wrap gap-2 border-t border-[var(--color-border)] pt-4">
+            <div className="mt-5 flex flex-wrap gap-2 border-t border-[var(--color-border)] pt-5">
               {u.role === "agent" && (
                 <button
                   type="button"

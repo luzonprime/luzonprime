@@ -130,13 +130,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Link + contact columns: 2 across on mobile, 3 on tablet+ */}
-        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-[var(--color-border)] pt-8 sm:grid-cols-3">
+        {/* Sections stack vertically on mobile; 2 columns of links inside Quick links */}
+        <div className="mt-10 grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-8 sm:grid-cols-3">
           <div>
             <h3 className="text-sm font-semibold text-[var(--color-text)]">
               Quick links
             </h3>
-            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-1">
+            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -168,11 +168,11 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-2 sm:col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-[var(--color-text)]">
               Follow us on
             </h3>
-            <div className="mt-3 grid w-fit grid-cols-2 gap-3 sm:flex">
+            <div className="mt-3 flex w-fit gap-3">
               {SOCIALS.map(({ href, icon: Icon, label }) => (
                 <a
                   key={label}
@@ -197,7 +197,8 @@ export function Footer() {
       {/* City skyline silhouette anchored to the footer bottom */}
       <SkylineSketch
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 w-full text-[var(--color-primary)] opacity-[0.18] dark:text-[var(--color-text)] dark:opacity-10 sm:h-44"
+        strokeWidth={1.6}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 w-full text-[var(--color-primary)] opacity-40 dark:text-white dark:opacity-25 sm:h-44"
       />
     </footer>
   );

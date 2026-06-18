@@ -19,13 +19,6 @@ export default async function AdminSettingsPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div>
-        <h1 className="font-heading text-2xl font-bold text-[var(--color-text)]">Settings</h1>
-        <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-          Manage your account, then site-wide configuration below.
-        </p>
-      </div>
-
       {profile && <AccountSettings profile={profile} />}
 
       <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-6">

@@ -65,7 +65,7 @@ export default function AboutPage() {
       {/* Story */}
       <section className="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:px-[1.125rem] lg:px-8">
         <AnimatedSection>
-          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
+          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
           <h1 className="font-heading mt-3 max-w-3xl text-3xl font-bold leading-tight text-[var(--color-text)] sm:text-4xl">
             A premium real estate company, committed to creating value through
             trusted property expertise.
@@ -107,7 +107,7 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-[1.125rem] lg:px-8">
         <AnimatedSection>
-          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
+          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
           <h2 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
             Our journey
           </h2>
@@ -130,7 +130,7 @@ export default function AboutPage() {
       <section className="bg-[var(--color-bg-muted)] px-4 py-16 sm:px-[1.125rem]">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
-            <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
+            <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
             <h2 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
               Recognised for our work
             </h2>

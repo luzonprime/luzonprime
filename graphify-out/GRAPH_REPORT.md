@@ -1,16 +1,16 @@
 # Graph Report - luzonprime  (2026-06-18)
 
 ## Corpus Check
-- 134 files · ~52,698 words
+- 135 files · ~52,870 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 480 nodes · 975 edges · 28 communities (20 shown, 8 thin omitted)
+- 482 nodes · 981 edges · 26 communities (18 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2c953045`
+- Built from commit: `82d5d870`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,11 +26,9 @@
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
-- [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
 - [[_COMMUNITY_Community 18|Community 18]]
@@ -54,53 +52,53 @@
 10. `AnimatedStaggerItem()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `generateStaticParams()` --calls--> `createAdminClient()`  [INFERRED]
-  app/listings/[slug]/page.tsx → lib/supabase/admin.ts
 - `AdminAgentsPage()` --calls--> `createAdminClient()`  [INFERRED]
   app/admin/agents/page.tsx → lib/supabase/admin.ts
 - `AdminLayout()` --calls--> `createClient()`  [EXTRACTED]
   app/admin/layout.tsx → lib/supabase/server.ts
-- `AdminSubscribersPage()` --calls--> `createClient()`  [EXTRACTED]
-  app/admin/subscribers/page.tsx → lib/supabase/server.ts
 - `BlogPage()` --calls--> `createClient()`  [EXTRACTED]
   app/blog/page.tsx → lib/supabase/server.ts
+- `generateStaticParams()` --calls--> `createAdminClient()`  [INFERRED]
+  app/listings/[slug]/page.tsx → lib/supabase/admin.ts
+- `ListingsPage()` --calls--> `createClient()`  [EXTRACTED]
+  app/listings/page.tsx → lib/supabase/server.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (28 total, 8 thin omitted)
+## Communities (26 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (35): updateOwnProfile(), updateSiteSettings(), AgentListings(), AdminBookingsPage(), BOOKING_STATUS_STYLES, ClientOverviewPage(), INQUIRY_STATUS_STYLES, AccountSettings() (+27 more)
+Cohesion: 0.06
+Nodes (41): assignInquiry(), requireAdmin(), updateInquiryStatus(), updateOwnProfile(), updateSiteSettings(), generateMetadata(), AdminBookingsPage(), BOOKING_STATUS_STYLES (+33 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
-Nodes (27): ContactInput, contactSchema, NewsletterBanner(), ForgotPasswordInput, forgotPasswordSchema, LoginInput, loginSchema, ResetPasswordInput (+19 more)
+Nodes (27): ContactInput, contactSchema, ForgotPasswordInput, forgotPasswordSchema, LoginInput, loginSchema, ResetPasswordInput, resetPasswordSchema (+19 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.09
-Nodes (27): AWARDS, metadata, PILLARS, TIMELINE, metadata, BlogPage(), metadata, AgentsPreview() (+19 more)
+Cohesion: 0.08
+Nodes (28): AWARDS, metadata, PILLARS, TIMELINE, metadata, BlogPage(), metadata, BlogPreview() (+20 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.08
-Nodes (23): AdminLayout(), NAV_ITEMS, AdminOverviewPage(), lastNDays(), NAV_ITEMS, BarChartCard(), LineChartCard(), PALETTE (+15 more)
+Cohesion: 0.07
+Nodes (33): AdminOverviewPage(), lastNDays(), AgentListings(), generateMetadata(), BarChartCard(), LineChartCard(), PALETTE, PieChartCard() (+25 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
 Nodes (41): dependencies, clsx, framer-motion, @hookform/resolvers, lucide-react, next, next-sitemap, next-themes (+33 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.08
-Nodes (21): initials(), ROLE_LABELS, TopBar(), HeroSection(), BEDROOMS, LISTING_TYPES, PRICE_RANGES, SearchBar() (+13 more)
+Cohesion: 0.14
+Nodes (9): HeroSection(), BEDROOMS, LISTING_TYPES, PRICE_RANGES, SearchBar(), BUILDINGS, SkylineSketch(), FOOTER_LINKS (+1 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.14
-Nodes (22): createProperty(), dbClientFor(), deleteProperty(), features(), getActor(), num(), publishProperty(), toggleFeatured() (+14 more)
+Cohesion: 0.13
+Nodes (24): createProperty(), dbClientFor(), deleteProperty(), features(), getActor(), num(), publishProperty(), toggleFeatured() (+16 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.11
-Nodes (20): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, COUNTRY_CURRENCY, CurrencyDef, currencyForCountry() (+12 more)
+Cohesion: 0.08
+Nodes (27): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, Footer(), NAV_LINKS, Navbar() (+19 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.15
@@ -111,12 +109,8 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.19
-Nodes (11): assignInquiry(), requireAdmin(), updateInquiryStatus(), DataTable(), DataTableColumn, InquiriesDataTable(), STATUS_OPTIONS, STATUS_STYLES (+3 more)
-
-### Community 11 - "Community 11"
-Cohesion: 0.19
-Nodes (12): generateMetadata(), AgentCard(), AgentContactButtons(), toWhatsApp(), ImageGallery(), MediaItem, youTubeEmbed(), PropertyEnquiryCTA() (+4 more)
+Cohesion: 0.12
+Nodes (14): AdminLayout(), NAV_ITEMS, NAV_ITEMS, NAV_ITEMS, DashboardShell(), initials(), ProfileMenu(), ROLE_LABELS (+6 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.32
@@ -130,10 +124,6 @@ Nodes (6): supabase, vercel, VERCEL_TOKEN, npx, @supabase/mcp-server-supabase, @
 Cohesion: 0.47
 Nodes (4): config, proxy(), ROLE_PREFIXES, updateSession()
 
-### Community 15 - "Community 15"
-Cohesion: 0.70
-Nodes (4): generateMetadata(), BlogPostPage(), formatDate(), getPost()
-
 ### Community 16 - "Community 16"
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
@@ -146,17 +136,17 @@ Nodes (3): Deploy on Vercel, Getting Started, Learn More
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `createClient()` connect `Community 0` to `Community 2`, `Community 3`, `Community 6`, `Community 8`, `Community 10`, `Community 11`, `Community 15`?**
+- **Why does `createClient()` connect `Community 0` to `Community 2`, `Community 3`, `Community 6`, `Community 8`, `Community 10`?**
   _High betweenness centrality (0.120) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Community 3` to `Community 1`, `Community 10`, `Community 5`, `Community 7`?**
+- **Why does `cn()` connect `Community 3` to `Community 0`, `Community 1`, `Community 10`, `Community 7`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Why does `Button` connect `Community 1` to `Community 0`, `Community 5`?**
+- **Why does `Button` connect `Community 1` to `Community 0`, `Community 2`, `Community 5`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `createAdminClient()` (e.g. with `AdminAgentsPage()` and `generateStaticParams()`) actually correct?**
   _`createAdminClient()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN` to the rest of the system?**
   _148 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06749482401656315 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.056962025316455694 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08244897959183674 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0824829931972789 - nodes in this community are weakly interconnected._

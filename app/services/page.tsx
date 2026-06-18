@@ -72,7 +72,7 @@ export default function ServicesPage() {
     <div className="bg-[var(--color-bg)]">
       <section className="mx-auto max-w-6xl px-4 pt-12 pb-4 sm:px-[1.125rem] lg:px-8">
         <AnimatedSection>
-          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)]" />
+          <span className="inline-block h-1 w-10 rounded-full bg-[var(--color-primary)] dark:bg-white" />
           <h1 className="font-heading mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             Everything you need, under one roof
           </h1>

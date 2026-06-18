@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { TopBar } from "@/components/dashboard/TopBar";
 import { cn } from "@/lib/utils";
@@ -18,11 +19,17 @@ export function DashboardShell({
 }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname() ?? "";
+
+  // The header shows the active section's name (e.g. "Properties"), not the role.
+  const activeItem = navItems
+    .filter((i) => pathname === i.href || pathname.startsWith(`${i.href}/`))
+    .sort((a, b) => b.href.length - a.href.length)[0];
+  const sectionTitle = activeItem?.label ?? title;
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)]">
       <Sidebar
-        title={title}
         navItems={navItems}
         collapsed={collapsed}
         onToggleCollapse={() => setCollapsed((v) => !v)}
@@ -37,7 +44,7 @@ export function DashboardShell({
         )}
       >
         <TopBar
-          pageTitle={title}
+          pageTitle={sectionTitle}
           notificationCount={notificationCount}
           onOpenMobile={() => setMobileOpen(true)}
         />

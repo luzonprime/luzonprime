@@ -17,27 +17,19 @@ export default async function AdminPropertiesPage() {
   );
 
   return (
-    <div>
-      <div className="flex items-center justify-between">
-        <h1 className="font-heading text-2xl font-bold text-[var(--color-text)]">
-          Properties
-        </h1>
+    <PropertiesCardGrid
+      properties={(properties ?? []) as Property[]}
+      role="admin"
+      basePath="/admin/properties"
+      agentNames={agentNames}
+      action={
         <Link
           href="/admin/properties/new"
           className="flex items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white"
         >
           <Plus size={16} /> New property
         </Link>
-      </div>
-
-      <div className="mt-6">
-        <PropertiesCardGrid
-          properties={(properties ?? []) as Property[]}
-          role="admin"
-          basePath="/admin/properties"
-          agentNames={agentNames}
-        />
-      </div>
-    </div>
+      }
+    />
   );
 }

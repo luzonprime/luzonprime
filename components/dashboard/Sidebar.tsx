@@ -77,14 +77,12 @@ function NavLinks({
 }
 
 export function Sidebar({
-  title,
   navItems,
   collapsed,
   onToggleCollapse,
   mobileOpen,
   onCloseMobile,
 }: {
-  title: string;
   navItems: NavItem[];
   collapsed: boolean;
   onToggleCollapse: () => void;
@@ -107,14 +105,14 @@ export function Sidebar({
         )}
       >
         <div className="flex h-16 items-center gap-2 border-b border-[var(--color-border)] px-4">
-          <Link href="/" aria-label="Luzon Prime Realtors home" className="shrink-0">
-            <Logo width={28} height={29} className="h-7 w-7" />
+          <Link href="/" aria-label="Luzon Prime Realtors home" className="flex items-center gap-2">
+            <Logo width={28} height={29} className="h-7 w-7 shrink-0" />
+            {!collapsed && (
+              <span className="font-heading text-sm font-bold tracking-wide text-[var(--color-heading)]">
+                LPR
+              </span>
+            )}
           </Link>
-          {!collapsed && (
-            <span className="font-heading truncate text-sm font-bold text-[var(--color-heading)]">
-              {title}
-            </span>
-          )}
         </div>
 
         <div className="flex-1 overflow-y-auto p-3">
@@ -155,8 +153,8 @@ export function Sidebar({
               <div className="flex h-16 items-center justify-between border-b border-[var(--color-border)] px-4">
                 <Link href="/" aria-label="Luzon Prime Realtors home" onClick={onCloseMobile} className="flex items-center gap-2">
                   <Logo width={28} height={29} className="h-7 w-7" />
-                  <span className="font-heading text-sm font-bold text-[var(--color-heading)]">
-                    {title}
+                  <span className="font-heading text-sm font-bold tracking-wide text-[var(--color-heading)]">
+                    LPR
                   </span>
                 </Link>
                 <button
