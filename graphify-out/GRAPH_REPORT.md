@@ -1,16 +1,16 @@
 # Graph Report - luzonprime  (2026-06-18)
 
 ## Corpus Check
-- 151 files · ~58,241 words
+- 153 files · ~58,967 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 540 nodes · 1144 edges · 28 communities (20 shown, 8 thin omitted)
+- 542 nodes · 1156 edges · 26 communities (18 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c992977f`
+- Built from commit: `5064c67f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,8 +22,6 @@
 - [[_COMMUNITY_Community 4|Community 4]]
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
@@ -44,79 +42,71 @@
 ## God Nodes (most connected - your core abstractions)
 1. `createClient()` - 72 edges
 2. `createAdminClient()` - 32 edges
-3. `cn()` - 23 edges
+3. `cn()` - 25 edges
 4. `Property` - 18 edges
 5. `Profile` - 17 edges
 6. `Button` - 16 edges
 7. `compilerOptions` - 16 edges
 8. `Input` - 15 edges
-9. `AnimatedStagger()` - 13 edges
-10. `AnimatedStaggerItem()` - 13 edges
+9. `AnimatedStaggerItem()` - 14 edges
+10. `AnimatedStagger()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `generateStaticParams()` --calls--> `createAdminClient()`  [INFERRED]
   app/listings/[slug]/page.tsx → lib/supabase/admin.ts
 - `AdminAgentsPage()` --calls--> `createAdminClient()`  [INFERRED]
   app/admin/agents/page.tsx → lib/supabase/admin.ts
-- `AdminAwardsPage()` --calls--> `createClient()`  [EXTRACTED]
-  app/admin/awards/page.tsx → lib/supabase/server.ts
 - `AdminBookingsPage()` --calls--> `createClient()`  [EXTRACTED]
   app/admin/bookings/page.tsx → lib/supabase/server.ts
 - `AdminInquiriesPage()` --calls--> `createClient()`  [EXTRACTED]
   app/admin/inquiries/page.tsx → lib/supabase/server.ts
+- `AdminSubscribersPage()` --calls--> `createClient()`  [EXTRACTED]
+  app/admin/subscribers/page.tsx → lib/supabase/server.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (28 total, 8 thin omitted)
+## Communities (26 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (31): AgentListings(), AdminBookingsPage(), BOOKING_STATUS_STYLES, ClientOverviewPage(), INQUIRY_STATUS_STYLES, AccountSettings(), BookingsManager(), STATUS_STYLES (+23 more)
+Nodes (31): deleteBooking(), requireAdmin(), updateBookingStatus(), AdminBookingsPage(), BOOKING_STATUS_STYLES, ClientOverviewPage(), INQUIRY_STATUS_STYLES, AccountSettings() (+23 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.06
-Nodes (37): ContactInput, contactSchema, AvatarUpload(), ImageDropzone(), MediaDropzone(), DEFAULT_LISTING_TYPES, DEFAULT_PROPERTY_TYPES, DEFAULT_STATUSES (+29 more)
+Cohesion: 0.07
+Nodes (32): updateAvatar(), updateOwnProfile(), ContactInput, contactSchema, AvatarUpload(), NewsletterBanner(), ForgotPasswordInput, forgotPasswordSchema (+24 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (40): AWARDS, metadata, PILLARS, TIMELINE, updateAvatar(), updateOwnProfile(), updateSiteSettings(), metadata (+32 more)
+Cohesion: 0.06
+Nodes (41): AWARDS, metadata, PILLARS, TIMELINE, metadata, Home(), BlogPage(), metadata (+33 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (34): AdminOverviewPage(), lastNDays(), BarChartCard(), LineChartCard(), PALETTE, PieChartCard(), StatCard(), ITEMS (+26 more)
+Cohesion: 0.11
+Nodes (20): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, COUNTRY_CURRENCY, CurrencyDef, currencyForCountry() (+12 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
 Nodes (41): dependencies, clsx, framer-motion, @hookform/resolvers, lucide-react, next, next-sitemap, next-themes (+33 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.21
-Nodes (10): assignInquiry(), requireAdmin(), updateInquiryStatus(), DataTable(), DataTableColumn, STATUS_OPTIONS, STATUS_STYLES, SubscribersDataTable() (+2 more)
+Cohesion: 0.12
+Nodes (13): NAV_ITEMS, NAV_ITEMS, DashboardShell(), ICON_RULES, NavItem, Sidebar(), FeaturedListings(), PropertyMarquee() (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.10
-Nodes (29): deleteBooking(), requireAdmin(), updateBookingStatus(), createProperty(), dbClientFor(), deleteProperty(), features(), fileList() (+21 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.07
-Nodes (21): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, BlueprintStatement(), DEFAULT_AWARDS, HeroSection() (+13 more)
-
-### Community 8 - "Community 8"
-Cohesion: 0.15
-Nodes (16): contactSchema, POST(), inquireSchema, POST(), AdminLeadAlertParams, BookingConfirmationParams, EmailTemplateMap, getTransporter() (+8 more)
+Cohesion: 0.08
+Nodes (35): assignInquiry(), requireAdmin(), updateInquiryStatus(), createProperty(), dbClientFor(), deleteProperty(), features(), fileList() (+27 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.10
-Nodes (16): AdminLayout(), NAV_ITEMS, NAV_ITEMS, NAV_ITEMS, DashboardShell(), Notif, NotificationBell(), initials() (+8 more)
+Cohesion: 0.09
+Nodes (19): Notif, NotificationBell(), initials(), ProfileMenu(), ROLE_LABELS, TopBar(), useAuth(), Footer() (+11 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.19
-Nodes (12): generateMetadata(), AgentCard(), AgentContactButtons(), toWhatsApp(), ImageGallery(), MediaItem, youTubeEmbed(), PropertyEnquiryCTA() (+4 more)
+Cohesion: 0.07
+Nodes (32): AdminOverviewPage(), lastNDays(), AgentListings(), generateMetadata(), BarChartCard(), LineChartCard(), PALETTE, PieChartCard() (+24 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.32
@@ -131,8 +121,8 @@ Cohesion: 0.47
 Nodes (4): config, proxy(), ROLE_PREFIXES, updateSession()
 
 ### Community 15 - "Community 15"
-Cohesion: 0.17
-Nodes (15): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+7 more)
+Cohesion: 0.08
+Nodes (39): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+31 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.50
@@ -146,17 +136,17 @@ Nodes (3): Deploy on Vercel, Getting Started, Learn More
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `createClient()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 5`, `Community 6`, `Community 8`, `Community 10`, `Community 11`, `Community 15`?**
-  _High betweenness centrality (0.143) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 5`, `Community 10`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 5`, `Community 8`, `Community 11`, `Community 15`?**
+- **Why does `createClient()` connect `Community 15` to `Community 0`, `Community 1`, `Community 2`, `Community 5`, `Community 6`, `Community 11`?**
+  _High betweenness centrality (0.138) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 5` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 10`, `Community 11`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 11`, `Community 15`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `createAdminClient()` (e.g. with `AdminAgentsPage()` and `generateStaticParams()`) actually correct?**
   _`createAdminClient()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN` to the rest of the system?**
   _164 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.06848357791754019 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06745098039215686 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.059673659673659674 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07130333138515488 - nodes in this community are weakly interconnected._

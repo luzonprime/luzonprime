@@ -77,24 +77,31 @@ export function HeroSection({
 
           {/* Awards panel */}
           <div className="grid grid-cols-2 gap-3 lg:gap-4">
-            {items.slice(0, 4).map((a, i) => (
-              <div
-                key={`${a.year}-${a.title}-${i}`}
-                className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
-              >
-                <div className="flex items-center gap-2">
-                  {"image_url" in a && a.image_url ? (
-                    <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded">
-                      <Image src={a.image_url} alt="" fill sizes="32px" className="object-contain" />
+            {items.slice(0, 4).map((a, i) => {
+              const image = "image_url" in a ? a.image_url : null;
+              return (
+                <div
+                  key={`${a.year}-${a.title}-${i}`}
+                  className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                >
+                  {image ? (
+                    <span className="relative h-12 w-12 shrink-0">
+                      <Image src={image} alt="" fill sizes="48px" className="object-contain" />
                     </span>
                   ) : (
-                    <Award size={18} className="text-[var(--color-accent)]" />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                      <Award size={20} className="text-[var(--color-accent)]" />
+                    </span>
                   )}
-                  <span className="text-lg font-bold text-white">{a.year}</span>
+                  <div className="min-w-0">
+                    {!image && (
+                      <span className="text-base font-bold text-white">{a.year}</span>
+                    )}
+                    <p className="text-xs leading-snug text-white/85">{a.title}</p>
+                  </div>
                 </div>
-                <p className="mt-1.5 text-xs leading-snug text-white/80">{a.title}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
