@@ -36,7 +36,6 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [dashboardHref, setDashboardHref] = useState("/client");
   const [popular, setPopular] = useState<NavLink>(DEFAULT_POPULAR);
   const [inline, setInline] = useState<NavLink[]>(DEFAULT_INLINE);
   const [more, setMore] = useState<NavLink[]>(DEFAULT_MORE);
@@ -70,24 +69,9 @@ export function Navbar() {
 
   useEffect(() => {
     const supabase = createClient();
-    async function resolveDashboard(userId: string) {
-      const { data: profile } = await supabase
-        .from("profiles")
-        .select("role")
-        .eq("id", userId)
-        .single();
-      const role = (profile as { role?: string } | null)?.role;
-      setDashboardHref(
-        role === "admin" ? "/admin" : role === "agent" ? "/agent" : "/client"
-      );
-    }
-    supabase.auth.getUser().then(({ data }) => {
-      setIsLoggedIn(!!data.user);
-      if (data.user) resolveDashboard(data.user.id);
-    });
+    supabase.auth.getUser().then(({ data }) => setIsLoggedIn(!!data.user));
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsLoggedIn(!!session?.user);
-      if (session?.user) resolveDashboard(session.user.id);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -180,7 +164,7 @@ export function Navbar() {
             <ThemeToggle onMedia={transparent} />
             {isLoggedIn ? (
               <Link
-                href={dashboardHref}
+                href="/dashboard"
                 className="flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-light)]"
               >
                 <LayoutDashboard size={16} />
@@ -269,7 +253,7 @@ export function Navbar() {
               <div className="mt-auto pt-6">
                 {isLoggedIn ? (
                   <Link
-                    href={dashboardHref}
+                    href="/dashboard"
                     onClick={() => setMenuOpen(false)}
                     className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-3 text-center text-sm font-semibold text-white"
                   >

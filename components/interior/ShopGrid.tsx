@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Sofa } from "lucide-react";
 import type { ShopItem } from "@/types";
 import { cn } from "@/lib/utils";
+import { Price } from "@/components/shared/Price";
 
 export function ShopGrid({ items }: { items: ShopItem[] }) {
   const types = useMemo(() => {
@@ -72,7 +73,7 @@ export function ShopGrid({ items }: { items: ShopItem[] }) {
               )}
               <h3 className="mt-1 font-medium text-[var(--color-text)]">{item.name}</h3>
               <span className="mt-auto pt-2 text-sm font-semibold text-[var(--color-heading)]">
-                {item.price_label ?? "Get price"} →
+                <Price amount={item.price} fallback={item.price_label ?? "Get price"} /> →
               </span>
             </div>
           </Link>

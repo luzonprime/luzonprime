@@ -120,6 +120,11 @@ export function PropertyEnquiryCTA({ property }: { property: Property }) {
               can see, in real time, what you can afford and move forward with
               confidence. Tell us your numbers and we&apos;ll match you and follow up.
             </p>
+            {property.buy_ability_percent != null && (
+              <p className="mt-2 text-sm font-semibold text-green-700 dark:text-green-500">
+                Up to {property.buy_ability_percent}% of the price is eligible for Buy-Ability.
+              </p>
+            )}
             <label className="mt-4 flex items-start gap-2 text-sm text-[var(--color-text)]">
               <input
                 type="checkbox"

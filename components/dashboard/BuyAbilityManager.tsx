@@ -10,9 +10,14 @@ import {
 } from "@/app/actions/buyability";
 import { DashboardCardGrid } from "@/components/dashboard/DashboardCardGrid";
 import { Button } from "@/components/ui/Button";
+import { estimateBudget } from "@/lib/buyability";
 import type { BuyAbilitySubmission } from "@/types";
 
 export type SelectedProperty = { id: string; title: string; image: string | null };
+
+function formatDate(value: string) {
+  return new Date(value).toLocaleDateString("en-US", { dateStyle: "medium" });
+}
 
 const STATUS_STYLES: Record<string, string> = {
   new: "bg-blue-100 text-blue-700",
@@ -97,10 +102,15 @@ export function BuyAbilityManager({
           const busy = isPending && pendingId === s.id;
           return (
             <div className="flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
-              <div className="flex items-start justify-between gap-2">
-                <p className="min-w-0 truncate text-sm font-semibold text-[var(--color-text)]">
-                  {s.email}
-                </p>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="break-words text-sm font-semibold text-[var(--color-text)]">
+                    {s.email}
+                  </p>
+                  <p className="text-[11px] text-[var(--color-text-muted)]">
+                    {formatDate(s.created_at)}
+                  </p>
+                </div>
                 <span
                   className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold ${
                     STATUS_STYLES[s.status] ?? "bg-gray-100 text-gray-600"
@@ -110,60 +120,54 @@ export function BuyAbilityManager({
                 </span>
               </div>
 
-              <dl className="mt-3 space-y-1 text-xs text-[var(--color-text-muted)]">
-                {s.location && (
-                  <div className="flex justify-between gap-2">
-                    <dt>Location</dt>
-                    <dd className="text-[var(--color-text)]">{s.location}</dd>
+              {s.annual_income != null && (
+                <div className="mt-3 rounded-lg bg-[var(--color-bg-muted)] px-3 py-2">
+                  <span className="text-[10px] uppercase tracking-wide text-[var(--color-text-muted)]">
+                    Estimated budget
+                  </span>
+                  <p className="text-base font-bold text-[var(--color-heading)]">
+                    {money(estimateBudget(s))}
+                  </p>
+                </div>
+              )}
+
+              <dl className="mt-3 grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
+                {[
+                  { label: "Location", value: s.location ?? "—" },
+                  { label: "Property", value: (s.property_id && propertyTitles[s.property_id]) || "—" },
+                  { label: "Credit", value: s.credit_score ?? "—" },
+                  { label: "Income / yr", value: money(s.annual_income) },
+                  { label: "Down payment", value: money(s.down_payment) },
+                  { label: "Monthly debt", value: money(s.monthly_debt) },
+                ].map((d) => (
+                  <div key={d.label} className="min-w-0">
+                    <dt className="text-[var(--color-text-muted)]">{d.label}</dt>
+                    <dd className="truncate font-medium text-[var(--color-text)]">{d.value}</dd>
                   </div>
-                )}
-                {s.property_id && propertyTitles[s.property_id] && (
-                  <div className="flex justify-between gap-2">
-                    <dt>Property</dt>
-                    <dd className="truncate text-[var(--color-text)]">
-                      {propertyTitles[s.property_id]}
-                    </dd>
-                  </div>
-                )}
-                <div className="flex justify-between gap-2">
-                  <dt>Credit</dt>
-                  <dd className="text-[var(--color-text)]">{s.credit_score ?? "—"}</dd>
-                </div>
-                <div className="flex justify-between gap-2">
-                  <dt>Income / yr</dt>
-                  <dd className="text-[var(--color-text)]">{money(s.annual_income)}</dd>
-                </div>
-                <div className="flex justify-between gap-2">
-                  <dt>Down payment</dt>
-                  <dd className="text-[var(--color-text)]">{money(s.down_payment)}</dd>
-                </div>
-                <div className="flex justify-between gap-2">
-                  <dt>Monthly debt</dt>
-                  <dd className="text-[var(--color-text)]">{money(s.monthly_debt)}</dd>
-                </div>
+                ))}
               </dl>
 
               {(selections[s.id]?.length ?? 0) > 0 && (
                 <div className="mt-3">
                   <p className="text-xs font-medium text-[var(--color-text-muted)]">
-                    Selected homes
+                    Selected homes ({selections[s.id].length})
                   </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
+                  <div className="mt-2 flex flex-col gap-1.5">
                     {selections[s.id].map((sp) => (
                       <div
                         key={sp.id}
-                        className="flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] p-1 pr-2"
+                        className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] p-1.5"
                       >
-                        <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded bg-[var(--color-bg-muted)]">
+                        <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded bg-[var(--color-bg-muted)]">
                           {sp.image ? (
-                            <Image src={sp.image} alt="" fill sizes="28px" className="object-cover" />
+                            <Image src={sp.image} alt="" fill sizes="36px" className="object-cover" />
                           ) : (
                             <span className="flex h-full items-center justify-center text-[var(--color-text-muted)]">
-                              <Home size={12} />
+                              <Home size={14} />
                             </span>
                           )}
                         </span>
-                        <span className="max-w-[110px] truncate text-xs text-[var(--color-text)]">
+                        <span className="truncate text-xs font-medium text-[var(--color-text)]">
                           {sp.title}
                         </span>
                       </div>
@@ -172,7 +176,7 @@ export function BuyAbilityManager({
                 </div>
               )}
 
-              <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-[var(--color-border)] pt-4">
+              <div className="mt-auto flex items-center gap-2 border-t border-[var(--color-border)] pt-4">
                 <select
                   value={s.status}
                   disabled={busy}

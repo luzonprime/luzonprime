@@ -61,6 +61,7 @@ export function PropertyForm({
   const [propertyTypes, setPropertyTypes] = useState<Term[]>(DEFAULT_PROPERTY_TYPES);
   const [listingTypes, setListingTypes] = useState<Term[]>(DEFAULT_LISTING_TYPES);
   const [statuses, setStatuses] = useState<Term[]>(DEFAULT_STATUSES);
+  const [buyAbility, setBuyAbility] = useState(property?.buy_ability ?? false);
 
   useEffect(() => {
     const supabase = createClient();
@@ -205,29 +206,51 @@ export function PropertyForm({
       </div>
 
       {role === "admin" && (
-        <div className="grid gap-4 rounded-xl border border-[var(--color-border)] p-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Field label="Assign to agent">
-            <select name="agent_id" defaultValue={property?.agent_id ?? ""} className={selectClass}>
-              <option value="">Unassigned</option>
-              {agents.map((a) => (
-                <option key={a.id} value={a.id}>
-                  {a.full_name ?? a.id}
-                </option>
-              ))}
-            </select>
-          </Field>
-          <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
-            <input type="checkbox" name="is_published" defaultChecked={property?.is_published} />
-            Published
-          </label>
-          <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
-            <input type="checkbox" name="is_featured" defaultChecked={property?.is_featured} />
-            Featured
-          </label>
-          <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
-            <input type="checkbox" name="buy_ability" defaultChecked={property?.buy_ability} />
-            Buy-Ability
-          </label>
+        <div className="flex flex-col gap-4 rounded-xl border border-[var(--color-border)] p-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Field label="Assign to agent">
+              <select name="agent_id" defaultValue={property?.agent_id ?? ""} className={selectClass}>
+                <option value="">Unassigned</option>
+                {agents.map((a) => (
+                  <option key={a.id} value={a.id}>
+                    {a.full_name ?? a.id}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
+              <input type="checkbox" name="is_published" defaultChecked={property?.is_published} />
+              Published
+            </label>
+            <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
+              <input type="checkbox" name="is_featured" defaultChecked={property?.is_featured} />
+              Featured
+            </label>
+            <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
+              <input
+                type="checkbox"
+                name="buy_ability"
+                checked={buyAbility}
+                onChange={(e) => setBuyAbility(e.target.checked)}
+              />
+              Buy-Ability
+            </label>
+          </div>
+          {buyAbility && (
+            <div className="max-w-xs">
+              <Field label="Buy-Ability eligible (% of price)">
+                <Input
+                  type="number"
+                  name="buy_ability_percent"
+                  min={1}
+                  max={100}
+                  required
+                  defaultValue={property?.buy_ability_percent ?? ""}
+                  placeholder="e.g. 80"
+                />
+              </Field>
+            </div>
+          )}
         </div>
       )}
 

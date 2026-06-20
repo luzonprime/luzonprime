@@ -42,6 +42,7 @@ export interface Property {
   videos: string[] | null;
   virtual_tours: string[] | null;
   buy_ability: boolean;
+  buy_ability_percent: number | null;
   created_at: string;
   updated_at: string;
   agent?: Profile | null;

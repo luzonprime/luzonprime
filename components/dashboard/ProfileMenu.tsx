@@ -42,7 +42,8 @@ export function ProfileMenu() {
 
   async function handleSignOut() {
     await signOut();
-    router.push("/login");
+    router.replace("/");
+    router.refresh();
   }
 
   const roleLabel = profile?.role ? ROLE_LABELS[profile.role] ?? profile.role : "";

@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "app/actions/properties.ts": {
-    "mtime": 1781904771.555406,
-    "ast_hash": "2cabb32607e08955ea089bc8a3b1c8eb",
+    "mtime": 1781929454.6924226,
+    "ast_hash": "f148bfc6655c9a431173d3d8bd982e1e",
     "semantic_hash": ""
   },
   "app/actions/settings.ts": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "app/listings/[slug]/page.tsx": {
-    "mtime": 1781904861.7319925,
-    "ast_hash": "0d2524f9e7f2e730ac4b3a91fe3c5b86",
+    "mtime": 1781929485.8546693,
+    "ast_hash": "1f6ba4ed683cff113f68969296da2a38",
     "semantic_hash": ""
   },
   "app/listings/page.tsx": {
@@ -295,13 +295,13 @@
     "semantic_hash": ""
   },
   "components/dashboard/PropertiesCardGrid.tsx": {
-    "mtime": 1781774874.9274464,
-    "ast_hash": "ada5cce2a4ce1218423452c091fdc0ed",
+    "mtime": 1781929469.6190495,
+    "ast_hash": "766edc63b5ff1fd73545fe2550534afc",
     "semantic_hash": ""
   },
   "components/dashboard/PropertyForm.tsx": {
-    "mtime": 1781904759.457074,
-    "ast_hash": "b10fe3f8d83feaa0f757db20078e2329",
+    "mtime": 1781929434.9572468,
+    "ast_hash": "92bf2f500226dedbcb75680b450c402c",
     "semantic_hash": ""
   },
   "components/dashboard/Sidebar.tsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "components/layout/Navbar.tsx": {
-    "mtime": 1781904993.426216,
-    "ast_hash": "3812245eaf06c3da081d5fc5ea26a54a",
+    "mtime": 1781929359.365815,
+    "ast_hash": "9c582a377474f03e2e4a8274db3e2535",
     "semantic_hash": ""
   },
   "components/layout/SiteChrome.tsx": {
@@ -455,13 +455,13 @@
     "semantic_hash": ""
   },
   "components/listings/PropertyCard.tsx": {
-    "mtime": 1781904797.6117632,
-    "ast_hash": "04aa5a59845c12352457068020b08a89",
+    "mtime": 1781929483.4754393,
+    "ast_hash": "23af3821362fde8f11807429882007e5",
     "semantic_hash": ""
   },
   "components/listings/PropertyEnquiryCTA.tsx": {
-    "mtime": 1781904903.1570356,
-    "ast_hash": "321ca84f619d726d3baf95765614a581",
+    "mtime": 1781929501.8897874,
+    "ast_hash": "49a915ed4943c32ae6944bcc9f0fd91e",
     "semantic_hash": ""
   },
   "components/listings/PropertyFilters.tsx": {
@@ -565,8 +565,8 @@
     "semantic_hash": ""
   },
   "lib/supabase/middleware.ts": {
-    "mtime": 1781759542.3752177,
-    "ast_hash": "74e128bd17b342c646d8ec16362d4c3a",
+    "mtime": 1781929320.8524811,
+    "ast_hash": "704c3aa9d83b2d2ffcce8b1919a437cc",
     "semantic_hash": ""
   },
   "lib/supabase/server.ts": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "types/index.ts": {
-    "mtime": 1781926060.5119827,
-    "ast_hash": "f0428e3a106dae03877b2b731e1402c2",
+    "mtime": 1781929275.106493,
+    "ast_hash": "45a4814a7003284ea4131c208caad33e",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -715,8 +715,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/ProfileMenu.tsx": {
-    "mtime": 1781774754.9341142,
-    "ast_hash": "e4e3ae3d9ce562f6ee11d8f5c6a07548",
+    "mtime": 1781929369.72732,
+    "ast_hash": "859e57649806b1099f8595e16b4d658e",
     "semantic_hash": ""
   },
   "components/home/BlueprintStatement.tsx": {
@@ -840,8 +840,8 @@
     "semantic_hash": ""
   },
   "app/buy-ability/page.tsx": {
-    "mtime": 1781926324.8168547,
-    "ast_hash": "a6ae600cbb43fb8c3007bd1a949a7225",
+    "mtime": 1781929552.3965473,
+    "ast_hash": "e159daf18472eadc1671c4442a1667db",
     "semantic_hash": ""
   },
   "app/interior-designs/page.tsx": {
@@ -855,18 +855,18 @@
     "semantic_hash": ""
   },
   "app/interior-designs/shop/[slug]/page.tsx": {
-    "mtime": 1781926617.4564068,
-    "ast_hash": "026293492f89dfe31acd974434fc93c0",
+    "mtime": 1781929738.7546504,
+    "ast_hash": "ef27384bd8fe7f474e4df71cdedc46ab",
     "semantic_hash": ""
   },
   "components/buyability/BuyAbilityForm.tsx": {
-    "mtime": 1781926280.1575089,
-    "ast_hash": "810574d90a8dea061642c8618a6a9d78",
+    "mtime": 1781929619.629494,
+    "ast_hash": "b0df19768e30775786a5e63b84432874",
     "semantic_hash": ""
   },
   "components/dashboard/BuyAbilityManager.tsx": {
-    "mtime": 1781926390.649643,
-    "ast_hash": "41403b69879549600bec7a0f6a888c1c",
+    "mtime": 1781929705.500982,
+    "ast_hash": "372dfe889e9a21f07d023bcaeadc6964",
     "semantic_hash": ""
   },
   "components/home/BuyAbilityBanner.tsx": {
@@ -875,8 +875,8 @@
     "semantic_hash": ""
   },
   "components/interior/ShopGrid.tsx": {
-    "mtime": 1781922238.4185414,
-    "ast_hash": "2c4eb52813a72b635a968569995fd1b0",
+    "mtime": 1781929725.3219454,
+    "ast_hash": "7b385f77f7340ebc1f753f6b6156f6fa",
     "semantic_hash": ""
   },
   "components/listings/ListingsSort.tsx": {
@@ -907,6 +907,16 @@
   "supabase/migrations/011_buyability_join_interior_fields.sql": {
     "mtime": 1781925968.2754881,
     "ast_hash": "f51c0c145f0720761b8af4cfea01b92b",
+    "semantic_hash": ""
+  },
+  "app/dashboard/page.tsx": {
+    "mtime": 1781929310.7443256,
+    "ast_hash": "bb4b4d68b307d934697936145dd5cfd6",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/012_buyability_percent_shop_prices.sql": {
+    "mtime": 1781929232.4655526,
+    "ast_hash": "16d16704636b2eeb1abdf434fae111bf",
     "semantic_hash": ""
   }
 }

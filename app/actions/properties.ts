@@ -187,6 +187,10 @@ export async function createProperty(formData: FormData) {
     is_published: actor.role === "admin" ? formData.get("is_published") === "on" : false,
     is_featured: actor.role === "admin" ? formData.get("is_featured") === "on" : false,
     buy_ability: actor.role === "admin" ? formData.get("buy_ability") === "on" : false,
+    buy_ability_percent:
+      actor.role === "admin" && formData.get("buy_ability") === "on"
+        ? num(formData, "buy_ability_percent")
+        : null,
   };
 
   const { error } = await db.from("properties").insert(payload);
@@ -259,6 +263,8 @@ export async function updateProperty(propertyId: string, formData: FormData) {
     payload.is_published = formData.get("is_published") === "on";
     payload.is_featured = formData.get("is_featured") === "on";
     payload.buy_ability = formData.get("buy_ability") === "on";
+    payload.buy_ability_percent =
+      formData.get("buy_ability") === "on" ? num(formData, "buy_ability_percent") : null;
     if (str(formData, "agent_id")) payload.agent_id = str(formData, "agent_id");
   }
 

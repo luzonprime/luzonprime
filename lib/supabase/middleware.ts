@@ -34,6 +34,13 @@ export async function updateSession(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
+
+  // Signed-in users shouldn't see auth pages — send them to their dashboard.
+  const AUTH_PAGES = ["/login", "/signup", "/verify-otp", "/forgot-password"];
+  if (user && AUTH_PAGES.includes(path)) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
   const protectedPrefix = Object.keys(ROLE_PREFIXES).find(
     (prefix) => path === prefix || path.startsWith(`${prefix}/`)
   );

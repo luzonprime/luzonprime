@@ -150,7 +150,7 @@ export default async function PropertyDetailPage({
             </span>
             {property.buy_ability && (
               <span className="rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
-                Buy-Ability
+                Buy-Ability{property.buy_ability_percent != null ? ` ${property.buy_ability_percent}%` : ""}
               </span>
             )}
           </div>

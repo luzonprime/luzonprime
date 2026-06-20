@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { ImageGallery } from "@/components/listings/ImageGallery";
+import { Price } from "@/components/shared/Price";
 import type { ShopItem } from "@/types";
 
 async function getItem(slug: string): Promise<ShopItem | null> {
@@ -85,9 +86,11 @@ export default async function ShopItemPage({
           <h1 className="font-heading mt-2 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             {item.name}
           </h1>
-          <p className="mt-3 text-lg font-semibold text-[var(--color-heading)]">
-            {item.price_label ?? (item.price != null ? `₦${Number(item.price).toLocaleString()}` : "Price on request")}
-          </p>
+          <Price
+            amount={item.price}
+            fallback={item.price_label ?? "Price on request"}
+            className="mt-3 block text-lg font-semibold text-[var(--color-heading)]"
+          />
           {item.description && (
             <p className="mt-5 text-sm leading-relaxed text-[var(--color-text-muted)]">
               {item.description}

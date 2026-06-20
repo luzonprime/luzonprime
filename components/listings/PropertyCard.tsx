@@ -68,7 +68,7 @@ export function PropertyCard({ property }: { property: Property }) {
           </span>
           {property.buy_ability && (
             <span className="rounded-full bg-green-600 px-2.5 py-1 text-xs font-semibold text-white">
-              Buy-Ability
+              Buy-Ability{property.buy_ability_percent != null ? ` ${property.buy_ability_percent}%` : ""}
             </span>
           )}
         </div>

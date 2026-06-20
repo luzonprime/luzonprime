@@ -3,6 +3,7 @@ import { CheckCircle2, Wallet } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { BuyAbilityForm } from "@/components/buyability/BuyAbilityForm";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
+import type { Property } from "@/types";
 
 export const metadata: Metadata = {
   title: "Buy-Ability | Luzon Prime Realtors",
@@ -28,18 +29,15 @@ export default async function BuyAbilityPage({
     data: { user },
   } = await supabase.auth.getUser();
 
-  let preselected:
-    | { id: string; title: string; price: number | null; city: string | null }
-    | undefined;
+  let preselected: Property | undefined;
   if (property) {
     const { data } = await supabase
       .from("properties")
-      .select("id, title, price, city")
+      .select("*")
       .eq("id", property)
+      .eq("buy_ability", true)
       .single();
-    preselected =
-      (data as { id: string; title: string; price: number | null; city: string | null } | null) ??
-      undefined;
+    preselected = (data as Property | null) ?? undefined;
   }
 
   // Deduped locations from buy-ability listings only.
