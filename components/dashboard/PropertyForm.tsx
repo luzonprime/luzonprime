@@ -29,6 +29,48 @@ const DEFAULT_STATUSES: Term[] = [
   { slug: "rented", label: "Rented" },
 ];
 
+const UPLOAD_BUCKET = "property-images";
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s. Please retry.`)), ms)
+    ),
+  ]);
+}
+
+// Uploads each File in `field` to Storage and appends the resulting public URLs
+// to `existingField` (which the server action treats as kept URLs), then strips
+// the raw files so they never travel through the Server Action body.
+async function uploadFieldToStorage(
+  supabase: ReturnType<typeof createClient>,
+  userId: string,
+  formData: FormData,
+  field: string,
+  existingField: string
+) {
+  const files = formData
+    .getAll(field)
+    .filter((f): f is File => f instanceof File && f.size > 0);
+  for (const file of files) {
+    const ext = (file.name.split(".").pop() || "bin").toLowerCase();
+    const path = `${userId}/${crypto.randomUUID()}.${ext}`;
+    console.info(`[PropertyForm] uploading ${file.name} (${Math.round(file.size / 1024)}KB) → ${path}`);
+    const { error } = await withTimeout(
+      supabase.storage
+        .from(UPLOAD_BUCKET)
+        .upload(path, file, { contentType: file.type, upsert: false }),
+      120000,
+      `Upload of "${file.name}"`
+    );
+    if (error) throw new Error(`Upload failed for "${file.name}": ${error.message}`);
+    const { data } = supabase.storage.from(UPLOAD_BUCKET).getPublicUrl(path);
+    formData.append(existingField, data.publicUrl);
+  }
+  formData.delete(field);
+}
+
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -89,9 +131,22 @@ export function PropertyForm({
     setError(null);
     try {
       const formData = new FormData(e.currentTarget);
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) throw new Error("Your session expired — please sign in again.");
+
+      // Upload media directly to Storage from the browser (avoids the 1MB
+      // Server Action body limit), then pass only URLs to the action.
+      await uploadFieldToStorage(supabase, user.id, formData, "images", "existing_images");
+      await uploadFieldToStorage(supabase, user.id, formData, "videos", "existing_videos");
+      await uploadFieldToStorage(supabase, user.id, formData, "tours", "existing_tours");
+
       await action(formData);
       router.push(redirectTo);
     } catch (err) {
+      console.error("[PropertyForm] save failed:", err);
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);
     }

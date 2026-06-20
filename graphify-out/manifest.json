@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "app/actions/properties.ts": {
-    "mtime": 1781929454.6924226,
-    "ast_hash": "f148bfc6655c9a431173d3d8bd982e1e",
+    "mtime": 1781952917.6111,
+    "ast_hash": "9c8220fcc574076e1fb4469873e85a57",
     "semantic_hash": ""
   },
   "app/actions/settings.ts": {
@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   "app/signup/page.tsx": {
-    "mtime": 1781950035.0211961,
-    "ast_hash": "d5336fdf656a6d63b1cb4351b23d5d5d",
+    "mtime": 1781952994.3588328,
+    "ast_hash": "b6befe84ec0d90ed489d6e38daad2c33",
     "semantic_hash": ""
   },
   "app/sitemap.ts": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "app/verify-otp/page.tsx": {
-    "mtime": 1781742509.3259869,
-    "ast_hash": "e25ebd59ad86449a5a72753b0b8fd438",
+    "mtime": 1781953008.132945,
+    "ast_hash": "cc6f6037f200af79a668e359e0ad4d4b",
     "semantic_hash": ""
   },
   "components/agents/AgentListings.tsx": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/PropertyForm.tsx": {
-    "mtime": 1781929434.9572468,
-    "ast_hash": "92bf2f500226dedbcb75680b450c402c",
+    "mtime": 1781952902.8122032,
+    "ast_hash": "a49feb5e3bf1528bd5533cdd35959acd",
     "semantic_hash": ""
   },
   "components/dashboard/Sidebar.tsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "components/layout/Navbar.tsx": {
-    "mtime": 1781929359.365815,
-    "ast_hash": "9c582a377474f03e2e4a8274db3e2535",
+    "mtime": 1781953037.4212546,
+    "ast_hash": "561cea664903c83eabfc84b4d8173e62",
     "semantic_hash": ""
   },
   "components/layout/SiteChrome.tsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "components/listings/InquiryForm.tsx": {
-    "mtime": 1781737723.4372568,
-    "ast_hash": "df8d0b525b7efadb91fded200d4582b6",
+    "mtime": 1781953076.2579737,
+    "ast_hash": "823e022f3eb0137f542c167c7d906d07",
     "semantic_hash": ""
   },
   "components/listings/Pagination.tsx": {
@@ -770,8 +770,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/AvatarUpload.tsx": {
-    "mtime": 1781781819.6102428,
-    "ast_hash": "db5a7df04777d604a9fcd0844a364df5",
+    "mtime": 1781953277.1357186,
+    "ast_hash": "c784125ef7d4753140aebfec3b1f1235",
     "semantic_hash": ""
   },
   "components/dashboard/BookingsManager.tsx": {
@@ -780,8 +780,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/CrudManager.tsx": {
-    "mtime": 1781950880.7252412,
-    "ast_hash": "2e157e4b170ec5f94b46ca929cc8e7e0",
+    "mtime": 1781952949.8946557,
+    "ast_hash": "5c78e5c1d56d9978d7d8ff6d02c3c6e7",
     "semantic_hash": ""
   },
   "components/dashboard/MediaDropzone.tsx": {

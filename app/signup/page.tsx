@@ -40,7 +40,9 @@ export default function SignupPage() {
       return;
     }
 
-    router.push(`/verify-otp?email=${encodeURIComponent(values.email)}`);
+    router.push(
+      `/verify-otp?email=${encodeURIComponent(values.email)}&role=${values.role}`
+    );
   }
 
   return (

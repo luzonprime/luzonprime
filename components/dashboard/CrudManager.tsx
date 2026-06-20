@@ -9,6 +9,15 @@ import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s. Please retry.`)), ms)
+    ),
+  ]);
+}
+
 export type CrudRow = { id: string } & Record<string, unknown>;
 
 export type CrudField = {
@@ -181,10 +190,15 @@ export function CrudManager({
     const ext = (file.name.split(".").pop() || (isVideo ? "mp4" : "jpg")).toLowerCase();
     // eslint-disable-next-line react-hooks/purity -- unique upload path at save time
     const path = `site/${table}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-    const { error: upErr } = await supabase.storage
-      .from("property-images")
-      .upload(path, file, { upsert: true, contentType: file.type });
-    if (upErr) throw upErr;
+    console.info(`[CrudManager] uploading ${file.name} (${Math.round(file.size / 1024)}KB) → ${path}`);
+    const { error: upErr } = await withTimeout(
+      supabase.storage
+        .from("property-images")
+        .upload(path, file, { upsert: true, contentType: file.type }),
+      120000,
+      `Upload of "${file.name}"`
+    );
+    if (upErr) throw new Error(`Upload failed for "${file.name}": ${upErr.message}`);
     return supabase.storage.from("property-images").getPublicUrl(path).data.publicUrl;
   }
 
@@ -216,6 +230,7 @@ export function CrudManager({
         setEditing(null);
         router.refresh();
       } catch (e) {
+        console.error("[CrudManager] save failed:", e);
         setError(e instanceof Error ? e.message : "Something went wrong.");
       } finally {
         setSaving(false);

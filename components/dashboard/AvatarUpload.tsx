@@ -9,6 +9,15 @@ import { updateAvatar } from "@/app/actions/profile";
 
 const MAX_BYTES = 5 * 1024 * 1024; // 5MB
 
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms / 1000}s. Please retry.`)), ms)
+    ),
+  ]);
+}
+
 export function AvatarUpload({
   userId,
   currentUrl,
@@ -40,15 +49,21 @@ export function AvatarUpload({
       const supabase = createClient();
       const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
       const path = `${userId}/avatar-${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage
-        .from("avatars")
-        .upload(path, file, { upsert: true, contentType: file.type });
-      if (upErr) throw upErr;
+      console.info(`[AvatarUpload] uploading ${file.name} (${Math.round(file.size / 1024)}KB) → ${path}`);
+      const { error: upErr } = await withTimeout(
+        supabase.storage
+          .from("avatars")
+          .upload(path, file, { upsert: true, contentType: file.type }),
+        120000,
+        "Avatar upload"
+      );
+      if (upErr) throw new Error(`Upload failed: ${upErr.message}`);
       const { data: pub } = supabase.storage.from("avatars").getPublicUrl(path);
       await updateAvatar(pub.publicUrl);
       setUrl(pub.publicUrl);
       router.refresh();
     } catch (e) {
+      console.error("[AvatarUpload] failed:", e);
       setError(e instanceof Error ? e.message : "Upload failed.");
     } finally {
       setBusy(false);

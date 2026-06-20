@@ -157,9 +157,20 @@ export async function createProperty(formData: FormData) {
   const slug = await uniqueSlug(title);
 
   const uploadClient = actor.role === "admin" ? createAdminClient() : actor.sessionClient;
-  const images = await uploadImages(uploadClient, agentId, id, fileList(formData, "images"));
-  const videos = await uploadMedia(uploadClient, agentId, id, fileList(formData, "videos"), "videos", VIDEO_TYPES);
-  const virtual_tours = await uploadMedia(uploadClient, agentId, id, fileList(formData, "tours"), "tours", TOUR_TYPES);
+  // Media is normally uploaded client-side and arrives as existing_* URLs; the
+  // fileList uploads remain as a server-side fallback.
+  const images = [
+    ...formData.getAll("existing_images").map(String),
+    ...(await uploadImages(uploadClient, agentId, id, fileList(formData, "images"))),
+  ];
+  const videos = [
+    ...formData.getAll("existing_videos").map(String),
+    ...(await uploadMedia(uploadClient, agentId, id, fileList(formData, "videos"), "videos", VIDEO_TYPES)),
+  ];
+  const virtual_tours = [
+    ...formData.getAll("existing_tours").map(String),
+    ...(await uploadMedia(uploadClient, agentId, id, fileList(formData, "tours"), "tours", TOUR_TYPES)),
+  ];
 
   const payload = {
     id,

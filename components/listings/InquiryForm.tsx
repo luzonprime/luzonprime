@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
@@ -35,6 +36,25 @@ export function InquiryModal({
     reset,
     formState: { errors },
   } = useForm<InquiryInput>({ resolver: zodResolver(inquirySchema) });
+
+  // Prefill with the signed-in user's details (any role); anon users see a blank form.
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return;
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name, phone")
+        .eq("id", user.id)
+        .single();
+      reset({
+        name: (profile as { full_name?: string } | null)?.full_name ?? "",
+        email: user.email ?? "",
+        phone: (profile as { phone?: string } | null)?.phone ?? "",
+        message: "",
+      });
+    });
+  }, [reset]);
 
   async function onSubmit(values: InquiryInput) {
     setStatus("loading");

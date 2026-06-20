@@ -13,6 +13,7 @@ function VerifyOtpForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email") ?? "";
+  const role = searchParams.get("role");
   const [serverError, setServerError] = useState<string | null>(null);
   const [resent, setResent] = useState(false);
 
@@ -38,6 +39,15 @@ function VerifyOtpForm() {
     if (error) {
       setServerError(error.message);
       return;
+    }
+
+    // Now that a session exists, make sure the selected role is saved
+    // (belt-and-suspenders alongside the signup-metadata trigger).
+    if (role === "agent" || role === "client") {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user) await supabase.from("profiles").update({ role }).eq("id", user.id);
     }
 
     router.push("/login");

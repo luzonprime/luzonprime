@@ -113,9 +113,9 @@ export function Navbar() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-20 sm:px-[1.125rem] lg:px-8">
           <Link href="/" className="flex shrink-0 items-center" aria-label="Luzon Prime Realtors home">
             {transparent ? (
-              <Image src="/logo.png" alt="Luzon Prime Realtors" width={40} height={41} priority className="h-9 w-9 sm:h-10 sm:w-10" />
+              <Image src="/logo.png" alt="Luzon Prime Realtors" width={56} height={57} priority className="h-12 w-12 sm:h-14 sm:w-14" />
             ) : (
-              <Logo priority className="h-8 w-8 sm:h-9 sm:w-9" />
+              <Logo priority className="h-11 w-11 sm:h-12 sm:w-12" />
             )}
           </Link>
 
