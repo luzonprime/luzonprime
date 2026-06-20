@@ -5,14 +5,17 @@ import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { TopBar } from "@/components/dashboard/TopBar";
 import { cn } from "@/lib/utils";
+import type { DashboardUser } from "@/lib/auth";
 
 export function DashboardShell({
   title,
   navItems,
+  user = null,
   children,
 }: {
   title: string;
   navItems: { href: string; label: string }[];
+  user?: DashboardUser | null;
   children: React.ReactNode;
 }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -41,7 +44,7 @@ export function DashboardShell({
           collapsed ? "lg:pl-[76px]" : "lg:pl-64"
         )}
       >
-        <TopBar pageTitle={sectionTitle} onOpenMobile={() => setMobileOpen(true)} />
+        <TopBar pageTitle={sectionTitle} onOpenMobile={() => setMobileOpen(true)} user={user} />
         <main className="flex-1 px-4 py-6 sm:px-[1.125rem]">{children}</main>
       </div>
     </div>

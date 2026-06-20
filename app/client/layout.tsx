@@ -1,4 +1,5 @@
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
+import { getDashboardUser } from "@/lib/auth";
 
 const NAV_ITEMS = [
   { href: "/client", label: "Overview" },
@@ -6,9 +7,10 @@ const NAV_ITEMS = [
   { href: "/client/settings", label: "Settings" },
 ];
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default async function ClientLayout({ children }: { children: React.ReactNode }) {
+  const user = await getDashboardUser();
   return (
-    <DashboardShell title="My Account" navItems={NAV_ITEMS}>
+    <DashboardShell title="My Account" navItems={NAV_ITEMS} user={user}>
       {children}
     </DashboardShell>
   );

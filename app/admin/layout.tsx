@@ -1,4 +1,5 @@
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
+import { getDashboardUser } from "@/lib/auth";
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Overview" },
@@ -19,9 +20,10 @@ const NAV_ITEMS = [
   { href: "/admin/settings", label: "Settings" },
 ];
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const user = await getDashboardUser();
   return (
-    <DashboardShell title="Admin" navItems={NAV_ITEMS}>
+    <DashboardShell title="Admin" navItems={NAV_ITEMS} user={user}>
       {children}
     </DashboardShell>
   );

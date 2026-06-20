@@ -5,13 +5,16 @@ import { Menu } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
 import { ProfileMenu } from "@/components/dashboard/ProfileMenu";
 import { NotificationBell } from "@/components/dashboard/NotificationBell";
+import type { DashboardUser } from "@/lib/auth";
 
 export function TopBar({
   pageTitle,
   onOpenMobile,
+  user,
 }: {
   pageTitle: string;
   onOpenMobile?: () => void;
+  user: DashboardUser | null;
 }) {
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 px-4 py-3 backdrop-blur sm:px-[1.125rem]">
@@ -27,7 +30,7 @@ export function TopBar({
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <NotificationBell />
 
-        <ProfileMenu />
+        <ProfileMenu user={user} />
 
         <button
           type="button"

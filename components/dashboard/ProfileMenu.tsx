@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { LogOut } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { signOutAction } from "@/app/actions/auth";
+import type { DashboardUser } from "@/lib/auth";
 
 const ROLE_LABELS: Record<string, string> = {
   admin: "Admin",
@@ -19,9 +19,7 @@ function initials(name: string | null | undefined, fallback: string) {
   return letters.join("").toUpperCase();
 }
 
-export function ProfileMenu() {
-  const router = useRouter();
-  const { profile, signOut } = useAuth();
+export function ProfileMenu({ user }: { user: DashboardUser | null }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,13 +38,8 @@ export function ProfileMenu() {
     };
   }, []);
 
-  async function handleSignOut() {
-    await signOut();
-    router.replace("/");
-    router.refresh();
-  }
-
-  const roleLabel = profile?.role ? ROLE_LABELS[profile.role] ?? profile.role : "";
+  const roleLabel = user?.role ? ROLE_LABELS[user.role] ?? user.role : "";
+  const displayName = user?.fullName || user?.email || "Account";
 
   return (
     <div className="relative" ref={ref}>
@@ -58,10 +51,10 @@ export function ProfileMenu() {
         aria-label="Account menu"
         className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[var(--color-primary)] text-xs font-semibold text-white focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40"
       >
-        {profile?.avatar_url ? (
-          <Image src={profile.avatar_url} alt="" width={36} height={36} className="h-9 w-9 object-cover" />
+        {user?.avatarUrl ? (
+          <Image src={user.avatarUrl} alt="" width={36} height={36} className="h-9 w-9 object-cover" />
         ) : (
-          initials(profile?.full_name, profile?.role ?? "U")
+          initials(user?.fullName, user?.role ?? "U")
         )}
       </button>
 
@@ -72,20 +65,21 @@ export function ProfileMenu() {
         >
           <div className="border-b border-[var(--color-border)] px-4 py-3">
             <p className="truncate text-sm font-semibold text-[var(--color-text)]">
-              {profile?.full_name ?? "—"}
+              {displayName}
             </p>
             {roleLabel && (
               <p className="text-xs text-[var(--color-text-muted)]">{roleLabel}</p>
             )}
           </div>
-          <button
-            type="button"
-            role="menuitem"
-            onClick={handleSignOut}
-            className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium text-red-500 hover:bg-[var(--color-bg-muted)]"
-          >
-            <LogOut size={16} /> Log out
-          </button>
+          <form action={signOutAction}>
+            <button
+              type="submit"
+              role="menuitem"
+              className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium text-red-500 hover:bg-[var(--color-bg-muted)]"
+            >
+              <LogOut size={16} /> Log out
+            </button>
+          </form>
         </div>
       )}
     </div>
