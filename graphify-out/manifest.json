@@ -780,8 +780,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/CrudManager.tsx": {
-    "mtime": 1781946342.487238,
-    "ast_hash": "b30a2bdc2652081c01923631693f33fe",
+    "mtime": 1781950880.7252412,
+    "ast_hash": "2e157e4b170ec5f94b46ca929cc8e7e0",
     "semantic_hash": ""
   },
   "components/dashboard/MediaDropzone.tsx": {

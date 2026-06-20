@@ -48,7 +48,11 @@ export function CrudManager({
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  // Files chosen but not yet uploaded — uploaded to Supabase only on Save.
+  const [pendingFiles, setPendingFiles] = useState<
+    Record<string, { file: File; url: string }[]>
+  >({});
 
   const imageField = fields.find((f) => f.type === "image")?.name;
 
@@ -86,9 +90,24 @@ export function CrudManager({
     return "";
   }
 
+  function clearPending() {
+    setPendingFiles((prev) => {
+      Object.values(prev)
+        .flat()
+        .forEach((e) => URL.revokeObjectURL(e.url));
+      return {};
+    });
+  }
+
+  function closeModal() {
+    clearPending();
+    setEditing(null);
+  }
+
   function openNew() {
     const init: Record<string, unknown> = {};
     for (const f of fields) init[f.name] = f.type === "checkbox" ? true : blankFor(f.type);
+    clearPending();
     setForm(init);
     setError(null);
     setEditing("new");
@@ -97,23 +116,111 @@ export function CrudManager({
   function openEdit(row: CrudRow) {
     const init: Record<string, unknown> = {};
     for (const f of fields) init[f.name] = row[f.name] ?? blankFor(f.type);
+    clearPending();
     setForm(init);
     setError(null);
     setEditing(row);
   }
 
+  // Stage local files for preview; nothing is uploaded until Save.
+  function addFiles(name: string, list: FileList, type: "image" | "gallery" | "video") {
+    setError(null);
+    const max = type === "video" ? 50 * 1024 * 1024 : 5 * 1024 * 1024;
+    const entries: { file: File; url: string }[] = [];
+    for (const file of Array.from(list)) {
+      if (file.size > max) {
+        setError(`"${file.name}" exceeds the ${type === "video" ? "50MB" : "5MB"} limit.`);
+        continue;
+      }
+      entries.push({ file, url: URL.createObjectURL(file) });
+    }
+    if (entries.length === 0) return;
+    setPendingFiles((prev) => {
+      const next = { ...prev };
+      if (type === "image") {
+        (next[name] ?? []).forEach((e) => URL.revokeObjectURL(e.url));
+        next[name] = [entries[0]];
+      } else {
+        next[name] = [...(next[name] ?? []), ...entries];
+      }
+      return next;
+    });
+  }
+
+  function removePending(name: string, idx: number) {
+    setPendingFiles((prev) => {
+      const arr = prev[name] ?? [];
+      const target = arr[idx];
+      if (target) URL.revokeObjectURL(target.url);
+      return { ...prev, [name]: arr.filter((_, i) => i !== idx) };
+    });
+  }
+
+  function removeExisting(name: string, idx: number) {
+    setForm((s) => {
+      const arr = Array.isArray(s[name]) ? (s[name] as string[]) : [];
+      return { ...s, [name]: arr.filter((_, i) => i !== idx) };
+    });
+  }
+
+  function clearImage(name: string) {
+    setPendingFiles((prev) => {
+      (prev[name] ?? []).forEach((e) => URL.revokeObjectURL(e.url));
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
+    setForm((s) => ({ ...s, [name]: "" }));
+  }
+
+  async function uploadOne(
+    supabase: ReturnType<typeof createClient>,
+    file: File,
+    isVideo: boolean
+  ) {
+    const ext = (file.name.split(".").pop() || (isVideo ? "mp4" : "jpg")).toLowerCase();
+    // eslint-disable-next-line react-hooks/purity -- unique upload path at save time
+    const path = `site/${table}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+    const { error: upErr } = await supabase.storage
+      .from("property-images")
+      .upload(path, file, { upsert: true, contentType: file.type });
+    if (upErr) throw upErr;
+    return supabase.storage.from("property-images").getPublicUrl(path).data.publicUrl;
+  }
+
   function save() {
     setError(null);
-    startTransition(async () => {
+    setSaving(true);
+    (async () => {
       try {
-        if (editing === "new") await crudCreate(table, form);
-        else if (editing) await crudUpdate(table, editing.id, form);
+        const supabase = createClient();
+        const finalForm: Record<string, unknown> = { ...form };
+        for (const f of fields) {
+          const pend = pendingFiles[f.name];
+          if (!pend || pend.length === 0) continue;
+          if (f.type === "image") {
+            finalForm[f.name] = await uploadOne(supabase, pend[0].file, false);
+          } else if (f.type === "gallery" || f.type === "video") {
+            const existing = Array.isArray(finalForm[f.name])
+              ? [...(finalForm[f.name] as string[])]
+              : [];
+            for (const e of pend) {
+              existing.push(await uploadOne(supabase, e.file, f.type === "video"));
+            }
+            finalForm[f.name] = existing;
+          }
+        }
+        if (editing === "new") await crudCreate(table, finalForm);
+        else if (editing) await crudUpdate(table, editing.id, finalForm);
+        clearPending();
         setEditing(null);
         router.refresh();
       } catch (e) {
         setError(e instanceof Error ? e.message : "Something went wrong.");
+      } finally {
+        setSaving(false);
       }
-    });
+    })();
   }
 
   function remove(row: CrudRow) {
@@ -126,62 +233,6 @@ export function CrudManager({
         setError(e instanceof Error ? e.message : "Something went wrong.");
       }
     });
-  }
-
-  async function uploadImage(name: string, file: File) {
-    setError(null);
-    if (file.size > 5 * 1024 * 1024) {
-      setError("Image must be under 5MB.");
-      return;
-    }
-    setUploading(true);
-    try {
-      const supabase = createClient();
-      const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
-      // eslint-disable-next-line react-hooks/purity -- unique upload path inside an event handler
-      const path = `site/${table}/${Date.now()}.${ext}`;
-      const { error: upErr } = await supabase.storage
-        .from("property-images")
-        .upload(path, file, { upsert: true, contentType: file.type });
-      if (upErr) throw upErr;
-      const { data } = supabase.storage.from("property-images").getPublicUrl(path);
-      setForm((s) => ({ ...s, [name]: data.publicUrl }));
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Upload failed.");
-    } finally {
-      setUploading(false);
-    }
-  }
-
-  async function uploadFiles(name: string, files: FileList, isVideo: boolean) {
-    setError(null);
-    setUploading(true);
-    try {
-      const supabase = createClient();
-      const current = Array.isArray(form[name]) ? ([...(form[name] as string[])]) : [];
-      let i = 0;
-      for (const file of Array.from(files)) {
-        if (isVideo && file.size > 50 * 1024 * 1024) {
-          setError(`"${file.name}" exceeds the 50MB limit.`);
-          continue;
-        }
-        const ext = (file.name.split(".").pop() || "bin").toLowerCase();
-        // eslint-disable-next-line react-hooks/purity -- unique upload path in an event handler
-        const path = `site/${table}/${Date.now()}-${i++}.${ext}`;
-        const { error: upErr } = await supabase.storage
-          .from("property-images")
-          .upload(path, file, { upsert: true, contentType: file.type });
-        if (upErr) {
-          setError(upErr.message);
-          continue;
-        }
-        const { data } = supabase.storage.from("property-images").getPublicUrl(path);
-        current.push(data.publicUrl);
-      }
-      setForm((s) => ({ ...s, [name]: current }));
-    } finally {
-      setUploading(false);
-    }
   }
 
   function renderCard(row: CrudRow) {
@@ -320,7 +371,7 @@ export function CrudManager({
               <button
                 type="button"
                 aria-label="Close"
-                onClick={() => setEditing(null)}
+                onClick={closeModal}
                 className="flex h-8 w-8 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-bg-muted)]"
               >
                 <X size={18} />
@@ -350,32 +401,60 @@ export function CrudManager({
                     );
                   }
                   if (f.type === "image") {
+                    const pendUrl = pendingFiles[f.name]?.[0]?.url;
+                    const src = pendUrl ?? (value ? String(value) : "");
                     return (
                       <div key={f.name} className="flex flex-col gap-1.5">
                         <label className="text-sm font-medium text-[var(--color-text)]">{f.label}</label>
                         <div className="flex items-center gap-3">
-                          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-[var(--color-bg-muted)]">
-                            {value ? (
-                              <Image src={String(value)} alt="" fill sizes="56px" className="object-cover" />
+                          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-[var(--color-bg-muted)]">
+                            {src ? (
+                              <Image
+                                src={src}
+                                alt=""
+                                fill
+                                sizes="64px"
+                                className="object-cover"
+                                unoptimized={src.startsWith("blob:")}
+                              />
                             ) : (
                               <span className="flex h-full items-center justify-center text-[var(--color-text-muted)]">
                                 <ImagePlus size={18} />
                               </span>
                             )}
                           </div>
-                          <input
-                            type="file"
-                            accept="image/png,image/jpeg,image/webp,image/svg+xml"
-                            onChange={(e) => e.target.files?.[0] && uploadImage(f.name, e.target.files[0])}
-                            className="text-xs text-[var(--color-text-muted)]"
-                          />
+                          <div className="flex flex-col items-start gap-1.5">
+                            <label className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[var(--color-border)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text)] hover:bg-[var(--color-bg-muted)]">
+                              <ImagePlus size={14} /> {src ? "Replace image" : "Add image"}
+                              <input
+                                type="file"
+                                accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                                className="hidden"
+                                onChange={(e) => e.target.files && addFiles(f.name, e.target.files, "image")}
+                              />
+                            </label>
+                            {src && (
+                              <button
+                                type="button"
+                                onClick={() => clearImage(f.name)}
+                                className="text-xs text-red-500 hover:underline"
+                              >
+                                Remove
+                              </button>
+                            )}
+                          </div>
                         </div>
-                        {uploading && <span className="text-xs text-[var(--color-text-muted)]">Uploading…</span>}
+                        {pendUrl && (
+                          <span className="text-xs text-[var(--color-text-muted)]">
+                            New image — uploads when you save.
+                          </span>
+                        )}
                       </div>
                     );
                   }
                   if (f.type === "gallery") {
                     const arr = (Array.isArray(value) ? value : []) as string[];
+                    const pend = pendingFiles[f.name] ?? [];
                     return (
                       <div key={f.name} className="flex flex-col gap-1.5">
                         <label className="text-sm font-medium text-[var(--color-text)]">{f.label}</label>
@@ -386,56 +465,84 @@ export function CrudManager({
                               <button
                                 type="button"
                                 aria-label="Remove"
-                                onClick={() => setForm((s) => ({ ...s, [f.name]: arr.filter((_, idx) => idx !== i) }))}
+                                onClick={() => removeExisting(f.name, i)}
                                 className="absolute right-0.5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-white"
                               >
                                 <X size={12} />
                               </button>
                             </div>
                           ))}
-                          <label className="flex h-16 w-16 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-[var(--color-border)] text-[var(--color-text-muted)]">
+                          {pend.map((e, i) => (
+                            <div
+                              key={e.url}
+                              className="relative h-16 w-16 overflow-hidden rounded-lg bg-[var(--color-bg-muted)] ring-2 ring-[var(--color-accent)]"
+                            >
+                              <Image src={e.url} alt="" fill sizes="64px" className="object-cover" unoptimized />
+                              <button
+                                type="button"
+                                aria-label="Remove"
+                                onClick={() => removePending(f.name, i)}
+                                className="absolute right-0.5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-white"
+                              >
+                                <X size={12} />
+                              </button>
+                            </div>
+                          ))}
+                          <label className="flex h-16 w-16 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)]">
                             <ImagePlus size={18} />
                             <input
                               type="file"
                               accept="image/png,image/jpeg,image/webp"
                               multiple
                               className="hidden"
-                              onChange={(e) => e.target.files && uploadFiles(f.name, e.target.files, false)}
+                              onChange={(e) => e.target.files && addFiles(f.name, e.target.files, "gallery")}
                             />
                           </label>
                         </div>
-                        {uploading && <span className="text-xs text-[var(--color-text-muted)]">Uploading…</span>}
+                        {pend.length > 0 && (
+                          <span className="text-xs text-[var(--color-text-muted)]">
+                            {pend.length} new photo{pend.length > 1 ? "s" : ""} — upload when you save.
+                          </span>
+                        )}
                       </div>
                     );
                   }
                   if (f.type === "video") {
                     const arr = (Array.isArray(value) ? value : []) as string[];
+                    const pend = pendingFiles[f.name] ?? [];
                     return (
                       <div key={f.name} className="flex flex-col gap-1.5">
                         <label className="text-sm font-medium text-[var(--color-text)]">{f.label}</label>
-                        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[var(--color-border)] p-3 text-sm text-[var(--color-text-muted)]">
+                        <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[var(--color-border)] p-3 text-sm text-[var(--color-text-muted)] hover:border-[var(--color-primary)]">
                           <FileVideo size={16} /> Add videos (up to 50MB each)
                           <input
                             type="file"
                             accept="video/mp4,video/webm,video/quicktime"
                             multiple
                             className="hidden"
-                            onChange={(e) => e.target.files && uploadFiles(f.name, e.target.files, true)}
+                            onChange={(e) => e.target.files && addFiles(f.name, e.target.files, "video")}
                           />
                         </label>
-                        {arr.length > 0 && (
+                        {(arr.length > 0 || pend.length > 0) && (
                           <ul className="flex flex-col gap-1">
                             {arr.map((url, i) => (
                               <li key={url} className="flex items-center justify-between gap-2 rounded border border-[var(--color-border)] px-2 py-1 text-xs">
                                 <span className="truncate text-[var(--color-text)]">{decodeURIComponent(url.split("/").pop() ?? "video")}</span>
-                                <button type="button" aria-label="Remove" onClick={() => setForm((s) => ({ ...s, [f.name]: arr.filter((_, idx) => idx !== i) }))} className="text-[var(--color-text-muted)] hover:text-red-500">
+                                <button type="button" aria-label="Remove" onClick={() => removeExisting(f.name, i)} className="text-[var(--color-text-muted)] hover:text-red-500">
+                                  <X size={14} />
+                                </button>
+                              </li>
+                            ))}
+                            {pend.map((e, i) => (
+                              <li key={e.url} className="flex items-center justify-between gap-2 rounded border border-[var(--color-accent)] px-2 py-1 text-xs">
+                                <span className="truncate text-[var(--color-text)]">{e.file.name} · new</span>
+                                <button type="button" aria-label="Remove" onClick={() => removePending(f.name, i)} className="text-[var(--color-text-muted)] hover:text-red-500">
                                   <X size={14} />
                                 </button>
                               </li>
                             ))}
                           </ul>
                         )}
-                        {uploading && <span className="text-xs text-[var(--color-text-muted)]">Uploading…</span>}
                       </div>
                     );
                   }
@@ -491,8 +598,8 @@ export function CrudManager({
 
                 {error && <p className="text-sm text-red-500">{error}</p>}
 
-                <Button type="submit" disabled={isPending || uploading} className="mt-1">
-                  {isPending ? "Saving…" : "Save"}
+                <Button type="submit" disabled={saving} className="mt-1">
+                  {saving ? "Saving…" : "Save"}
                 </Button>
               </form>
             </div>
