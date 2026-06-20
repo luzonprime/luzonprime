@@ -148,6 +148,11 @@ export default async function PropertyDetailPage({
             <span className="rounded-full bg-[var(--color-primary)] px-3 py-1 text-xs font-semibold text-white">
               {STATUS_LABELS[property.status] ?? property.status}
             </span>
+            {property.buy_ability && (
+              <span className="rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
+                Buy-Ability
+              </span>
+            )}
           </div>
 
           <h1 className="font-heading mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">

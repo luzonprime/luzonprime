@@ -205,7 +205,7 @@ export function PropertyForm({
       </div>
 
       {role === "admin" && (
-        <div className="grid gap-4 rounded-xl border border-[var(--color-border)] p-4 sm:grid-cols-3">
+        <div className="grid gap-4 rounded-xl border border-[var(--color-border)] p-4 sm:grid-cols-2 lg:grid-cols-4">
           <Field label="Assign to agent">
             <select name="agent_id" defaultValue={property?.agent_id ?? ""} className={selectClass}>
               <option value="">Unassigned</option>
@@ -223,6 +223,10 @@ export function PropertyForm({
           <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
             <input type="checkbox" name="is_featured" defaultChecked={property?.is_featured} />
             Featured
+          </label>
+          <label className="flex items-center gap-2 self-end pb-2 text-sm font-medium text-[var(--color-text)]">
+            <input type="checkbox" name="buy_ability" defaultChecked={property?.buy_ability} />
+            Buy-Ability
           </label>
         </div>
       )}

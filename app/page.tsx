@@ -5,6 +5,7 @@ import { TrustMarquee } from "@/components/home/TrustMarquee";
 import { StatsBar } from "@/components/home/StatsBar";
 import { FeaturedListings } from "@/components/home/FeaturedListings";
 import { CategoryCurations } from "@/components/home/CategoryCurations";
+import { BuyAbilityBanner } from "@/components/home/BuyAbilityBanner";
 import { PropertyMarquee } from "@/components/home/PropertyMarquee";
 import { Neighborhoods } from "@/components/home/Neighborhoods";
 import { BlueprintStatement } from "@/components/home/BlueprintStatement";
@@ -31,6 +32,7 @@ export default async function Home() {
       <StatsBar />
       <FeaturedListings />
       <CategoryCurations />
+      <BuyAbilityBanner />
       <PropertyMarquee />
       <Neighborhoods />
       <BlueprintStatement />

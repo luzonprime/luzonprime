@@ -2,10 +2,20 @@ import { createClient } from "@/lib/supabase/server";
 import type { Property } from "@/types";
 import { PropertyCard } from "@/components/listings/PropertyCard";
 import { PropertyFilters } from "@/components/listings/PropertyFilters";
+import { ListingsSort } from "@/components/listings/ListingsSort";
 import { Pagination } from "@/components/listings/Pagination";
 import { AnimatedStagger, AnimatedStaggerItem } from "@/components/shared/AnimatedSection";
 
 const PAGE_SIZE = 9;
+
+const SORTS: Record<string, { column: string; ascending: boolean }> = {
+  newest: { column: "created_at", ascending: false },
+  price_desc: { column: "price", ascending: false },
+  price_asc: { column: "price", ascending: true },
+  beds_desc: { column: "bedrooms", ascending: false },
+  baths_desc: { column: "bathrooms", ascending: false },
+  size_desc: { column: "size_sqm", ascending: false },
+};
 
 export const metadata = {
   title: "Listings | Luzon Prime Realtors",
@@ -19,6 +29,7 @@ interface ListingsSearchParams {
   bedrooms?: string;
   price_range?: string;
   features?: string;
+  sort?: string;
   page?: string;
 }
 
@@ -59,9 +70,10 @@ export default async function ListingsPage({
 
   const page = Math.max(1, Number(params.page) || 1);
   const from = (page - 1) * PAGE_SIZE;
+  const sort = SORTS[params.sort ?? "newest"] ?? SORTS.newest;
 
   const { data, count } = await query
-    .order("created_at", { ascending: false })
+    .order(sort.column, { ascending: sort.ascending, nullsFirst: false })
     .range(from, from + PAGE_SIZE - 1);
   const properties = (data ?? []) as Property[];
   const total = count ?? 0;
@@ -82,9 +94,12 @@ export default async function ListingsPage({
       <h1 className="font-heading text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
         Listings
       </h1>
-      <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-        {total} {total === 1 ? "property" : "properties"} found
-      </p>
+      <div className="mt-1 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-[var(--color-text-muted)]">
+          {total} {total === 1 ? "property" : "properties"} found
+        </p>
+        <ListingsSort />
+      </div>
 
       <div className="mt-6 flex flex-col gap-6 lg:flex-row">
         <PropertyFilters />

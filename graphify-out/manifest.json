@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "app/actions/properties.ts": {
-    "mtime": 1781781975.8645418,
-    "ast_hash": "3f29e5400b601208e8bde625c7cbe025",
+    "mtime": 1781904771.555406,
+    "ast_hash": "2cabb32607e08955ea089bc8a3b1c8eb",
     "semantic_hash": ""
   },
   "app/actions/settings.ts": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "app/admin/layout.tsx": {
-    "mtime": 1781782335.7107694,
-    "ast_hash": "63b1e9e70f7d65817c57ca421d8b4859",
+    "mtime": 1781922203.7052226,
+    "ast_hash": "6719709b39624f82b8ea65384b8647cf",
     "semantic_hash": ""
   },
   "app/admin/page.tsx": {
@@ -140,13 +140,13 @@
     "semantic_hash": ""
   },
   "app/api/contact/route.ts": {
-    "mtime": 1781759563.5686617,
-    "ast_hash": "fc0c2e471dc5adc5d9013311f4d1ffb7",
+    "mtime": 1781905837.5431392,
+    "ast_hash": "1a8f9398b7fc38a3379695cf6d93af0a",
     "semantic_hash": ""
   },
   "app/api/inquire/route.ts": {
-    "mtime": 1781759563.5003965,
-    "ast_hash": "490f0131e9af556e784a30881eedaefe",
+    "mtime": 1781905837.4623876,
+    "ast_hash": "34c82a8013b577d75b02d88bf255467b",
     "semantic_hash": ""
   },
   "app/api/rates/route.ts": {
@@ -205,13 +205,13 @@
     "semantic_hash": ""
   },
   "app/listings/[slug]/page.tsx": {
-    "mtime": 1781782039.551525,
-    "ast_hash": "6b6072c4f433e4eb26ff3f57909fa089",
+    "mtime": 1781904861.7319925,
+    "ast_hash": "0d2524f9e7f2e730ac4b3a91fe3c5b86",
     "semantic_hash": ""
   },
   "app/listings/page.tsx": {
-    "mtime": 1781760100.2136278,
-    "ast_hash": "916afd601f74b43a708a4610fd7f79e6",
+    "mtime": 1781904357.2233613,
+    "ast_hash": "435f01706c311afd6fd260ea966d5693",
     "semantic_hash": ""
   },
   "app/login/page.tsx": {
@@ -220,8 +220,8 @@
     "semantic_hash": ""
   },
   "app/page.tsx": {
-    "mtime": 1781784666.2039769,
-    "ast_hash": "9dd226c7c59a8e6e525d3203d3a13b81",
+    "mtime": 1781904848.2924154,
+    "ast_hash": "09aacfc357846f323ec448d7baf7263f",
     "semantic_hash": ""
   },
   "app/reset-password/page.tsx": {
@@ -300,13 +300,13 @@
     "semantic_hash": ""
   },
   "components/dashboard/PropertyForm.tsx": {
-    "mtime": 1781782008.5538285,
-    "ast_hash": "acf40aada436ca159950bc3f99d722ae",
+    "mtime": 1781904759.457074,
+    "ast_hash": "b10fe3f8d83feaa0f757db20078e2329",
     "semantic_hash": ""
   },
   "components/dashboard/Sidebar.tsx": {
-    "mtime": 1781781194.5157366,
-    "ast_hash": "a06862986dfc11d74975903b9a86e77b",
+    "mtime": 1781922207.0562403,
+    "ast_hash": "7d5ebc949ba32845537d910ee8413a1d",
     "semantic_hash": ""
   },
   "components/dashboard/SiteSettingsForm.tsx": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "components/home/CategoryCurations.tsx": {
-    "mtime": 1781784244.7349846,
-    "ast_hash": "b4918c71288d2809a9fb483e9dc7ac31",
+    "mtime": 1781904259.2033126,
+    "ast_hash": "8cb9f9789f936487e5465a3b913ab7f7",
     "semantic_hash": ""
   },
   "components/home/FeaturedListings.tsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "components/layout/Navbar.tsx": {
-    "mtime": 1781781334.5144846,
-    "ast_hash": "49c492fa2e008a69c1f546e75365785f",
+    "mtime": 1781904993.426216,
+    "ast_hash": "3812245eaf06c3da081d5fc5ea26a54a",
     "semantic_hash": ""
   },
   "components/layout/SiteChrome.tsx": {
@@ -455,13 +455,13 @@
     "semantic_hash": ""
   },
   "components/listings/PropertyCard.tsx": {
-    "mtime": 1781760753.301795,
-    "ast_hash": "f92df4758ec5e4274ade13f1dcda9aef",
+    "mtime": 1781904797.6117632,
+    "ast_hash": "04aa5a59845c12352457068020b08a89",
     "semantic_hash": ""
   },
   "components/listings/PropertyEnquiryCTA.tsx": {
-    "mtime": 1781758174.0232804,
-    "ast_hash": "501269f725cef231c70b6367b9cb19ee",
+    "mtime": 1781904903.1570356,
+    "ast_hash": "321ca84f619d726d3baf95765614a581",
     "semantic_hash": ""
   },
   "components/listings/PropertyFilters.tsx": {
@@ -545,8 +545,8 @@
     "semantic_hash": ""
   },
   "lib/brevo.ts": {
-    "mtime": 1781759563.2832432,
-    "ast_hash": "bc7c5e03da9096c01958717b7dedd51e",
+    "mtime": 1781905777.4435346,
+    "ast_hash": "cd6734ed0fdbc0046aeea596ff7b2405",
     "semantic_hash": ""
   },
   "lib/currency.ts": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "types/index.ts": {
-    "mtime": 1781784813.4163783,
-    "ast_hash": "2534c46670e9d1bd7f8138c0e8db41ea",
+    "mtime": 1781922467.2210789,
+    "ast_hash": "4ee19fccb4410609b09ac846c1aab1df",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -735,8 +735,8 @@
     "semantic_hash": ""
   },
   "app/actions/admin-crud.ts": {
-    "mtime": 1781784634.649711,
-    "ast_hash": "96db728258092625b66799b587c419b5",
+    "mtime": 1781906079.2287757,
+    "ast_hash": "10efe3a833ee558547e5d1a12c204fb1",
     "semantic_hash": ""
   },
   "app/actions/bookings.ts": {
@@ -812,6 +812,91 @@
   "supabase/migrations/008_award_image.sql": {
     "mtime": 1781784587.8246017,
     "ast_hash": "bb7b95da81699814222945d4e8b64d85",
+    "semantic_hash": ""
+  },
+  "app/actions/buyability.ts": {
+    "mtime": 1781904671.9576192,
+    "ast_hash": "539d8415bac381c3b4eb731502b8f714",
+    "semantic_hash": ""
+  },
+  "app/admin/buy-ability/page.tsx": {
+    "mtime": 1781904958.5237558,
+    "ast_hash": "7164a2c09706f5b3c61211ed9f800686",
+    "semantic_hash": ""
+  },
+  "app/admin/categories/page.tsx": {
+    "mtime": 1781904284.436844,
+    "ast_hash": "913f4e32e8601d6481e79a373bd01aad",
+    "semantic_hash": ""
+  },
+  "app/admin/interior-projects/page.tsx": {
+    "mtime": 1781922178.7184765,
+    "ast_hash": "6f833550c4409a4d86fcabf4f00af7de",
+    "semantic_hash": ""
+  },
+  "app/admin/shop-items/page.tsx": {
+    "mtime": 1781922190.3392456,
+    "ast_hash": "99b83e4e22c551c5a5f79ebb173a0ead",
+    "semantic_hash": ""
+  },
+  "app/buy-ability/page.tsx": {
+    "mtime": 1781905204.4344869,
+    "ast_hash": "667df6c5f5c9994d7e7ceaa28d53be75",
+    "semantic_hash": ""
+  },
+  "app/interior-designs/page.tsx": {
+    "mtime": 1781922263.121245,
+    "ast_hash": "b719a58578243635acbcad43eabd128a",
+    "semantic_hash": ""
+  },
+  "app/interior-designs/portfolio/[slug]/page.tsx": {
+    "mtime": 1781922315.2426875,
+    "ast_hash": "49563b3e1dd917a29b1a5dcbc78e0f14",
+    "semantic_hash": ""
+  },
+  "app/interior-designs/shop/[slug]/page.tsx": {
+    "mtime": 1781922290.9558423,
+    "ast_hash": "6c69d836ddfc415dc37b0c9001b18faf",
+    "semantic_hash": ""
+  },
+  "components/buyability/BuyAbilityForm.tsx": {
+    "mtime": 1781904720.1602674,
+    "ast_hash": "a6aaa566c2cbcb7e90a83f40427c697b",
+    "semantic_hash": ""
+  },
+  "components/dashboard/BuyAbilityManager.tsx": {
+    "mtime": 1781904945.590206,
+    "ast_hash": "319be73b1f556790826ad71d964e0928",
+    "semantic_hash": ""
+  },
+  "components/home/BuyAbilityBanner.tsx": {
+    "mtime": 1781904835.4593253,
+    "ast_hash": "96f34541e6d2be15676cef11c81293f1",
+    "semantic_hash": ""
+  },
+  "components/interior/ShopGrid.tsx": {
+    "mtime": 1781922238.4185414,
+    "ast_hash": "2c4eb52813a72b635a968569995fd1b0",
+    "semantic_hash": ""
+  },
+  "components/listings/ListingsSort.tsx": {
+    "mtime": 1781904368.9671142,
+    "ast_hash": "3813ed558830f4904a2809bbc6959bed",
+    "semantic_hash": ""
+  },
+  "lib/buyability.ts": {
+    "mtime": 1781904648.773636,
+    "ast_hash": "39f7c103ab261dea53bceec268ac9054",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/009_categories_buyability_interior.sql": {
+    "mtime": 1781904178.3343754,
+    "ast_hash": "554b1bc039fde078b80fdc53710f6ff8",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/010_interior_seed.sql": {
+    "mtime": 1781905918.6672728,
+    "ast_hash": "e2a0a5074e133ffe53b46c6654444f1f",
     "semantic_hash": ""
   }
 }

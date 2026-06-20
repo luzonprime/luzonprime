@@ -188,7 +188,7 @@
       "label": "requireAdmin()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L28",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "actions_admin_crud_requireadmin",
       "community": 15,
@@ -198,7 +198,7 @@
       "label": "pick()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L42",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "actions_admin_crud_pick",
       "community": 15,
@@ -208,7 +208,7 @@
       "label": "revalidate()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L52",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "actions_admin_crud_revalidate",
       "community": 15,
@@ -218,7 +218,7 @@
       "label": "crudCreate()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L56",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "actions_admin_crud_crudcreate",
       "community": 15,
@@ -228,7 +228,7 @@
       "label": "crudUpdate()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L64",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "actions_admin_crud_crudupdate",
       "community": 15,
@@ -238,7 +238,7 @@
       "label": "crudDelete()",
       "file_type": "code",
       "source_file": "app/actions/admin-crud.ts",
-      "source_location": "L76",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "actions_admin_crud_cruddelete",
       "community": 15,
@@ -251,7 +251,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "actions_bookings",
-      "community": 0,
+      "community": 8,
       "norm_label": "bookings.ts"
     },
     {
@@ -261,7 +261,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "actions_bookings_requireadmin",
-      "community": 0,
+      "community": 8,
       "norm_label": "requireadmin()"
     },
     {
@@ -271,7 +271,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "actions_bookings_updatebookingstatus",
-      "community": 0,
+      "community": 8,
       "norm_label": "updatebookingstatus()"
     },
     {
@@ -281,8 +281,78 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "actions_bookings_deletebooking",
-      "community": 0,
+      "community": 8,
       "norm_label": "deletebooking()"
+    },
+    {
+      "label": "buyability.ts",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "actions_buyability",
+      "community": 5,
+      "norm_label": "buyability.ts"
+    },
+    {
+      "label": "SubmitBuyAbilityInput",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "actions_buyability_submitbuyabilityinput",
+      "community": 5,
+      "norm_label": "submitbuyabilityinput"
+    },
+    {
+      "label": "submitBuyAbility()",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "actions_buyability_submitbuyability",
+      "community": 5,
+      "norm_label": "submitbuyability()"
+    },
+    {
+      "label": "requireAdmin()",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "actions_buyability_requireadmin",
+      "community": 5,
+      "norm_label": "requireadmin()"
+    },
+    {
+      "label": "respondBuyAbility()",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L98",
+      "_origin": "ast",
+      "id": "actions_buyability_respondbuyability",
+      "community": 5,
+      "norm_label": "respondbuyability()"
+    },
+    {
+      "label": "updateBuyAbilityStatus()",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "actions_buyability_updatebuyabilitystatus",
+      "community": 5,
+      "norm_label": "updatebuyabilitystatus()"
+    },
+    {
+      "label": "deleteBuyAbilitySubmission()",
+      "file_type": "code",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "actions_buyability_deletebuyabilitysubmission",
+      "community": 5,
+      "norm_label": "deletebuyabilitysubmission()"
     },
     {
       "label": "inquiries.ts",
@@ -291,7 +361,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "actions_inquiries",
-      "community": 6,
+      "community": 0,
       "norm_label": "inquiries.ts"
     },
     {
@@ -301,7 +371,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "actions_inquiries_requireadmin",
-      "community": 6,
+      "community": 0,
       "norm_label": "requireadmin()"
     },
     {
@@ -311,7 +381,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "actions_inquiries_assigninquiry",
-      "community": 6,
+      "community": 0,
       "norm_label": "assigninquiry()"
     },
     {
@@ -321,7 +391,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "actions_inquiries_updateinquirystatus",
-      "community": 6,
+      "community": 0,
       "norm_label": "updateinquirystatus()"
     },
     {
@@ -331,7 +401,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "actions_profile",
-      "community": 1,
+      "community": 15,
       "norm_label": "profile.ts"
     },
     {
@@ -341,7 +411,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "actions_profile_updateownprofile",
-      "community": 1,
+      "community": 15,
       "norm_label": "updateownprofile()"
     },
     {
@@ -351,7 +421,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "actions_profile_updateavatar",
-      "community": 1,
+      "community": 15,
       "norm_label": "updateavatar()"
     },
     {
@@ -488,7 +558,7 @@
       "label": "updateProperty()",
       "file_type": "code",
       "source_file": "app/actions/properties.ts",
-      "source_location": "L201",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "actions_properties_updateproperty",
       "community": 6,
@@ -498,7 +568,7 @@
       "label": "deleteProperty()",
       "file_type": "code",
       "source_file": "app/actions/properties.ts",
-      "source_location": "L274",
+      "source_location": "L276",
       "_origin": "ast",
       "id": "actions_properties_deleteproperty",
       "community": 6,
@@ -508,7 +578,7 @@
       "label": "publishProperty()",
       "file_type": "code",
       "source_file": "app/actions/properties.ts",
-      "source_location": "L307",
+      "source_location": "L309",
       "_origin": "ast",
       "id": "actions_properties_publishproperty",
       "community": 6,
@@ -518,7 +588,7 @@
       "label": "toggleFeatured()",
       "file_type": "code",
       "source_file": "app/actions/properties.ts",
-      "source_location": "L325",
+      "source_location": "L327",
       "_origin": "ast",
       "id": "actions_properties_togglefeatured",
       "community": 6,
@@ -641,7 +711,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "bookings_page",
-      "community": 0,
+      "community": 8,
       "norm_label": "page.tsx"
     },
     {
@@ -651,8 +721,48 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "bookings_page_adminbookingspage",
-      "community": 0,
+      "community": 8,
       "norm_label": "adminbookingspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "community": 5,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AdminBuyAbilityPage()",
+      "file_type": "code",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "buy_ability_page_adminbuyabilitypage",
+      "community": 5,
+      "norm_label": "adminbuyabilitypage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "categories_page",
+      "community": 15,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AdminCategoriesPage()",
+      "file_type": "code",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "categories_page_admincategoriespage",
+      "community": 15,
+      "norm_label": "admincategoriespage()"
     },
     {
       "label": "page.tsx",
@@ -675,13 +785,33 @@
       "norm_label": "admininquiriespage()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "interior_projects_page",
+      "community": 15,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AdminInteriorProjectsPage()",
+      "file_type": "code",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "interior_projects_page_admininteriorprojectspage",
+      "community": 15,
+      "norm_label": "admininteriorprojectspage()"
+    },
+    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "app/admin/layout.tsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_layout",
-      "community": 15,
+      "community": 10,
       "norm_label": "layout.tsx"
     },
     {
@@ -691,17 +821,17 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "admin_layout_nav_items",
-      "community": 15,
+      "community": 10,
       "norm_label": "nav_items"
     },
     {
       "label": "AdminLayout()",
       "file_type": "code",
       "source_file": "app/admin/layout.tsx",
-      "source_location": "L18",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "admin_layout_adminlayout",
-      "community": 15,
+      "community": 10,
       "norm_label": "adminlayout()"
     },
     {
@@ -841,7 +971,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_admin_settings_page_tsx_settings_page",
-      "community": 0,
+      "community": 15,
       "norm_label": "page.tsx"
     },
     {
@@ -851,8 +981,28 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "settings_page_adminsettingspage",
-      "community": 0,
+      "community": 15,
       "norm_label": "adminsettingspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "shop_items_page",
+      "community": 15,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "AdminShopItemsPage()",
+      "file_type": "code",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "shop_items_page_adminshopitemspage",
+      "community": 15,
+      "norm_label": "adminshopitemspage()"
     },
     {
       "label": "page.tsx",
@@ -921,7 +1071,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agent_layout",
-      "community": 5,
+      "community": 10,
       "norm_label": "layout.tsx"
     },
     {
@@ -931,7 +1081,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "agent_layout_nav_items",
-      "community": 5,
+      "community": 10,
       "norm_label": "nav_items"
     },
     {
@@ -941,7 +1091,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "agent_layout_agentlayout",
-      "community": 5,
+      "community": 10,
       "norm_label": "agentlayout()"
     },
     {
@@ -1031,7 +1181,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_agent_settings_page_tsx_settings_page",
-      "community": 0,
+      "community": 15,
       "norm_label": "page.tsx"
     },
     {
@@ -1041,7 +1191,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "settings_page_agentsettingspage",
-      "community": 0,
+      "community": 15,
       "norm_label": "agentsettingspage()"
     },
     {
@@ -1051,7 +1201,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "id_page",
-      "community": 11,
+      "community": 7,
       "norm_label": "page.tsx"
     },
     {
@@ -1061,7 +1211,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "id_page_getagent",
-      "community": 11,
+      "community": 7,
       "norm_label": "getagent()"
     },
     {
@@ -1071,7 +1221,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "id_page_generatemetadata",
-      "community": 11,
+      "community": 7,
       "norm_label": "generatemetadata()"
     },
     {
@@ -1081,7 +1231,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "id_page_agentdetailpage",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentdetailpage()"
     },
     {
@@ -1121,7 +1271,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "contact_route",
-      "community": 15,
+      "community": 5,
       "norm_label": "route.ts"
     },
     {
@@ -1131,7 +1281,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "contact_route_contactschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "contactschema"
     },
     {
@@ -1141,7 +1291,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "contact_route_post",
-      "community": 15,
+      "community": 5,
       "norm_label": "post()"
     },
     {
@@ -1151,7 +1301,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "inquire_route",
-      "community": 15,
+      "community": 5,
       "norm_label": "route.ts"
     },
     {
@@ -1161,7 +1311,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "inquire_route_inquireschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "inquireschema"
     },
     {
@@ -1171,7 +1321,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "inquire_route_post",
-      "community": 15,
+      "community": 5,
       "norm_label": "post()"
     },
     {
@@ -1201,7 +1351,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "subscribe_route",
-      "community": 15,
+      "community": 5,
       "norm_label": "route.ts"
     },
     {
@@ -1211,7 +1361,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "subscribe_route_subscribeschema",
-      "community": 15,
+      "community": 5,
       "norm_label": "subscribeschema"
     },
     {
@@ -1221,7 +1371,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "subscribe_route_post",
-      "community": 15,
+      "community": 5,
       "norm_label": "post()"
     },
     {
@@ -1315,13 +1465,53 @@
       "norm_label": "blogpage()"
     },
     {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_buy_ability_page_tsx_buy_ability_page",
+      "community": 5,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "buy_ability_page_metadata",
+      "community": 5,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "PERKS",
+      "file_type": "code",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "buy_ability_page_perks",
+      "community": 5,
+      "norm_label": "perks"
+    },
+    {
+      "label": "BuyAbilityPage()",
+      "file_type": "code",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "buy_ability_page_buyabilitypage",
+      "community": 5,
+      "norm_label": "buyabilitypage()"
+    },
+    {
       "label": "layout.tsx",
       "file_type": "code",
       "source_file": "app/client/layout.tsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "client_layout",
-      "community": 5,
+      "community": 10,
       "norm_label": "layout.tsx"
     },
     {
@@ -1331,7 +1521,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "client_layout_nav_items",
-      "community": 5,
+      "community": 10,
       "norm_label": "nav_items"
     },
     {
@@ -1341,7 +1531,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "client_layout_clientlayout",
-      "community": 5,
+      "community": 10,
       "norm_label": "clientlayout()"
     },
     {
@@ -1351,7 +1541,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "client_page",
-      "community": 0,
+      "community": 15,
       "norm_label": "page.tsx"
     },
     {
@@ -1361,7 +1551,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "client_page_inquiry_status_styles",
-      "community": 0,
+      "community": 15,
       "norm_label": "inquiry_status_styles"
     },
     {
@@ -1371,7 +1561,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "client_page_booking_status_styles",
-      "community": 0,
+      "community": 15,
       "norm_label": "booking_status_styles"
     },
     {
@@ -1381,7 +1571,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "client_page_formatdatetime",
-      "community": 0,
+      "community": 15,
       "norm_label": "formatdatetime()"
     },
     {
@@ -1391,7 +1581,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "client_page_clientoverviewpage",
-      "community": 0,
+      "community": 15,
       "norm_label": "clientoverviewpage()"
     },
     {
@@ -1401,7 +1591,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_client_settings_page_tsx_settings_page",
-      "community": 0,
+      "community": 15,
       "norm_label": "page.tsx"
     },
     {
@@ -1411,7 +1601,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "settings_page_clientsettingspage",
-      "community": 0,
+      "community": 15,
       "norm_label": "clientsettingspage()"
     },
     {
@@ -1473,6 +1663,116 @@
       "id": "forgot_password_page_forgotpasswordpage",
       "community": 1,
       "norm_label": "forgotpasswordpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "interior_designs_page",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "interior_designs_page_metadata",
+      "community": 0,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "InteriorDesignsPage()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "interior_designs_page_interiordesignspage",
+      "community": 0,
+      "norm_label": "interiordesignspage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "getProject()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "slug_page_getproject",
+      "community": 0,
+      "norm_label": "getproject()"
+    },
+    {
+      "label": "generateMetadata()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "app_interior_designs_portfolio_slug_page_tsx_slug_page_generatemetadata",
+      "community": 0,
+      "norm_label": "generatemetadata()"
+    },
+    {
+      "label": "PortfolioProjectPage()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "slug_page_portfolioprojectpage",
+      "community": 0,
+      "norm_label": "portfolioprojectpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "getItem()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "slug_page_getitem",
+      "community": 0,
+      "norm_label": "getitem()"
+    },
+    {
+      "label": "generateMetadata()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "app_interior_designs_shop_slug_page_tsx_slug_page_generatemetadata",
+      "community": 0,
+      "norm_label": "generatemetadata()"
+    },
+    {
+      "label": "ShopItemPage()",
+      "file_type": "code",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "slug_page_shopitempage",
+      "community": 0,
+      "norm_label": "shopitempage()"
     },
     {
       "label": "layout.tsx",
@@ -1581,7 +1881,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_listings_slug_page_tsx_slug_page",
-      "community": 11,
+      "community": 7,
       "norm_label": "page.tsx"
     },
     {
@@ -1591,7 +1891,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "slug_page_generatestaticparams",
-      "community": 11,
+      "community": 7,
       "norm_label": "generatestaticparams()"
     },
     {
@@ -1601,7 +1901,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "slug_page_getproperty",
-      "community": 11,
+      "community": 7,
       "norm_label": "getproperty()"
     },
     {
@@ -1611,7 +1911,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "app_listings_slug_page_tsx_slug_page_generatemetadata",
-      "community": 11,
+      "community": 7,
       "norm_label": "generatemetadata()"
     },
     {
@@ -1621,7 +1921,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "slug_page_propertydetailpage",
-      "community": 11,
+      "community": 7,
       "norm_label": "propertydetailpage()"
     },
     {
@@ -1635,10 +1935,20 @@
       "norm_label": "page.tsx"
     },
     {
+      "label": "SORTS",
+      "file_type": "code",
+      "source_file": "app/listings/page.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "listings_page_sorts",
+      "community": 11,
+      "norm_label": "sorts"
+    },
+    {
       "label": "metadata",
       "file_type": "code",
       "source_file": "app/listings/page.tsx",
-      "source_location": "L10",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "listings_page_metadata",
       "community": 11,
@@ -1648,7 +1958,7 @@
       "label": "ListingsSearchParams",
       "file_type": "code",
       "source_file": "app/listings/page.tsx",
-      "source_location": "L15",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "listings_page_listingssearchparams",
       "community": 11,
@@ -1658,7 +1968,7 @@
       "label": "ListingsPage()",
       "file_type": "code",
       "source_file": "app/listings/page.tsx",
-      "source_location": "L25",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "listings_page_listingspage",
       "community": 11,
@@ -1738,7 +2048,7 @@
       "label": "Home()",
       "file_type": "code",
       "source_file": "app/page.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "app_page_home",
       "community": 2,
@@ -1951,8 +2261,28 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "agents_agentlistings_agentlistings",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentlistings()"
+    },
+    {
+      "label": "BuyAbilityForm.tsx",
+      "file_type": "code",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "buyability_buyabilityform",
+      "community": 5,
+      "norm_label": "buyabilityform.tsx"
+    },
+    {
+      "label": "BuyAbilityForm()",
+      "file_type": "code",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "buyability_buyabilityform_buyabilityform",
+      "community": 5,
+      "norm_label": "buyabilityform()"
     },
     {
       "label": "AccountSettings.tsx",
@@ -1961,7 +2291,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_accountsettings",
-      "community": 1,
+      "community": 15,
       "norm_label": "accountsettings.tsx"
     },
     {
@@ -1971,7 +2301,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "dashboard_accountsettings_accountsettings",
-      "community": 0,
+      "community": 15,
       "norm_label": "accountsettings()"
     },
     {
@@ -1981,7 +2311,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_avatarupload",
-      "community": 1,
+      "community": 15,
       "norm_label": "avatarupload.tsx"
     },
     {
@@ -1991,7 +2321,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "dashboard_avatarupload_avatarupload",
-      "community": 1,
+      "community": 15,
       "norm_label": "avatarupload()"
     },
     {
@@ -2001,7 +2331,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_bookingsmanager",
-      "community": 0,
+      "community": 8,
       "norm_label": "bookingsmanager.tsx"
     },
     {
@@ -2011,7 +2341,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "dashboard_bookingsmanager_status_styles",
-      "community": 0,
+      "community": 8,
       "norm_label": "status_styles"
     },
     {
@@ -2021,8 +2351,48 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "dashboard_bookingsmanager_bookingsmanager",
-      "community": 0,
+      "community": 8,
       "norm_label": "bookingsmanager()"
+    },
+    {
+      "label": "BuyAbilityManager.tsx",
+      "file_type": "code",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "dashboard_buyabilitymanager",
+      "community": 5,
+      "norm_label": "buyabilitymanager.tsx"
+    },
+    {
+      "label": "STATUS_STYLES",
+      "file_type": "code",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "dashboard_buyabilitymanager_status_styles",
+      "community": 5,
+      "norm_label": "status_styles"
+    },
+    {
+      "label": "money()",
+      "file_type": "code",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "dashboard_buyabilitymanager_money",
+      "community": 5,
+      "norm_label": "money()"
+    },
+    {
+      "label": "BuyAbilityManager()",
+      "file_type": "code",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "dashboard_buyabilitymanager_buyabilitymanager",
+      "community": 5,
+      "norm_label": "buyabilitymanager()"
     },
     {
       "label": "CrudManager.tsx",
@@ -2071,7 +2441,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboardcardgrid",
-      "community": 0,
+      "community": 8,
       "norm_label": "dashboardcardgrid.tsx"
     },
     {
@@ -2081,7 +2451,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "dashboard_dashboardcardgrid_dashboardcardgrid",
-      "community": 0,
+      "community": 8,
       "norm_label": "dashboardcardgrid()"
     },
     {
@@ -2091,7 +2461,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboardshell",
-      "community": 5,
+      "community": 10,
       "norm_label": "dashboardshell.tsx"
     },
     {
@@ -2101,7 +2471,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "dashboard_dashboardshell_dashboardshell",
-      "community": 5,
+      "community": 10,
       "norm_label": "dashboardshell()"
     },
     {
@@ -2221,7 +2591,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_notificationbell",
-      "community": 10,
+      "community": 1,
       "norm_label": "notificationbell.tsx"
     },
     {
@@ -2231,7 +2601,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "dashboard_notificationbell_notif",
-      "community": 10,
+      "community": 1,
       "norm_label": "notif"
     },
     {
@@ -2241,7 +2611,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "dashboard_notificationbell_timeago",
-      "community": 10,
+      "community": 1,
       "norm_label": "timeago()"
     },
     {
@@ -2391,57 +2761,57 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_sidebar",
-      "community": 5,
+      "community": 10,
       "norm_label": "sidebar.tsx"
     },
     {
       "label": "ICON_RULES",
       "file_type": "code",
       "source_file": "components/dashboard/Sidebar.tsx",
-      "source_location": "L27",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "dashboard_sidebar_icon_rules",
-      "community": 5,
+      "community": 10,
       "norm_label": "icon_rules"
     },
     {
       "label": "iconFor()",
       "file_type": "code",
       "source_file": "components/dashboard/Sidebar.tsx",
-      "source_location": "L41",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "dashboard_sidebar_iconfor",
-      "community": 5,
+      "community": 10,
       "norm_label": "iconfor()"
     },
     {
       "label": "NavItem",
       "file_type": "code",
       "source_file": "components/dashboard/Sidebar.tsx",
-      "source_location": "L45",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "dashboard_sidebar_navitem",
-      "community": 5,
+      "community": 10,
       "norm_label": "navitem"
     },
     {
       "label": "NavLinks()",
       "file_type": "code",
       "source_file": "components/dashboard/Sidebar.tsx",
-      "source_location": "L47",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "dashboard_sidebar_navlinks",
-      "community": 5,
+      "community": 10,
       "norm_label": "navlinks()"
     },
     {
       "label": "Sidebar()",
       "file_type": "code",
       "source_file": "components/dashboard/Sidebar.tsx",
-      "source_location": "L87",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "dashboard_sidebar_sidebar",
-      "community": 5,
+      "community": 10,
       "norm_label": "sidebar()"
     },
     {
@@ -2451,7 +2821,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_sitesettingsform",
-      "community": 0,
+      "community": 15,
       "norm_label": "sitesettingsform.tsx"
     },
     {
@@ -2461,7 +2831,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "dashboard_sitesettingsform_sitesettingsform",
-      "community": 0,
+      "community": 15,
       "norm_label": "sitesettingsform()"
     },
     {
@@ -2661,7 +3031,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "home_agentspreview",
-      "community": 15,
+      "community": 2,
       "norm_label": "agentspreview.tsx"
     },
     {
@@ -2671,7 +3041,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "home_agentspreview_agentspreview",
-      "community": 15,
+      "community": 2,
       "norm_label": "agentspreview()"
     },
     {
@@ -2725,6 +3095,26 @@
       "norm_label": "blueprintstatement()"
     },
     {
+      "label": "BuyAbilityBanner.tsx",
+      "file_type": "code",
+      "source_file": "components/home/BuyAbilityBanner.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "home_buyabilitybanner",
+      "community": 2,
+      "norm_label": "buyabilitybanner.tsx"
+    },
+    {
+      "label": "BuyAbilityBanner()",
+      "file_type": "code",
+      "source_file": "components/home/BuyAbilityBanner.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "home_buyabilitybanner_buyabilitybanner",
+      "community": 2,
+      "norm_label": "buyabilitybanner()"
+    },
+    {
       "label": "CategoryCurations.tsx",
       "file_type": "code",
       "source_file": "components/home/CategoryCurations.tsx",
@@ -2735,20 +3125,20 @@
       "norm_label": "categorycurations.tsx"
     },
     {
-      "label": "CURATIONS",
+      "label": "FALLBACK",
       "file_type": "code",
       "source_file": "components/home/CategoryCurations.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "home_categorycurations_curations",
+      "id": "home_categorycurations_fallback",
       "community": 2,
-      "norm_label": "curations"
+      "norm_label": "fallback"
     },
     {
       "label": "CategoryCurations()",
       "file_type": "code",
       "source_file": "components/home/CategoryCurations.tsx",
-      "source_location": "L28",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "home_categorycurations_categorycurations",
       "community": 2,
@@ -2761,7 +3151,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "home_featuredlistings",
-      "community": 5,
+      "community": 11,
       "norm_label": "featuredlistings.tsx"
     },
     {
@@ -2771,7 +3161,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "home_featuredlistings_featuredlistings",
-      "community": 5,
+      "community": 2,
       "norm_label": "featuredlistings()"
     },
     {
@@ -2861,7 +3251,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "home_propertymarquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "propertymarquee.tsx"
     },
     {
@@ -2871,7 +3261,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "home_propertymarquee_propertymarquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "propertymarquee()"
     },
     {
@@ -2931,7 +3321,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "home_sectionheader",
-      "community": 5,
+      "community": 11,
       "norm_label": "sectionheader.tsx"
     },
     {
@@ -2941,7 +3331,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "home_sectionheader_sectionheader",
-      "community": 5,
+      "community": 11,
       "norm_label": "sectionheader()"
     },
     {
@@ -3041,7 +3431,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "home_trustmarquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "trustmarquee.tsx"
     },
     {
@@ -3051,7 +3441,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "home_trustmarquee_items",
-      "community": 5,
+      "community": 11,
       "norm_label": "items"
     },
     {
@@ -3061,7 +3451,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "home_trustmarquee_trustmarquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "trustmarquee()"
     },
     {
@@ -3093,6 +3483,26 @@
       "id": "home_whyus_whyus",
       "community": 2,
       "norm_label": "whyus()"
+    },
+    {
+      "label": "ShopGrid.tsx",
+      "file_type": "code",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "interior_shopgrid",
+      "community": 0,
+      "norm_label": "shopgrid.tsx"
+    },
+    {
+      "label": "ShopGrid()",
+      "file_type": "code",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "interior_shopgrid_shopgrid",
+      "community": 0,
+      "norm_label": "shopgrid()"
     },
     {
       "label": "Footer.tsx",
@@ -3171,7 +3581,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "layout_footer_footer",
-      "community": 10,
+      "community": 3,
       "norm_label": "footer()"
     },
     {
@@ -3181,7 +3591,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_navbar",
-      "community": 10,
+      "community": 11,
       "norm_label": "navbar.tsx"
     },
     {
@@ -3191,7 +3601,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "layout_navbar_navlink",
-      "community": 10,
+      "community": 11,
       "norm_label": "navlink"
     },
     {
@@ -3201,7 +3611,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "layout_navbar_default_popular",
-      "community": 10,
+      "community": 11,
       "norm_label": "default_popular"
     },
     {
@@ -3211,7 +3621,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "layout_navbar_default_inline",
-      "community": 10,
+      "community": 11,
       "norm_label": "default_inline"
     },
     {
@@ -3221,17 +3631,17 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "layout_navbar_default_more",
-      "community": 10,
+      "community": 11,
       "norm_label": "default_more"
     },
     {
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "components/layout/Navbar.tsx",
-      "source_location": "L30",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "layout_navbar_navbar",
-      "community": 10,
+      "community": 3,
       "norm_label": "navbar()"
     },
     {
@@ -3241,7 +3651,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_sitechrome",
-      "community": 10,
+      "community": 3,
       "norm_label": "sitechrome.tsx"
     },
     {
@@ -3251,7 +3661,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layout_sitechrome_dashboard_prefixes",
-      "community": 10,
+      "community": 3,
       "norm_label": "dashboard_prefixes"
     },
     {
@@ -3261,7 +3671,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "layout_sitechrome_sitechrome",
-      "community": 10,
+      "community": 3,
       "norm_label": "sitechrome()"
     },
     {
@@ -3271,7 +3681,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "listings_agentcard",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentcard.tsx"
     },
     {
@@ -3281,7 +3691,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "listings_agentcard_agentcard",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentcard()"
     },
     {
@@ -3291,7 +3701,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "listings_agentcontactbuttons",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentcontactbuttons.tsx"
     },
     {
@@ -3301,7 +3711,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "listings_agentcontactbuttons_towhatsapp",
-      "community": 11,
+      "community": 7,
       "norm_label": "towhatsapp()"
     },
     {
@@ -3311,7 +3721,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "listings_agentcontactbuttons_agentcontactbuttons",
-      "community": 11,
+      "community": 7,
       "norm_label": "agentcontactbuttons()"
     },
     {
@@ -3321,7 +3731,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "listings_imagegallery",
-      "community": 11,
+      "community": 7,
       "norm_label": "imagegallery.tsx"
     },
     {
@@ -3331,7 +3741,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "listings_imagegallery_mediaitem",
-      "community": 11,
+      "community": 7,
       "norm_label": "mediaitem"
     },
     {
@@ -3341,7 +3751,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "listings_imagegallery_youtubeembed",
-      "community": 11,
+      "community": 7,
       "norm_label": "youtubeembed()"
     },
     {
@@ -3351,7 +3761,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "listings_imagegallery_imagegallery",
-      "community": 11,
+      "community": 7,
       "norm_label": "imagegallery()"
     },
     {
@@ -3393,6 +3803,36 @@
       "id": "listings_inquiryform_inquirymodal",
       "community": 1,
       "norm_label": "inquirymodal()"
+    },
+    {
+      "label": "ListingsSort.tsx",
+      "file_type": "code",
+      "source_file": "components/listings/ListingsSort.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "listings_listingssort",
+      "community": 11,
+      "norm_label": "listingssort.tsx"
+    },
+    {
+      "label": "OPTIONS",
+      "file_type": "code",
+      "source_file": "components/listings/ListingsSort.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "listings_listingssort_options",
+      "community": 11,
+      "norm_label": "options"
+    },
+    {
+      "label": "ListingsSort()",
+      "file_type": "code",
+      "source_file": "components/listings/ListingsSort.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "listings_listingssort_listingssort",
+      "community": 11,
+      "norm_label": "listingssort()"
     },
     {
       "label": "Pagination.tsx",
@@ -3448,7 +3888,7 @@
       "label": "PropertyEnquiryCTA()",
       "file_type": "code",
       "source_file": "components/listings/PropertyEnquiryCTA.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "listings_propertyenquirycta_propertyenquirycta",
       "community": 1,
@@ -3531,7 +3971,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "listings_propertylocationpin",
-      "community": 11,
+      "community": 7,
       "norm_label": "propertylocationpin.tsx"
     },
     {
@@ -3541,7 +3981,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "listings_propertylocationpin_propertylocationpin",
-      "community": 11,
+      "community": 7,
       "norm_label": "propertylocationpin()"
     },
     {
@@ -3741,7 +4181,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_marquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "marquee.tsx"
     },
     {
@@ -3751,7 +4191,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "shared_marquee_marquee",
-      "community": 5,
+      "community": 11,
       "norm_label": "marquee()"
     },
     {
@@ -3801,7 +4241,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_themetoggle",
-      "community": 1,
+      "community": 11,
       "norm_label": "themetoggle.tsx"
     },
     {
@@ -3811,7 +4251,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "shared_themetoggle_themetoggle",
-      "community": 1,
+      "community": 11,
       "norm_label": "themetoggle()"
     },
     {
@@ -3821,7 +4261,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_whatsappbutton",
-      "community": 10,
+      "community": 3,
       "norm_label": "whatsappbutton.tsx"
     },
     {
@@ -3831,7 +4271,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "shared_whatsappbutton_whatsappbutton",
-      "community": 10,
+      "community": 3,
       "norm_label": "whatsappbutton()"
     },
     {
@@ -3941,7 +4381,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_brevo",
-      "community": 15,
+      "community": 5,
       "norm_label": "brevo.ts"
     },
     {
@@ -3951,7 +4391,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_brevo_gettransporter",
-      "community": 15,
+      "community": 5,
       "norm_label": "gettransporter()"
     },
     {
@@ -3961,7 +4401,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_brevo_wraptemplate",
-      "community": 15,
+      "community": 5,
       "norm_label": "wraptemplate()"
     },
     {
@@ -3971,7 +4411,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "lib_brevo_paragraph",
-      "community": 15,
+      "community": 5,
       "norm_label": "paragraph()"
     },
     {
@@ -3981,7 +4421,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "lib_brevo_inquiryconfirmationparams",
-      "community": 15,
+      "community": 5,
       "norm_label": "inquiryconfirmationparams"
     },
     {
@@ -3991,7 +4431,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "lib_brevo_bookingconfirmationparams",
-      "community": 15,
+      "community": 5,
       "norm_label": "bookingconfirmationparams"
     },
     {
@@ -4001,7 +4441,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "lib_brevo_welcomeemailparams",
-      "community": 15,
+      "community": 5,
       "norm_label": "welcomeemailparams"
     },
     {
@@ -4011,7 +4451,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "lib_brevo_adminleadalertparams",
-      "community": 15,
+      "community": 5,
       "norm_label": "adminleadalertparams"
     },
     {
@@ -4021,7 +4461,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "lib_brevo_emailtemplatemap",
-      "community": 15,
+      "community": 5,
       "norm_label": "emailtemplatemap"
     },
     {
@@ -4031,7 +4471,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "lib_brevo_rendertemplate",
-      "community": 15,
+      "community": 5,
       "norm_label": "rendertemplate()"
     },
     {
@@ -4041,8 +4481,68 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "lib_brevo_sendemail",
-      "community": 15,
+      "community": 5,
       "norm_label": "sendemail()"
+    },
+    {
+      "label": "sendCustomEmail()",
+      "file_type": "code",
+      "source_file": "lib/brevo.ts",
+      "source_location": "L166",
+      "_origin": "ast",
+      "id": "lib_brevo_sendcustomemail",
+      "community": 5,
+      "norm_label": "sendcustomemail()"
+    },
+    {
+      "label": "buyability.ts",
+      "file_type": "code",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_buyability",
+      "community": 5,
+      "norm_label": "buyability.ts"
+    },
+    {
+      "label": "CREDIT_OPTIONS",
+      "file_type": "code",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "lib_buyability_credit_options",
+      "community": 5,
+      "norm_label": "credit_options"
+    },
+    {
+      "label": "RATES",
+      "file_type": "code",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "lib_buyability_rates",
+      "community": 5,
+      "norm_label": "rates"
+    },
+    {
+      "label": "BuyAbilityInput",
+      "file_type": "code",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "lib_buyability_buyabilityinput",
+      "community": 5,
+      "norm_label": "buyabilityinput"
+    },
+    {
+      "label": "estimateBudget()",
+      "file_type": "code",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "lib_buyability_estimatebudget",
+      "community": 5,
+      "norm_label": "estimatebudget()"
     },
     {
       "label": "currency.ts",
@@ -4231,7 +4731,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_utils_cn",
-      "community": 5,
+      "community": 11,
       "norm_label": "cn()"
     },
     {
@@ -5251,7 +5751,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "types_index_profile",
-      "community": 0,
+      "community": 7,
       "norm_label": "profile"
     },
     {
@@ -5285,10 +5785,50 @@
       "norm_label": "property"
     },
     {
+      "label": "Category",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "types_index_category",
+      "community": 2,
+      "norm_label": "category"
+    },
+    {
+      "label": "BuyAbilitySubmission",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "types_index_buyabilitysubmission",
+      "community": 5,
+      "norm_label": "buyabilitysubmission"
+    },
+    {
+      "label": "InteriorProject",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "types_index_interiorproject",
+      "community": 0,
+      "norm_label": "interiorproject"
+    },
+    {
+      "label": "ShopItem",
+      "file_type": "code",
+      "source_file": "types/index.ts",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "types_index_shopitem",
+      "community": 0,
+      "norm_label": "shopitem"
+    },
+    {
       "label": "TaxonomyKind",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L49",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "types_index_taxonomykind",
       "community": 0,
@@ -5298,7 +5838,7 @@
       "label": "TaxonomyTerm",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L51",
+      "source_location": "L110",
       "_origin": "ast",
       "id": "types_index_taxonomyterm",
       "community": 0,
@@ -5308,7 +5848,7 @@
       "label": "NavItem",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L61",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "types_index_navitem",
       "community": 0,
@@ -5318,7 +5858,7 @@
       "label": "Award",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L71",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "types_index_award",
       "community": 2,
@@ -5328,17 +5868,17 @@
       "label": "Member",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L81",
+      "source_location": "L140",
       "_origin": "ast",
       "id": "types_index_member",
-      "community": 2,
+      "community": 0,
       "norm_label": "member"
     },
     {
       "label": "Inquiry",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L92",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "types_index_inquiry",
       "community": 0,
@@ -5348,7 +5888,7 @@
       "label": "Subscriber",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L106",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "types_index_subscriber",
       "community": 0,
@@ -5358,17 +5898,17 @@
       "label": "Booking",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L114",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "types_index_booking",
-      "community": 0,
+      "community": 8,
       "norm_label": "booking"
     },
     {
       "label": "Post",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L125",
+      "source_location": "L184",
       "_origin": "ast",
       "id": "types_index_post",
       "community": 2,
@@ -5378,10 +5918,10 @@
       "label": "SiteSettings",
       "file_type": "code",
       "source_file": "types/index.ts",
-      "source_location": "L136",
+      "source_location": "L195",
       "_origin": "ast",
       "id": "types_index_sitesettings",
-      "community": 0,
+      "community": 15,
       "norm_label": "sitesettings"
     },
     {
@@ -5687,9 +6227,9 @@
       "source_file": "app/about/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "about_page",
-      "target": "shared_ctabanner",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner"
     },
     {
       "relation": "imports",
@@ -5698,9 +6238,9 @@
       "source_file": "app/about/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "about_page",
-      "target": "shared_ctabanner_ctabanner",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner_ctabanner"
     },
     {
       "relation": "contains",
@@ -6163,6 +6703,374 @@
       "confidence_score": 1.0,
       "source": "dashboard_bookingsmanager",
       "target": "actions_bookings_deletebooking"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_deletebuyabilitysubmission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_respondbuyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_submitbuyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_submitbuyabilityinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "actions_buyability_updatebuyabilitystatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "lib_brevo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "lib_brevo_sendcustomemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "lib_buyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "lib_buyability_estimatebudget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "supabase_admin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "supabase_admin_createadminclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "actions_buyability",
+      "target": "types_index_property",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "actions_buyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "actions_buyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "actions_buyability_submitbuyability",
+      "target": "lib_brevo_sendcustomemail"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "actions_buyability_submitbuyability",
+      "target": "lib_buyability_estimatebudget"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "actions_buyability_submitbuyability",
+      "target": "supabase_admin_createadminclient"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "actions_buyability_submitbuyability",
+      "target": "supabase_server_createclient"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "actions_buyability_submitbuyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "actions_buyability_deletebuyabilitysubmission",
+      "target": "actions_buyability_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "actions_buyability_requireadmin",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "actions_buyability_respondbuyability",
+      "target": "actions_buyability_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "actions_buyability_updatebuyabilitystatus",
+      "target": "actions_buyability_requireadmin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "actions_buyability_respondbuyability",
+      "target": "lib_brevo_sendcustomemail"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "actions_buyability_respondbuyability",
+      "target": "supabase_admin_createadminclient"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "actions_buyability_respondbuyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "actions_buyability_updatebuyabilitystatus",
+      "target": "supabase_admin_createadminclient"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "actions_buyability_updatebuyabilitystatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/actions/buyability.ts",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "actions_buyability_deletebuyabilitysubmission",
+      "target": "supabase_admin_createadminclient"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "actions_buyability_deletebuyabilitysubmission",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7599,6 +8507,169 @@
       "target": "supabase_server_createclient"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "buy_ability_page_adminbuyabilitypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "dashboard_buyabilitymanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "dashboard_buyabilitymanager_buyabilitymanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "types_index_buyabilitysubmission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/buy-ability/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_admin_buy_ability_page_tsx_buy_ability_page",
+      "target": "types_index_property",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "categories_page_admincategoriespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "dashboard_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "dashboard_crudmanager_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "dashboard_crudmanager_crudrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "categories_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/admin/categories/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "categories_page_admincategoriespage",
+      "target": "supabase_server_createclient"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -7705,6 +8776,82 @@
       "source_location": "L6",
       "weight": 1.0,
       "source": "inquiries_page_admininquiriespage",
+      "target": "supabase_server_createclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "dashboard_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "dashboard_crudmanager_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "dashboard_crudmanager_crudrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "interior_projects_page_admininteriorprojectspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "interior_projects_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/admin/interior-projects/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "interior_projects_page_admininteriorprojectspage",
       "target": "supabase_server_createclient"
     },
     {
@@ -8499,6 +9646,82 @@
       "confidence_score": 1.0,
       "source": "app_admin_settings_page_tsx_settings_page",
       "target": "types_index_sitesettings"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "dashboard_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "dashboard_crudmanager_crudmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "dashboard_crudmanager_crudrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "shop_items_page_adminshopitemspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "shop_items_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/admin/shop-items/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "shop_items_page_adminshopitemspage",
+      "target": "supabase_server_createclient"
     },
     {
       "relation": "imports_from",
@@ -9981,6 +11204,102 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "buy_ability_page_buyabilitypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "buy_ability_page_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "buy_ability_page_perks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "buyability_buyabilityform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "buyability_buyabilityform_buyabilityform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "shared_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "shared_animatedsection_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/buy-ability/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_buy_ability_page_tsx_buy_ability_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/client/layout.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -10417,6 +11736,405 @@
       "confidence_score": 1.0,
       "source": "forgot_password_page",
       "target": "ui_input_input"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "home_sectionheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "home_sectionheader_sectionheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "interior_designs_page_interiordesignspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "interior_designs_page_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "interior_shopgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "interior_shopgrid_shopgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "shared_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "shared_animatedsection_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "shared_animatedsection_animatedstagger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "shared_animatedsection_animatedstaggeritem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "types_index_interiorproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "interior_designs_page",
+      "target": "types_index_shopitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/interior-designs/page.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "interior_designs_page_interiordesignspage",
+      "target": "supabase_server_createclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "app_interior_designs_portfolio_slug_page_tsx_slug_page_generatemetadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "slug_page_getproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "slug_page_portfolioprojectpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "types_index_interiorproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page",
+      "target": "types_index_shopitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_interior_designs_portfolio_slug_page_tsx_slug_page_generatemetadata",
+      "target": "slug_page_getproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "slug_page_getproject",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/portfolio/[slug]/page.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "slug_page_portfolioprojectpage",
+      "target": "slug_page_getproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "app_interior_designs_shop_slug_page_tsx_slug_page_generatemetadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "slug_page_getitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "slug_page_shopitempage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
+      "target": "types_index_shopitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_interior_designs_shop_slug_page_tsx_slug_page_generatemetadata",
+      "target": "slug_page_getitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "slug_page_getitem",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/interior-designs/shop/[slug]/page.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "slug_page_shopitempage",
+      "target": "slug_page_getitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -10891,6 +12609,28 @@
       "target": "slug_page_getproperty"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/listings/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "listings_page",
+      "target": "listings_listingssort",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/listings/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "listings_page",
+      "target": "listings_listingssort_listingssort",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/listings/page.tsx",
@@ -10919,6 +12659,16 @@
       "confidence_score": 1.0,
       "source": "listings_page",
       "target": "listings_page_metadata"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/listings/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "listings_page",
+      "target": "listings_page_sorts",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11376,6 +13126,28 @@
       "confidence_score": 1.0,
       "source": "app_page",
       "target": "home_blueprintstatement_blueprintstatement"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "home_buyabilitybanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_page",
+      "target": "home_buyabilitybanner_buyabilitybanner",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11862,9 +13634,9 @@
       "source_file": "app/services/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_page",
-      "target": "shared_ctabanner",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner"
     },
     {
       "relation": "imports",
@@ -11873,9 +13645,9 @@
       "source_file": "app/services/page.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_page",
-      "target": "shared_ctabanner_ctabanner",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner_ctabanner"
     },
     {
       "relation": "imports_from",
@@ -12192,6 +13964,170 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "buyability_buyabilityform_buyabilityform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "lib_buyability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "lib_buyability_credit_options",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "lib_buyability_estimatebudget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "listings_propertycard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "listings_propertycard_propertycard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "shared_price",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "shared_price_price",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "types_index_property",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "ui_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform",
+      "target": "ui_input_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/buyability/BuyAbilityForm.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "buyability_buyabilityform_buyabilityform",
+      "target": "lib_buyability_estimatebudget"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "components/dashboard/AccountSettings.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -12408,6 +14344,102 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "dashboard_buyabilitymanager_buyabilitymanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "dashboard_buyabilitymanager_money",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "dashboard_buyabilitymanager_status_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "dashboard_dashboardcardgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "dashboard_dashboardcardgrid_dashboardcardgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "types_index_buyabilitysubmission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/dashboard/BuyAbilityManager.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "dashboard_buyabilitymanager",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "components/dashboard/CrudManager.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -12442,9 +14474,9 @@
       "source_file": "components/dashboard/CrudManager.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_crudmanager",
-      "target": "supabase_client",
-      "confidence_score": 1.0
+      "target": "supabase_client"
     },
     {
       "relation": "imports",
@@ -12453,9 +14485,9 @@
       "source_file": "components/dashboard/CrudManager.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_crudmanager",
-      "target": "supabase_client_createclient",
-      "confidence_score": 1.0
+      "target": "supabase_client_createclient"
     },
     {
       "relation": "imports_from",
@@ -13956,6 +15988,38 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/home/BuyAbilityBanner.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "home_buyabilitybanner",
+      "target": "home_buyabilitybanner_buyabilitybanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/BuyAbilityBanner.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "home_buyabilitybanner",
+      "target": "shared_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/BuyAbilityBanner.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "home_buyabilitybanner",
+      "target": "shared_animatedsection_animatedsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "components/home/CategoryCurations.tsx",
       "source_location": "L29",
       "weight": 1.0,
@@ -13967,11 +16031,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/home/CategoryCurations.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "home_categorycurations",
-      "target": "home_categorycurations_curations"
+      "target": "home_categorycurations_fallback",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -14027,6 +16091,61 @@
       "confidence_score": 1.0,
       "source": "home_categorycurations",
       "target": "shared_animatedsection_animatedstaggeritem"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/CategoryCurations.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "home_categorycurations",
+      "target": "supabase_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/CategoryCurations.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "home_categorycurations",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/CategoryCurations.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "home_categorycurations",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/home/CategoryCurations.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "home_categorycurations",
+      "target": "types_index_category",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/home/CategoryCurations.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "home_categorycurations_categorycurations",
+      "target": "supabase_server_createclient"
     },
     {
       "relation": "contains",
@@ -14746,6 +16865,60 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "interior_shopgrid",
+      "target": "interior_shopgrid_shopgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "interior_shopgrid",
+      "target": "lib_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "interior_shopgrid",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "interior_shopgrid",
+      "target": "types_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/interior/ShopGrid.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "interior_shopgrid",
+      "target": "types_index_shopitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "components/layout/Footer.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -15359,6 +17532,26 @@
       "target": "listings_inquiryform_inquirymodal"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/listings/ListingsSort.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "listings_listingssort",
+      "target": "listings_listingssort_listingssort",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/listings/ListingsSort.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "listings_listingssort",
+      "target": "listings_listingssort_options",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -15718,9 +17911,9 @@
       "source_file": "components/shared/AnimatedSection.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_animatedsection",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -15729,9 +17922,9 @@
       "source_file": "components/shared/AnimatedSection.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_animatedsection",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -15780,9 +17973,9 @@
       "source_file": "components/shared/CtaBanner.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_ctabanner",
-      "target": "shared_animatedsection",
-      "confidence_score": 1.0
+      "target": "shared_animatedsection"
     },
     {
       "relation": "imports",
@@ -15791,9 +17984,9 @@
       "source_file": "components/shared/CtaBanner.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_ctabanner",
-      "target": "shared_animatedsection_animatedsection",
-      "confidence_score": 1.0
+      "target": "shared_animatedsection_animatedsection"
     },
     {
       "relation": "calls",
@@ -15822,9 +18015,9 @@
       "source_file": "components/shared/CtaBanner.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_ctabanner",
-      "target": "shared_ctabanner_ctabanner",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner_ctabanner"
     },
     {
       "relation": "contains",
@@ -15832,9 +18025,9 @@
       "source_file": "components/shared/CtaBanner.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_ctabanner",
-      "target": "shared_ctabanner_ctalink",
-      "confidence_score": 1.0
+      "target": "shared_ctabanner_ctalink"
     },
     {
       "relation": "imports_from",
@@ -16410,6 +18603,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/brevo.ts",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "lib_brevo",
+      "target": "lib_brevo_sendcustomemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/brevo.ts",
       "source_location": "L150",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -16441,6 +18644,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/brevo.ts",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "lib_brevo_sendcustomemail",
+      "target": "lib_brevo_gettransporter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/brevo.ts",
       "source_location": "L157",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -16463,6 +18677,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "lib/brevo.ts",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "lib_brevo_sendcustomemail",
+      "target": "lib_brevo_wraptemplate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/brevo.ts",
       "source_location": "L98",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -16479,6 +18704,46 @@
       "confidence_score": 1.0,
       "source": "lib_brevo_sendemail",
       "target": "lib_brevo_rendertemplate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "lib_buyability",
+      "target": "lib_buyability_buyabilityinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_buyability",
+      "target": "lib_buyability_credit_options",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "lib_buyability",
+      "target": "lib_buyability_estimatebudget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/buyability.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "lib_buyability",
+      "target": "lib_buyability_rates",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17600,11 +19865,41 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "types/index.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_buyabilitysubmission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/index.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_category",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/index.ts",
       "source_location": "L47",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_inquiry"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/index.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_interiorproject",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17675,6 +19970,16 @@
       "confidence_score": 1.0,
       "source": "types_index",
       "target": "types_index_propertystatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "types/index.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "types_index",
+      "target": "types_index_shopitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -17768,5 +20073,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5064c67fc86787170cfa64168651166bfe6bdb1b"
+  "built_at_commit": "9ae8f44879f5184ded63cdee0ce4424a62e78081"
 }

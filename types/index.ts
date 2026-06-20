@@ -41,9 +41,68 @@ export interface Property {
   virtual_tour_url: string | null;
   videos: string[] | null;
   virtual_tours: string[] | null;
+  buy_ability: boolean;
   created_at: string;
   updated_at: string;
   agent?: Profile | null;
+}
+
+export interface Category {
+  id: string;
+  title: string;
+  description: string | null;
+  image_url: string | null;
+  link: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface BuyAbilitySubmission {
+  id: string;
+  user_id: string | null;
+  property_id: string | null;
+  email: string;
+  location: string | null;
+  credit_score: string | null;
+  annual_income: number | null;
+  down_payment: number | null;
+  monthly_debt: number | null;
+  status: string;
+  admin_notes: string | null;
+  created_at: string;
+}
+
+export interface InteriorProject {
+  id: string;
+  title: string;
+  slug: string;
+  category: string | null;
+  location: string | null;
+  year: string | null;
+  description: string | null;
+  cover_image: string | null;
+  images: string[] | null;
+  sort_order: number;
+  is_published: boolean;
+  created_at: string;
+}
+
+export interface ShopItem {
+  id: string;
+  name: string;
+  slug: string;
+  item_type: string | null;
+  description: string | null;
+  price: number | null;
+  price_label: string | null;
+  is_new: boolean;
+  cover_image: string | null;
+  images: string[] | null;
+  project_id: string | null;
+  sort_order: number;
+  is_published: boolean;
+  created_at: string;
 }
 
 export type TaxonomyKind = "property_type" | "listing_type" | "status";

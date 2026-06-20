@@ -57,7 +57,7 @@ export function PropertyCard({ property }: { property: Property }) {
           </div>
         )}
 
-        <div className="absolute left-3 top-3 flex gap-1.5">
+        <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
           {property.listing_type && (
             <span className="rounded-full bg-[var(--color-accent)] px-2.5 py-1 text-xs font-semibold text-white">
               {LISTING_TYPE_LABELS[property.listing_type] ?? property.listing_type}
@@ -66,6 +66,11 @@ export function PropertyCard({ property }: { property: Property }) {
           <span className="rounded-full bg-[var(--color-primary)] px-2.5 py-1 text-xs font-semibold text-white">
             {STATUS_LABELS[property.status] ?? property.status}
           </span>
+          {property.buy_ability && (
+            <span className="rounded-full bg-green-600 px-2.5 py-1 text-xs font-semibold text-white">
+              Buy-Ability
+            </span>
+          )}
         </div>
       </div>
 

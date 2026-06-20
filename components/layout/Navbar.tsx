@@ -21,6 +21,8 @@ const DEFAULT_INLINE: NavLink[] = [
   { href: "/services", label: "Services" },
 ];
 const DEFAULT_MORE: NavLink[] = [
+  { href: "/interior-designs", label: "Interior Designs" },
+  { href: "/buy-ability", label: "Buy-Ability" },
   { href: "/about", label: "About" },
   { href: "/members", label: "Members" },
   { href: "/blog", label: "Blog" },

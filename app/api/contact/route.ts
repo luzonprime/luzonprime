@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
   await Promise.allSettled([
     sendEmail(data.email, "inquiry_confirmation", { name: data.name }),
-    sendEmail("support@luzonprime.com", "admin_lead_alert", {
+    sendEmail("info@luzonprime.com", "admin_lead_alert", {
       name: data.name,
       email: data.email,
       phone: data.phone,

@@ -155,9 +155,24 @@ export async function sendEmail<T extends keyof EmailTemplateMap>(
   const { subject, html } = renderTemplate(templateId, params);
 
   await getTransporter().sendMail({
-    from: `"Luzon Prime Realtors" <${process.env.SMTP_FROM_EMAIL ?? "support@luzonprime.com"}>`,
+    // Action confirmations / alerts are sent from info@ (support@ is for help).
+    from: `"Luzon Prime Realtors" <${process.env.SMTP_FROM_EMAIL ?? "info@luzonprime.com"}>`,
     to,
     subject,
     html,
+  });
+}
+
+export async function sendCustomEmail(opts: {
+  to: string;
+  subject: string;
+  bodyHtml: string;
+  from?: string;
+}) {
+  await getTransporter().sendMail({
+    from: `"Luzon Prime Realtors" <${opts.from ?? "info@luzonprime.com"}>`,
+    to: opts.to,
+    subject: opts.subject,
+    html: wrapTemplate(opts.subject, opts.bodyHtml),
   });
 }
