@@ -34,6 +34,9 @@ export function BuyAbilityForm({
   preselected?: Property;
 }) {
   const fromListing = !!preselected;
+  const fromListingEligible = preselected
+    ? (preselected.price ?? 0) * ((preselected.buy_ability_percent ?? 100) / 100)
+    : 0;
   const { currency, rates } = useCurrency();
   const rate = rates[currency] ?? 1;
 
@@ -149,7 +152,7 @@ export function BuyAbilityForm({
   }
 
   const estimatedNode = fromListing ? (
-    <Price amount={preselected!.price} className="font-semibold text-[var(--color-heading)]" />
+    <Price amount={fromListingEligible} className="font-semibold text-[var(--color-heading)]" />
   ) : (
     <span className="font-semibold text-[var(--color-heading)]">
       {formatCurrency(committedBudget, currency)}
@@ -215,7 +218,7 @@ export function BuyAbilityForm({
         ) : budgetTyping ? (
           <Skeleton className="mt-2 h-8 w-40" />
         ) : fromListing ? (
-          <Price amount={preselected!.price} className="text-2xl font-bold text-[var(--color-heading)]" />
+          <Price amount={fromListingEligible} className="text-2xl font-bold text-[var(--color-heading)]" />
         ) : (
           <p className="text-2xl font-bold text-[var(--color-heading)]">{formatCurrency(committedBudget, currency)}</p>
         )}

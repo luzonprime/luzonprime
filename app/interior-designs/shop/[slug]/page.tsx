@@ -121,7 +121,7 @@ export default async function ShopItemPage({
             href="/contact"
             className="mt-7 inline-flex rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
-            Get price
+            {item.price != null ? "Contact us" : "Get price"}
           </Link>
         </div>
       </div>

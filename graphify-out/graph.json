@@ -308,7 +308,7 @@
       "label": "matchBuyAbility()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L22",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "actions_buyability_matchbuyability",
       "community": 5,
@@ -318,7 +318,7 @@
       "label": "submitBuyAbility()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L43",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "actions_buyability_submitbuyability",
       "community": 5,
@@ -328,7 +328,7 @@
       "label": "requireAdmin()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L103",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "actions_buyability_requireadmin",
       "community": 5,
@@ -338,7 +338,7 @@
       "label": "respondBuyAbility()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L117",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "actions_buyability_respondbuyability",
       "community": 5,
@@ -348,7 +348,7 @@
       "label": "updateBuyAbilityStatus()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L133",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "actions_buyability_updatebuyabilitystatus",
       "community": 5,
@@ -358,7 +358,7 @@
       "label": "deleteBuyAbilitySubmission()",
       "file_type": "code",
       "source_file": "app/actions/buyability.ts",
-      "source_location": "L140",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "actions_buyability_deletebuyabilitysubmission",
       "community": 5,
@@ -11427,9 +11427,9 @@
       "source_file": "app/buy-ability/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_buy_ability_page_tsx_buy_ability_page",
-      "target": "types_index",
-      "confidence_score": 1.0
+      "target": "types_index"
     },
     {
       "relation": "imports",
@@ -11438,9 +11438,9 @@
       "source_file": "app/buy-ability/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_buy_ability_page_tsx_buy_ability_page",
-      "target": "types_index_property",
-      "confidence_score": 1.0
+      "target": "types_index_property"
     },
     {
       "relation": "contains",
@@ -11779,9 +11779,9 @@
       "source_file": "app/dashboard/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_page",
-      "target": "dashboard_page_dashboardredirect",
-      "confidence_score": 1.0
+      "target": "dashboard_page_dashboardredirect"
     },
     {
       "relation": "imports_from",
@@ -11790,9 +11790,9 @@
       "source_file": "app/dashboard/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_page",
-      "target": "supabase_server",
-      "confidence_score": 1.0
+      "target": "supabase_server"
     },
     {
       "relation": "imports",
@@ -11801,9 +11801,9 @@
       "source_file": "app/dashboard/page.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_page",
-      "target": "supabase_server_createclient",
-      "confidence_score": 1.0
+      "target": "supabase_server_createclient"
     },
     {
       "relation": "calls",
@@ -12256,9 +12256,9 @@
       "source_file": "app/interior-designs/shop/[slug]/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
-      "target": "shared_price",
-      "confidence_score": 1.0
+      "target": "shared_price"
     },
     {
       "relation": "imports",
@@ -12267,9 +12267,9 @@
       "source_file": "app/interior-designs/shop/[slug]/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_interior_designs_shop_slug_page_tsx_slug_page",
-      "target": "shared_price_price",
-      "confidence_score": 1.0
+      "target": "shared_price_price"
     },
     {
       "relation": "contains",
@@ -14687,9 +14687,9 @@
       "source_file": "components/dashboard/BuyAbilityManager.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_buyabilitymanager",
-      "target": "dashboard_buyabilitymanager_formatdate",
-      "confidence_score": 1.0
+      "target": "dashboard_buyabilitymanager_formatdate"
     },
     {
       "relation": "contains",
@@ -14750,9 +14750,9 @@
       "source_file": "components/dashboard/BuyAbilityManager.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_buyabilitymanager",
-      "target": "lib_buyability",
-      "confidence_score": 1.0
+      "target": "lib_buyability"
     },
     {
       "relation": "imports",
@@ -14761,9 +14761,9 @@
       "source_file": "components/dashboard/BuyAbilityManager.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dashboard_buyabilitymanager",
-      "target": "lib_buyability_estimatebudget",
-      "confidence_score": 1.0
+      "target": "lib_buyability_estimatebudget"
     },
     {
       "relation": "imports_from",
@@ -17273,9 +17273,9 @@
       "source_file": "components/interior/ShopGrid.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interior_shopgrid",
-      "target": "shared_price",
-      "confidence_score": 1.0
+      "target": "shared_price"
     },
     {
       "relation": "imports",
@@ -17284,9 +17284,9 @@
       "source_file": "components/interior/ShopGrid.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "interior_shopgrid",
-      "target": "shared_price_price",
-      "confidence_score": 1.0
+      "target": "shared_price_price"
     },
     {
       "relation": "imports_from",
@@ -20510,5 +20510,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0b289ca2df40401bb19a126e9526e3dddcfb7f54"
+  "built_at_commit": "8e6780019d64969c7f64d99c8436e578bd7edcc9"
 }

@@ -18,7 +18,10 @@ export interface SubmitBuyAbilityInput {
   selectedIds?: string[];
 }
 
-/** Live matching (no insert) — buy-ability homes within ±10% of a NGN budget. */
+/**
+ * Live matching (no insert) — buy-ability homes whose ELIGIBLE amount
+ * (buy_ability_percent of the price) is within ±10% of the NGN budget.
+ */
 export async function matchBuyAbility(
   budgetNgn: number,
   location: string | null
@@ -29,15 +32,25 @@ export async function matchBuyAbility(
     .select("*")
     .eq("is_published", true)
     .eq("buy_ability", true);
-  if (budgetNgn > 0) {
-    q = q.gte("price", Math.round(budgetNgn * 0.9)).lte("price", Math.round(budgetNgn * 1.1));
-  }
   if (location) {
     const loc = location.replace(/[%,]/g, "");
     q = q.or(`location.ilike.%${loc}%,area.ilike.%${loc}%,city.ilike.%${loc}%`);
   }
-  const { data } = await q.order("price", { ascending: true }).limit(6);
-  return (data ?? []) as Property[];
+  const { data } = await q;
+  const props = (data ?? []) as Property[];
+  if (budgetNgn <= 0) return [];
+
+  const lo = budgetNgn * 0.9;
+  const hi = budgetNgn * 1.1;
+  return props
+    .map((p) => ({
+      p,
+      eligible: (p.price ?? 0) * ((p.buy_ability_percent ?? 100) / 100),
+    }))
+    .filter((x) => x.eligible >= lo && x.eligible <= hi)
+    .sort((a, b) => a.eligible - b.eligible)
+    .slice(0, 6)
+    .map((x) => x.p);
 }
 
 export async function submitBuyAbility(input: SubmitBuyAbilityInput) {
