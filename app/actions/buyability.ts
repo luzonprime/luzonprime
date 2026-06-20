@@ -40,15 +40,16 @@ export async function matchBuyAbility(
   const props = (data ?? []) as Property[];
   if (budgetNgn <= 0) return [];
 
-  const lo = budgetNgn * 0.9;
+  // A home is "within your Buy-Ability" if its eligible amount is affordable —
+  // up to 10% above budget (a small stretch). Best value (closest to budget) first.
   const hi = budgetNgn * 1.1;
   return props
     .map((p) => ({
       p,
       eligible: (p.price ?? 0) * ((p.buy_ability_percent ?? 100) / 100),
     }))
-    .filter((x) => x.eligible >= lo && x.eligible <= hi)
-    .sort((a, b) => a.eligible - b.eligible)
+    .filter((x) => x.eligible > 0 && x.eligible <= hi)
+    .sort((a, b) => b.eligible - a.eligible)
     .slice(0, 6)
     .map((x) => x.p);
 }

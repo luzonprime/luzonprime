@@ -12,7 +12,19 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/shared/Skeleton";
 import { Price } from "@/components/shared/Price";
+import { InfoTip } from "@/components/shared/InfoTip";
 import type { Property } from "@/types";
+
+const TIPS = {
+  location: "Where you'd like to buy. We match buy-ability homes in this area.",
+  credit: "Your credit band sets the mortgage rate used in the estimate — better credit, lower rate, higher budget.",
+  income: "Your pre-tax yearly income. It's the main driver of how much you can afford.",
+  down: "Cash you can pay upfront. It adds directly to your budget.",
+  debt: "Existing monthly obligations (loans, cards, alimony). Higher debt lowers your budget.",
+  email: "Where we'll send your estimate and tailored follow-up options.",
+  homes:
+    "Homes whose Buy-Ability amount — the eligible percentage of the price — fits your estimated budget (up to 10% above).",
+};
 
 const selectClass =
   "w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 text-sm text-[var(--color-text)] outline-none focus:border-[var(--color-primary)]";
@@ -161,10 +173,22 @@ export function BuyAbilityForm({
 
   return (
     <form onSubmit={onSubmit}>
+      <div className="mb-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-muted)] p-4">
+        <p className="text-sm font-semibold text-[var(--color-text)]">How Buy-Ability works</p>
+        <p className="mt-1 text-xs leading-relaxed text-[var(--color-text-muted)]">
+          We estimate your budget from your income, debts, down payment, and credit
+          score — using a 36% debt-to-income guideline over a 30-year term. Then we
+          show buy-ability homes whose eligible amount (a set percentage of the
+          price) fits that budget.
+        </p>
+      </div>
+
       {!fromListing && (
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-[var(--color-text)]">Location</label>
+            <label className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text)]">
+              Location <InfoTip text={TIPS.location} />
+            </label>
             {locations.length === 0 ? (
               <input disabled placeholder="No location exist" className={`${selectClass} opacity-60`} />
             ) : (
@@ -186,7 +210,9 @@ export function BuyAbilityForm({
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-[var(--color-text)]">Credit score</label>
+            <label className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text)]">
+              Credit score <InfoTip text={TIPS.credit} />
+            </label>
             <select value={form.credit_score} onChange={(e) => set("credit_score", e.target.value)} className={selectClass}>
               <option value="">Select…</option>
               {CREDIT_OPTIONS.map((o) => (
@@ -197,15 +223,15 @@ export function BuyAbilityForm({
             </select>
           </div>
 
-          <Input label={`Annual income (${currency})`} type="number" min={0} placeholder="Pre-tax, per year" value={form.annual_income} onChange={(e) => set("annual_income", e.target.value)} />
-          <Input label={`Down payment (${currency})`} type="number" min={0} value={form.down_payment} onChange={(e) => set("down_payment", e.target.value)} />
-          <Input label={`Monthly debt (${currency})`} type="number" min={0} placeholder="Loans, cards, alimony" value={form.monthly_debt} onChange={(e) => set("monthly_debt", e.target.value)} />
-          <Input label="Email address" type="email" required placeholder="you@example.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
+          <Input label={`Annual income (${currency})`} labelInfo={<InfoTip text={TIPS.income} />} type="number" min={0} placeholder="Pre-tax, per year" value={form.annual_income} onChange={(e) => set("annual_income", e.target.value)} />
+          <Input label={`Down payment (${currency})`} labelInfo={<InfoTip text={TIPS.down} />} type="number" min={0} value={form.down_payment} onChange={(e) => set("down_payment", e.target.value)} />
+          <Input label={`Monthly debt (${currency})`} labelInfo={<InfoTip text={TIPS.debt} />} type="number" min={0} placeholder="Loans, cards, alimony" value={form.monthly_debt} onChange={(e) => set("monthly_debt", e.target.value)} />
+          <Input label="Email address" labelInfo={<InfoTip text={TIPS.email} />} type="email" required placeholder="you@example.com" value={form.email} onChange={(e) => set("email", e.target.value)} />
         </div>
       )}
 
       {fromListing && (
-        <Input label="Email address" type="email" required placeholder="you@example.com" value={form.email} onChange={(e) => set("email", e.target.value)} className="max-w-md" />
+        <Input label="Email address" labelInfo={<InfoTip text={TIPS.email} />} type="email" required placeholder="you@example.com" value={form.email} onChange={(e) => set("email", e.target.value)} className="max-w-md" />
       )}
 
       {/* Estimated budget */}
@@ -227,8 +253,8 @@ export function BuyAbilityForm({
       {/* Homes within your Buy-Ability — only once a budget exists */}
       {showResultsSection && (
         <div className="mt-8">
-          <h2 className="font-heading text-xl font-bold text-[var(--color-text)]">
-            Homes within your Buy-Ability
+          <h2 className="font-heading flex items-center gap-2 text-xl font-bold text-[var(--color-text)]">
+            Homes within your Buy-Ability <InfoTip text={TIPS.homes} />
           </h2>
           <p className="mt-1 text-sm text-[var(--color-text-muted)]">Estimated budget {estimatedNode}</p>
 

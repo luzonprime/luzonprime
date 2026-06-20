@@ -1,28 +1,26 @@
 # Graph Report - luzonprime  (2026-06-20)
 
 ## Corpus Check
-- 174 files · ~67,480 words
+- 175 files · ~67,836 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 604 nodes · 1353 edges · 34 communities (26 shown, 8 thin omitted)
+- 607 nodes · 1357 edges · 27 communities (19 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e678001`
+- Built from commit: `049ac7c7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Community 0|Community 0]]
 - [[_COMMUNITY_Community 1|Community 1]]
-- [[_COMMUNITY_Community 2|Community 2]]
 - [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Community 4|Community 4]]
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
@@ -40,12 +38,7 @@
 - [[_COMMUNITY_Community 23|Community 23]]
 - [[_COMMUNITY_Community 26|Community 26]]
 - [[_COMMUNITY_Community 27|Community 27]]
-- [[_COMMUNITY_Community 28|Community 28]]
-- [[_COMMUNITY_Community 29|Community 29]]
-- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
-- [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `createClient()` - 93 edges
@@ -74,7 +67,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (34 total, 8 thin omitted)
+## Communities (27 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.16
@@ -82,15 +75,11 @@ Nodes (13): assignInquiry(), requireAdmin(), updateInquiryStatus(), DataTable(),
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
-Nodes (31): ContactInput, contactSchema, Notif, NewsletterBanner(), FOOTER_LINKS, SOCIALS, ForgotPasswordInput, forgotPasswordSchema (+23 more)
-
-### Community 2 - "Community 2"
-Cohesion: 0.33
-Nodes (4): metadata, SERVICES, CtaBanner(), CtaLink
+Nodes (35): updateAvatar(), updateOwnProfile(), ContactInput, contactSchema, AccountSettings(), AvatarUpload(), Notif, NotificationBell() (+27 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.11
-Nodes (15): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, Footer(), DEFAULT_INLINE, DEFAULT_MORE (+7 more)
+Cohesion: 0.07
+Nodes (23): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, Footer(), FOOTER_LINKS, SOCIALS (+15 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
@@ -98,31 +87,27 @@ Nodes (41): dependencies, clsx, framer-motion, @hookform/resolvers, lucide-react
 
 ### Community 5 - "Community 5"
 Cohesion: 0.08
-Nodes (34): deleteBuyAbilitySubmission(), matchBuyAbility(), requireAdmin(), respondBuyAbility(), submitBuyAbility(), SubmitBuyAbilityInput, updateBuyAbilityStatus(), metadata (+26 more)
+Nodes (32): deleteBuyAbilitySubmission(), matchBuyAbility(), requireAdmin(), respondBuyAbility(), submitBuyAbility(), SubmitBuyAbilityInput, updateBuyAbilityStatus(), contactSchema (+24 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.07
-Nodes (40): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+32 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.39
-Nodes (6): generateMetadata(), ImageGallery(), MediaItem, youTubeEmbed(), getItem(), ShopItemPage()
+Nodes (40): deleteBooking(), requireAdmin(), updateBookingStatus(), createProperty(), dbClientFor(), deleteProperty(), features(), fileList() (+32 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.14
-Nodes (13): InteriorDesignsPage(), metadata, ShopGrid(), metadata, Award, ListingType, Member, NavItem (+5 more)
+Cohesion: 0.06
+Nodes (40): generateMetadata(), generateMetadata(), metadata, PERKS, BuyAbilityForm(), REQUIRED, TIPS, FeaturedListings() (+32 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.13
-Nodes (13): NAV_ITEMS, NAV_ITEMS, DashboardShell(), NotificationBell(), initials(), ProfileMenu(), ROLE_LABELS, ICON_RULES (+5 more)
+Cohesion: 0.06
+Nodes (35): AdminOverviewPage(), lastNDays(), NAV_ITEMS, BarChartCard(), LineChartCard(), PALETTE, PieChartCard(), NAV_ITEMS (+27 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.06
-Nodes (36): AdminOverviewPage(), lastNDays(), AgentListings(), metadata, generateMetadata(), BarChartCard(), LineChartCard(), PALETTE (+28 more)
+Cohesion: 0.14
+Nodes (17): AgentListings(), metadata, generateMetadata(), AgentDetailPage(), generateMetadata(), getAgent(), AgentCard(), AgentContactButtons() (+9 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.32
@@ -137,56 +122,36 @@ Cohesion: 0.47
 Nodes (4): config, proxy(), ROLE_PREFIXES, updateSession()
 
 ### Community 15 - "Community 15"
-Cohesion: 0.07
-Nodes (33): updateAvatar(), updateOwnProfile(), updateSiteSettings(), AdminLayout(), NAV_ITEMS, generateMetadata(), generateMetadata(), AdminAwardsPage() (+25 more)
+Cohesion: 0.08
+Nodes (30): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+22 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
-### Community 28 - "Community 28"
-Cohesion: 0.18
-Nodes (10): AWARDS, metadata, PILLARS, TIMELINE, STATS, StatsBar(), POINTS, WhyUs() (+2 more)
-
-### Community 29 - "Community 29"
-Cohesion: 0.16
-Nodes (13): Home(), BuyAbilityBanner(), CategoryCurations(), FALLBACK, FeaturedListings(), PropertyMarquee(), SectionHeader(), TESTIMONIALS (+5 more)
-
-### Community 30 - "Community 30"
-Cohesion: 0.19
-Nodes (9): BlueprintStatement(), DEFAULT_AWARDS, HeroSection(), BEDROOMS, LISTING_TYPES, PRICE_RANGES, SearchBar(), BUILDINGS (+1 more)
-
 ### Community 31 - "Community 31"
-Cohesion: 0.19
-Nodes (9): BlogPage(), metadata, BlogPreview(), Neighborhoods(), PLACES, AnimatedSection(), AnimatedStaggerItem(), fadeInUp (+1 more)
-
-### Community 32 - "Community 32"
-Cohesion: 0.15
-Nodes (16): contactSchema, POST(), inquireSchema, POST(), AdminLeadAlertParams, BookingConfirmationParams, EmailTemplateMap, getTransporter() (+8 more)
-
-### Community 33 - "Community 33"
-Cohesion: 0.27
-Nodes (8): deleteBooking(), requireAdmin(), updateBookingStatus(), AdminBookingsPage(), BookingsManager(), STATUS_STYLES, DashboardCardGrid(), Booking
+Cohesion: 0.06
+Nodes (40): AWARDS, metadata, PILLARS, TIMELINE, Home(), BlogPage(), metadata, AgentsPreview() (+32 more)
 
 ## Knowledge Gaps
-- **174 isolated node(s):** `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN`, `metadata`, `PILLARS` (+169 more)
+- **175 isolated node(s):** `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN`, `metadata`, `PILLARS` (+170 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `createClient()` connect `Community 15` to `Community 0`, `Community 33`, `Community 32`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 11`, `Community 29`, `Community 31`?**
-  _High betweenness centrality (0.156) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Community 11` to `Community 0`, `Community 1`, `Community 3`, `Community 5`, `Community 8`, `Community 10`, `Community 29`, `Community 31`?**
+- **Why does `createClient()` connect `Community 15` to `Community 0`, `Community 1`, `Community 5`, `Community 6`, `Community 8`, `Community 10`, `Community 11`, `Community 31`?**
+  _High betweenness centrality (0.155) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 10` to `Community 0`, `Community 1`, `Community 3`, `Community 8`, `Community 31`?**
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 33`, `Community 32`, `Community 5`, `Community 11`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 11`, `Community 5`, `Community 15`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `createAdminClient()` (e.g. with `AdminAgentsPage()` and `generateStaticParams()`) actually correct?**
   _`createAdminClient()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN` to the rest of the system?**
-  _174 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _175 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.06448087431693988 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06105834464043419 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.11428571428571428 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06825396825396825 - nodes in this community are weakly interconnected._
