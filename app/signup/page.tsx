@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema, type SignupInput } from "@/lib/validations";
 import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/Input";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
 
 export default function SignupPage() {
@@ -26,23 +27,17 @@ export default function SignupPage() {
     setServerError(null);
     const supabase = createClient();
 
-    const { data, error } = await supabase.auth.signUp({
+    // The profile is created from this metadata by the handle_new_user trigger
+    // (a client-side insert here would be blocked by RLS — no session yet).
+    const { error } = await supabase.auth.signUp({
       email: values.email,
       password: values.password,
-      options: { data: { full_name: values.full_name } },
+      options: { data: { full_name: values.full_name, role: values.role } },
     });
 
     if (error) {
       setServerError(error.message);
       return;
-    }
-
-    if (data.user) {
-      await supabase.from("profiles").upsert({
-        id: data.user.id,
-        full_name: values.full_name,
-        role: values.role,
-      });
     }
 
     router.push(`/verify-otp?email=${encodeURIComponent(values.email)}`);
@@ -72,9 +67,8 @@ export default function SignupPage() {
             {...register("email")}
             error={errors.email?.message}
           />
-          <Input
+          <PasswordInput
             label="Password"
-            type="password"
             placeholder="••••••••"
             {...register("password")}
             error={errors.password?.message}

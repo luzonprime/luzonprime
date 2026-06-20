@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginInput } from "@/lib/validations";
 import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/Input";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
 
 function LoginForm() {
@@ -70,9 +71,8 @@ function LoginForm() {
             {...register("email")}
             error={errors.email?.message}
           />
-          <Input
+          <PasswordInput
             label="Password"
-            type="password"
             placeholder="••••••••"
             {...register("password")}
             error={errors.password?.message}

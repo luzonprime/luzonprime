@@ -10,6 +10,7 @@ import {
 } from "@/lib/validations";
 import { createClient } from "@/lib/supabase/client";
 import { Input } from "@/components/ui/Input";
+import { PasswordInput } from "@/components/ui/PasswordInput";
 import { Button } from "@/components/ui/Button";
 
 function ResetPasswordForm() {
@@ -88,16 +89,14 @@ function ResetPasswordForm() {
             {...register("token")}
             error={errors.token?.message}
           />
-          <Input
+          <PasswordInput
             label="New password"
-            type="password"
             placeholder="••••••••"
             {...register("password")}
             error={errors.password?.message}
           />
-          <Input
+          <PasswordInput
             label="Confirm password"
-            type="password"
             placeholder="••••••••"
             {...register("confirmPassword")}
             error={errors.confirmPassword?.message}

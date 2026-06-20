@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { CurrencyProvider } from "@/components/shared/CurrencyProvider";
+import { FavouritesProvider } from "@/components/shared/FavouritesProvider";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import "./globals.css";
 
@@ -88,7 +89,9 @@ export default function RootLayout({
         />
         <ThemeProvider attribute="class" defaultTheme="light">
           <CurrencyProvider>
-            <SiteChrome>{children}</SiteChrome>
+            <FavouritesProvider>
+              <SiteChrome>{children}</SiteChrome>
+            </FavouritesProvider>
           </CurrencyProvider>
         </ThemeProvider>
       </body>

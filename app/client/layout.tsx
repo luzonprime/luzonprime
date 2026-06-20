@@ -2,6 +2,7 @@ import { DashboardShell } from "@/components/dashboard/DashboardShell";
 
 const NAV_ITEMS = [
   { href: "/client", label: "Overview" },
+  { href: "/client/favourites", label: "Favourites" },
   { href: "/client/settings", label: "Settings" },
 ];
 

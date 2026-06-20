@@ -7,6 +7,7 @@ import { BedDouble, Bath, Maximize, MapPin } from "lucide-react";
 import type { Property } from "@/types";
 import { LISTING_TYPE_LABELS, STATUS_LABELS, cn } from "@/lib/utils";
 import { Price } from "@/components/shared/Price";
+import { FavouriteButton } from "@/components/listings/FavouriteButton";
 
 export function PropertyCard({ property }: { property: Property }) {
   const images = property.images?.length ? property.images : [];
@@ -56,6 +57,8 @@ export function PropertyCard({ property }: { property: Property }) {
             ))}
           </div>
         )}
+
+        <FavouriteButton propertyId={property.id} className="absolute right-3 top-3" />
 
         <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
           {property.listing_type && (

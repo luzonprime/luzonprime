@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarCheck, Inbox, Search } from "lucide-react";
+import { CalendarCheck, Heart, Inbox, Search } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { StatCard } from "@/components/dashboard/StatCard";
 import type { Booking, Inquiry, Profile } from "@/types";
@@ -30,20 +30,28 @@ export default async function ClientOverviewPage() {
   } = await supabase.auth.getUser();
   if (!user) return null;
 
-  const [{ data: profile }, { data: inquiryData }, { data: bookingData }] =
-    await Promise.all([
-      supabase.from("profiles").select("*").eq("id", user.id).single(),
-      supabase
-        .from("inquiries")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false }),
-      supabase
-        .from("bookings")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("scheduled_at", { ascending: false }),
-    ]);
+  const [
+    { data: profile },
+    { data: inquiryData },
+    { data: bookingData },
+    { count: favCount },
+  ] = await Promise.all([
+    supabase.from("profiles").select("*").eq("id", user.id).single(),
+    supabase
+      .from("inquiries")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false }),
+    supabase
+      .from("bookings")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("scheduled_at", { ascending: false }),
+    supabase
+      .from("favourites")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id),
+  ]);
 
   const inquiries = (inquiryData ?? []) as Inquiry[];
   const bookings = (bookingData ?? []) as Booking[];
@@ -64,9 +72,12 @@ export default async function ClientOverviewPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard icon={Inbox} label="My inquiries" value={inquiries.length} />
         <StatCard icon={CalendarCheck} label="Upcoming visits" value={upcoming} />
+        <Link href="/client/favourites" className="contents">
+          <StatCard icon={Heart} label="Saved homes" value={favCount ?? 0} />
+        </Link>
         <Link href="/listings" className="contents">
           <div className="flex h-full flex-col justify-between rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary)] p-5 text-white transition-transform hover:-translate-y-0.5">
             <Search size={20} />
