@@ -15,6 +15,29 @@ export interface SubmitBuyAbilityInput {
   annual_income?: number | null;
   down_payment?: number | null;
   monthly_debt?: number | null;
+  selectedIds?: string[];
+}
+
+/** Live matching (no insert) — buy-ability homes within ±10% of a NGN budget. */
+export async function matchBuyAbility(
+  budgetNgn: number,
+  location: string | null
+): Promise<Property[]> {
+  const admin = createAdminClient();
+  let q = admin
+    .from("properties")
+    .select("*")
+    .eq("is_published", true)
+    .eq("buy_ability", true);
+  if (budgetNgn > 0) {
+    q = q.gte("price", Math.round(budgetNgn * 0.9)).lte("price", Math.round(budgetNgn * 1.1));
+  }
+  if (location) {
+    const loc = location.replace(/[%,]/g, "");
+    q = q.or(`location.ilike.%${loc}%,area.ilike.%${loc}%,city.ilike.%${loc}%`);
+  }
+  const { data } = await q.order("price", { ascending: true }).limit(6);
+  return (data ?? []) as Property[];
 }
 
 export async function submitBuyAbility(input: SubmitBuyAbilityInput) {
@@ -29,31 +52,27 @@ export async function submitBuyAbility(input: SubmitBuyAbilityInput) {
   const budget = estimateBudget(input);
   const admin = createAdminClient();
 
-  await admin.from("buy_ability_submissions").insert({
-    user_id: user?.id ?? null,
-    property_id: input.property_id ?? null,
-    email,
-    location: input.location ?? null,
-    credit_score: input.credit_score ?? null,
-    annual_income: input.annual_income ?? null,
-    down_payment: input.down_payment ?? null,
-    monthly_debt: input.monthly_debt ?? null,
-  });
+  const { data: submission } = await admin
+    .from("buy_ability_submissions")
+    .insert({
+      user_id: user?.id ?? null,
+      property_id: input.property_id ?? null,
+      email,
+      location: input.location ?? null,
+      credit_score: input.credit_score ?? null,
+      annual_income: input.annual_income ?? null,
+      down_payment: input.down_payment ?? null,
+      monthly_debt: input.monthly_debt ?? null,
+    })
+    .select("id")
+    .single();
 
-  // Match buy-ability properties within ±10% of the estimated budget.
-  let q = admin
-    .from("properties")
-    .select("*")
-    .eq("is_published", true)
-    .eq("buy_ability", true);
-  if (budget > 0) {
-    q = q.gte("price", Math.round(budget * 0.9)).lte("price", Math.round(budget * 1.1));
+  const selected = [...new Set(input.selectedIds ?? [])];
+  if (submission && selected.length > 0) {
+    await admin.from("buy_ability_properties").insert(
+      selected.map((property_id) => ({ submission_id: submission.id, property_id }))
+    );
   }
-  if (input.location) {
-    const loc = input.location.replace(/[%,]/g, "");
-    q = q.or(`location.ilike.%${loc}%,area.ilike.%${loc}%,city.ilike.%${loc}%`);
-  }
-  const { data: matches } = await q.order("price", { ascending: true }).limit(6);
 
   // Acknowledge the user + notify the team (best-effort).
   try {
@@ -78,7 +97,7 @@ export async function submitBuyAbility(input: SubmitBuyAbilityInput) {
   }
 
   revalidatePath("/admin/buy-ability");
-  return { budget, matches: (matches ?? []) as Property[] };
+  return { ok: true, budget };
 }
 
 async function requireAdmin() {

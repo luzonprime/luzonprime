@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Mail, Trash2, X } from "lucide-react";
+import Image from "next/image";
+import { Home, Mail, Trash2, X } from "lucide-react";
 import {
   respondBuyAbility,
   updateBuyAbilityStatus,
@@ -10,6 +11,8 @@ import {
 import { DashboardCardGrid } from "@/components/dashboard/DashboardCardGrid";
 import { Button } from "@/components/ui/Button";
 import type { BuyAbilitySubmission } from "@/types";
+
+export type SelectedProperty = { id: string; title: string; image: string | null };
 
 const STATUS_STYLES: Record<string, string> = {
   new: "bg-blue-100 text-blue-700",
@@ -24,9 +27,11 @@ function money(n: number | null) {
 export function BuyAbilityManager({
   submissions,
   propertyTitles,
+  selections = {},
 }: {
   submissions: BuyAbilitySubmission[];
   propertyTitles: Record<string, string>;
+  selections?: Record<string, SelectedProperty[]>;
 }) {
   const [rows, setRows] = useState(submissions);
   const [responding, setResponding] = useState<BuyAbilitySubmission | null>(null);
@@ -137,6 +142,35 @@ export function BuyAbilityManager({
                   <dd className="text-[var(--color-text)]">{money(s.monthly_debt)}</dd>
                 </div>
               </dl>
+
+              {(selections[s.id]?.length ?? 0) > 0 && (
+                <div className="mt-3">
+                  <p className="text-xs font-medium text-[var(--color-text-muted)]">
+                    Selected homes
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {selections[s.id].map((sp) => (
+                      <div
+                        key={sp.id}
+                        className="flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] p-1 pr-2"
+                      >
+                        <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded bg-[var(--color-bg-muted)]">
+                          {sp.image ? (
+                            <Image src={sp.image} alt="" fill sizes="28px" className="object-cover" />
+                          ) : (
+                            <span className="flex h-full items-center justify-center text-[var(--color-text-muted)]">
+                              <Home size={12} />
+                            </span>
+                          )}
+                        </span>
+                        <span className="max-w-[110px] truncate text-xs text-[var(--color-text)]">
+                          {sp.title}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-[var(--color-border)] pt-4">
                 <select

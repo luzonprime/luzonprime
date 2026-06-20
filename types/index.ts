@@ -83,6 +83,7 @@ export interface InteriorProject {
   description: string | null;
   cover_image: string | null;
   images: string[] | null;
+  videos: string[] | null;
   sort_order: number;
   is_published: boolean;
   created_at: string;
@@ -99,6 +100,9 @@ export interface ShopItem {
   is_new: boolean;
   cover_image: string | null;
   images: string[] | null;
+  videos: string[] | null;
+  materials: string | null;
+  dimensions: string | null;
   project_id: string | null;
   sort_order: number;
   is_published: boolean;

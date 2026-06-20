@@ -28,11 +28,11 @@ const ALLOWED: Record<string, TableConfig> = {
     revalidate: ["/admin/categories", "/"],
   },
   interior_projects: {
-    columns: ["title", "slug", "category", "location", "year", "description", "cover_image", "sort_order", "is_published"],
+    columns: ["title", "slug", "category", "location", "year", "description", "cover_image", "images", "videos", "sort_order", "is_published"],
     revalidate: ["/admin/interior-projects", "/interior-designs"],
   },
   shop_items: {
-    columns: ["name", "slug", "item_type", "description", "price", "price_label", "is_new", "cover_image", "sort_order", "is_published"],
+    columns: ["name", "slug", "item_type", "description", "materials", "dimensions", "price", "price_label", "is_new", "cover_image", "images", "videos", "sort_order", "is_published"],
     revalidate: ["/admin/shop-items", "/interior-designs"],
   },
 };

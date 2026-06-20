@@ -25,6 +25,8 @@ export default async function AdminInteriorProjectsPage() {
         ]}
         fields={[
           { name: "cover_image", label: "Cover image", type: "image" },
+          { name: "images", label: "Gallery photos", type: "gallery" },
+          { name: "videos", label: "Videos", type: "video" },
           { name: "title", label: "Title" },
           { name: "slug", label: "Slug", placeholder: "ikoyi-penthouse" },
           { name: "category", label: "Category", placeholder: "Residential" },

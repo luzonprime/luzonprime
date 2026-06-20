@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Sofa } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
+import { ImageGallery } from "@/components/listings/ImageGallery";
 import type { ShopItem } from "@/types";
 
 async function getItem(slug: string): Promise<ShopItem | null> {
@@ -50,6 +51,9 @@ export default async function ShopItemPage({
     .neq("id", item.id)
     .limit(3);
   const related = (relatedData ?? []) as ShopItem[];
+  const media = [
+    ...new Set([item.cover_image, ...(item.images ?? [])].filter((v): v is string => !!v)),
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-[1.125rem] lg:px-8">
@@ -61,27 +65,23 @@ export default async function ShopItemPage({
       </Link>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">
-        <div className="relative aspect-square overflow-hidden rounded-2xl bg-[var(--color-bg-muted)]">
-          {item.cover_image ? (
-            <Image src={item.cover_image} alt={item.name} fill sizes="(max-width: 1024px) 100vw, 50vw" priority className="object-cover" />
-          ) : (
-            <div className="flex h-full items-center justify-center text-[var(--color-text-muted)]">
-              <Sofa size={40} />
-            </div>
-          )}
-          {item.is_new && (
-            <span className="absolute left-4 top-4 rounded-full bg-[var(--color-accent)] px-3 py-1 text-xs font-semibold text-white">
-              New
-            </span>
-          )}
+        <div>
+          <ImageGallery images={media} videos={item.videos ?? []} title={item.name} />
         </div>
 
         <div>
-          {item.item_type && (
-            <span className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">
-              {item.item_type}
-            </span>
-          )}
+          <div className="flex items-center gap-2">
+            {item.item_type && (
+              <span className="text-xs uppercase tracking-widest text-[var(--color-text-muted)]">
+                {item.item_type}
+              </span>
+            )}
+            {item.is_new && (
+              <span className="rounded-full bg-[var(--color-accent)] px-2 py-0.5 text-[10px] font-semibold text-white">
+                New
+              </span>
+            )}
+          </div>
           <h1 className="font-heading mt-2 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             {item.name}
           </h1>
@@ -93,6 +93,27 @@ export default async function ShopItemPage({
               {item.description}
             </p>
           )}
+
+          {item.materials && (
+            <div className="mt-6">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-[var(--color-text)]">
+                Material and finishes
+              </h2>
+              <p className="mt-1.5 text-sm text-[var(--color-text-muted)]">{item.materials}</p>
+            </div>
+          )}
+
+          {item.dimensions && (
+            <div className="mt-5">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-[var(--color-text)]">
+                Dimensions
+              </h2>
+              <p className="mt-1.5 whitespace-pre-line text-sm text-[var(--color-text-muted)]">
+                {item.dimensions}
+              </p>
+            </div>
+          )}
+
           <Link
             href="/contact"
             className="mt-7 inline-flex rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"

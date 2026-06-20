@@ -105,6 +105,14 @@ export default async function PortfolioProjectPage({
         </div>
       )}
 
+      {project.videos && project.videos.length > 0 && (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {project.videos.map((src, i) => (
+            <video key={i} src={src} controls className="w-full rounded-2xl bg-black" />
+          ))}
+        </div>
+      )}
+
       {items.length > 0 && (
         <div className="mt-14">
           <h2 className="font-heading text-xl font-bold text-[var(--color-text)]">Shop the look</h2>

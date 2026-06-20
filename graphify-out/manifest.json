@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "components/home/AgentsPreview.tsx": {
-    "mtime": 1781784244.5729382,
-    "ast_hash": "d03c893feff53b6493ae3b5cbe691816",
+    "mtime": 1781926084.6582851,
+    "ast_hash": "c21de0a25543eff4251292d26c22af2c",
     "semantic_hash": ""
   },
   "components/home/BlogPreview.tsx": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "types/index.ts": {
-    "mtime": 1781922467.2210789,
-    "ast_hash": "4ee19fccb4410609b09ac846c1aab1df",
+    "mtime": 1781926060.5119827,
+    "ast_hash": "f0428e3a106dae03877b2b731e1402c2",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -735,8 +735,8 @@
     "semantic_hash": ""
   },
   "app/actions/admin-crud.ts": {
-    "mtime": 1781906079.2287757,
-    "ast_hash": "10efe3a833ee558547e5d1a12c204fb1",
+    "mtime": 1781926442.001578,
+    "ast_hash": "31a274380d8d4b670cbd50f48fd2c38b",
     "semantic_hash": ""
   },
   "app/actions/bookings.ts": {
@@ -780,8 +780,8 @@
     "semantic_hash": ""
   },
   "components/dashboard/CrudManager.tsx": {
-    "mtime": 1781784815.2311223,
-    "ast_hash": "c241033a96198ccabda36f0c284fa87b",
+    "mtime": 1781926537.833987,
+    "ast_hash": "a4ff4adf725888d3735669f343d607e2",
     "semantic_hash": ""
   },
   "components/dashboard/MediaDropzone.tsx": {
@@ -815,13 +815,13 @@
     "semantic_hash": ""
   },
   "app/actions/buyability.ts": {
-    "mtime": 1781904671.9576192,
-    "ast_hash": "539d8415bac381c3b4eb731502b8f714",
+    "mtime": 1781926165.1942601,
+    "ast_hash": "4e4dd185f64138681d535672173c2cab",
     "semantic_hash": ""
   },
   "app/admin/buy-ability/page.tsx": {
-    "mtime": 1781904958.5237558,
-    "ast_hash": "7164a2c09706f5b3c61211ed9f800686",
+    "mtime": 1781926345.6831615,
+    "ast_hash": "cc12040d85e9e4d1b99fe2d88360e41c",
     "semantic_hash": ""
   },
   "app/admin/categories/page.tsx": {
@@ -830,18 +830,18 @@
     "semantic_hash": ""
   },
   "app/admin/interior-projects/page.tsx": {
-    "mtime": 1781922178.7184765,
-    "ast_hash": "6f833550c4409a4d86fcabf4f00af7de",
+    "mtime": 1781926552.1773064,
+    "ast_hash": "69e0e15cbf747cd3efd26beda086ab74",
     "semantic_hash": ""
   },
   "app/admin/shop-items/page.tsx": {
-    "mtime": 1781922190.3392456,
-    "ast_hash": "99b83e4e22c551c5a5f79ebb173a0ead",
+    "mtime": 1781926556.8602796,
+    "ast_hash": "31d797d2f2d2c5a2436394dd03d4d466",
     "semantic_hash": ""
   },
   "app/buy-ability/page.tsx": {
-    "mtime": 1781905204.4344869,
-    "ast_hash": "667df6c5f5c9994d7e7ceaa28d53be75",
+    "mtime": 1781926324.8168547,
+    "ast_hash": "a6ae600cbb43fb8c3007bd1a949a7225",
     "semantic_hash": ""
   },
   "app/interior-designs/page.tsx": {
@@ -850,23 +850,23 @@
     "semantic_hash": ""
   },
   "app/interior-designs/portfolio/[slug]/page.tsx": {
-    "mtime": 1781922315.2426875,
-    "ast_hash": "49563b3e1dd917a29b1a5dcbc78e0f14",
+    "mtime": 1781926633.6268988,
+    "ast_hash": "04527839123a1fe26a1cc1eb98a11d3e",
     "semantic_hash": ""
   },
   "app/interior-designs/shop/[slug]/page.tsx": {
-    "mtime": 1781922290.9558423,
-    "ast_hash": "6c69d836ddfc415dc37b0c9001b18faf",
+    "mtime": 1781926617.4564068,
+    "ast_hash": "026293492f89dfe31acd974434fc93c0",
     "semantic_hash": ""
   },
   "components/buyability/BuyAbilityForm.tsx": {
-    "mtime": 1781904720.1602674,
-    "ast_hash": "a6aaa566c2cbcb7e90a83f40427c697b",
+    "mtime": 1781926280.1575089,
+    "ast_hash": "810574d90a8dea061642c8618a6a9d78",
     "semantic_hash": ""
   },
   "components/dashboard/BuyAbilityManager.tsx": {
-    "mtime": 1781904945.590206,
-    "ast_hash": "319be73b1f556790826ad71d964e0928",
+    "mtime": 1781926390.649643,
+    "ast_hash": "41403b69879549600bec7a0f6a888c1c",
     "semantic_hash": ""
   },
   "components/home/BuyAbilityBanner.tsx": {
@@ -897,6 +897,16 @@
   "supabase/migrations/010_interior_seed.sql": {
     "mtime": 1781905918.6672728,
     "ast_hash": "e2a0a5074e133ffe53b46c6654444f1f",
+    "semantic_hash": ""
+  },
+  "components/shared/Skeleton.tsx": {
+    "mtime": 1781926198.889474,
+    "ast_hash": "47b0be1cfeff0a33b50a9400aa27c88b",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/011_buyability_join_interior_fields.sql": {
+    "mtime": 1781925968.2754881,
+    "ast_hash": "f51c0c145f0720761b8af4cfea01b92b",
     "semantic_hash": ""
   }
 }

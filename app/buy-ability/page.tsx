@@ -28,30 +28,38 @@ export default async function BuyAbilityPage({
     data: { user },
   } = await supabase.auth.getUser();
 
-  let preselected: { id: string; title: string; city: string | null } | null = null;
+  let preselected:
+    | { id: string; title: string; price: number | null; city: string | null }
+    | undefined;
   if (property) {
     const { data } = await supabase
       .from("properties")
-      .select("id, title, city")
+      .select("id, title, price, city")
       .eq("id", property)
       .single();
-    preselected = (data as { id: string; title: string; city: string | null } | null) ?? null;
+    preselected =
+      (data as { id: string; title: string; price: number | null; city: string | null } | null) ??
+      undefined;
   }
 
-  const { data: cityRows } = await supabase
+  // Deduped locations from buy-ability listings only.
+  const { data: locRows } = await supabase
     .from("properties")
-    .select("city")
+    .select("location, area, city")
     .eq("is_published", true)
     .eq("buy_ability", true);
-  const cities = (cityRows ?? []) as { city: string | null }[];
-  const locations = [...new Set(cities.map((r) => r.city).filter(Boolean))].sort() as string[];
+  const locSet = new Set<string>();
+  for (const r of (locRows ?? []) as { location: string | null; area: string | null; city: string | null }[]) {
+    [r.location, r.area, r.city].forEach((v) => v && locSet.add(v));
+  }
+  const locations = [...locSet].sort();
 
   return (
     <div className="bg-[var(--color-bg)]">
       <section className="mx-auto max-w-5xl px-4 pt-12 sm:px-[1.125rem] lg:px-8">
         <AnimatedSection>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--color-heading)]">
-            <Wallet size={14} /> Buy-Ability
+          <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
+            <Wallet size={14} className="text-[var(--color-accent)]" /> Buy-Ability
           </span>
           <h1 className="font-heading mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
             Find homes in your budget
@@ -76,9 +84,7 @@ export default async function BuyAbilityPage({
           <BuyAbilityForm
             defaultEmail={user?.email ?? ""}
             locations={locations}
-            propertyId={preselected?.id}
-            propertyTitle={preselected?.title}
-            preselectedLocation={preselected?.city ?? undefined}
+            preselected={preselected}
           />
         </div>
       </section>

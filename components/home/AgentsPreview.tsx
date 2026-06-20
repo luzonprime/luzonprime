@@ -38,7 +38,7 @@ export async function AgentsPreview() {
         <AnimatedStagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {agents.map((agent) => (
             <AnimatedStaggerItem key={agent.id}>
-              <div className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+              <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
                 <div className="relative mx-auto mt-6 h-20 w-20 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
                   {agent.avatar_url ? (
                     <Image src={agent.avatar_url} alt={agent.full_name ?? "Agent"} fill className="object-cover" />

@@ -22,11 +22,15 @@ export default async function AdminShopItemsPage() {
         groupBy="item_type"
         detailFields={[{ name: "price_label", label: "Price" }]}
         fields={[
-          { name: "cover_image", label: "Image", type: "image" },
+          { name: "cover_image", label: "Cover image", type: "image" },
+          { name: "images", label: "Gallery photos", type: "gallery" },
+          { name: "videos", label: "Videos", type: "video" },
           { name: "name", label: "Name" },
           { name: "slug", label: "Slug", placeholder: "velvet-lounge-chair" },
           { name: "item_type", label: "Type", placeholder: "Chairs" },
           { name: "description", label: "Description", type: "textarea" },
+          { name: "materials", label: "Material and finishes", type: "textarea" },
+          { name: "dimensions", label: "Dimensions (one per line)", type: "textarea" },
           { name: "price", label: "Price (number, optional)", type: "number" },
           { name: "price_label", label: "Price label", placeholder: "Price on request" },
           { name: "is_new", label: "New", type: "checkbox" },
