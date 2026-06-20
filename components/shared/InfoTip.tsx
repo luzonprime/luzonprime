@@ -29,7 +29,7 @@ export function InfoTip({ text }: { text: string }) {
       {open && (
         <span
           role="tooltip"
-          className="absolute left-1/2 top-full z-30 mt-1.5 w-56 max-w-[70vw] -translate-x-1/2 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-2.5 text-xs font-normal leading-relaxed text-[var(--color-text-muted)] shadow-lg"
+          className="absolute left-0 top-full z-30 mt-1.5 w-[min(15rem,calc(100vw-2rem))] rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-2.5 text-xs font-normal leading-relaxed text-[var(--color-text-muted)] shadow-lg"
         >
           {text}
         </span>

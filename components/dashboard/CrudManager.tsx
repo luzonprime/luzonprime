@@ -188,7 +188,7 @@ export function CrudManager({
     return (
       <li
         key={row.id}
-        className="flex items-start justify-between gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
+        className="flex min-w-0 items-start justify-between gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
       >
         <div className="flex min-w-0 items-start gap-3">
           {imageField && (
@@ -203,7 +203,7 @@ export function CrudManager({
             </div>
           )}
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
+            <div className="flex min-w-0 items-center gap-2">
               <p className="truncate font-medium text-[var(--color-text)]">
                 {String(row[primaryField] ?? "—")}
               </p>
