@@ -8,6 +8,7 @@ import {
   AnimatedStagger,
   AnimatedStaggerItem,
 } from "@/components/shared/AnimatedSection";
+import { ShowMoreText } from "@/components/shared/ShowMoreText";
 
 export const metadata: Metadata = {
   title: "Members | Luzon Prime Realtors",
@@ -79,10 +80,13 @@ export default async function MembersPage() {
                     {m.title && (
                       <p className="text-xs font-medium text-[var(--color-accent)]">{m.title}</p>
                     )}
-                    {m.about && (
+                    {/* {m.about && (
                       <p className="mt-2 line-clamp-4 text-sm text-[var(--color-text-muted)]">
                         {m.about}
                       </p>
+                    )} */}
+                    {m.about && (
+                      <ShowMoreText text={m.about} maxLines={4} className="mt-2" />
                     )}
                   </div>
                 </div>
