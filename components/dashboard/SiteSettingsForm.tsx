@@ -65,6 +65,39 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
         placeholder="Ikoyi, Victoria Island, Lekki, Banana Island"
       />
 
+      <div className="rounded-xl border border-[var(--color-border)] p-4">
+        <p className="text-sm font-semibold text-[var(--color-text)]">Google reviews</p>
+        <p className="mb-3 mt-1 text-xs text-[var(--color-text-muted)]">
+          Shown as a “Find us on Google” badge on the home page and reviews page.
+        </p>
+        <Input
+          label="Google profile / reviews URL"
+          name="google_reviews_url"
+          defaultValue={settings.google_reviews_url ?? ""}
+          placeholder="https://share.google/…"
+        />
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Input
+            label="Google rating (1–5)"
+            name="google_rating"
+            type="number"
+            step="0.1"
+            min="0"
+            max="5"
+            defaultValue={settings.google_rating ?? ""}
+            placeholder="4.9"
+          />
+          <Input
+            label="Google review count"
+            name="google_review_count"
+            type="number"
+            min="0"
+            defaultValue={settings.google_review_count ?? ""}
+            placeholder="128"
+          />
+        </div>
+      </div>
+
       {error && <p className="text-sm text-red-500">{error}</p>}
       {saved && !error && <p className="text-sm text-green-600">Settings saved.</p>}
 

@@ -6,6 +6,7 @@ import { CornerUpLeft, Trash2 } from "lucide-react";
 import type { Review } from "@/types";
 import { cn } from "@/lib/utils";
 import { deleteReview } from "@/app/actions/reviews";
+import { GoogleG } from "@/components/shared/GoogleReviews";
 import { ReviewComposer } from "./ReviewComposer";
 import { StarRatingDisplay } from "./StarRating";
 
@@ -80,10 +81,18 @@ export function ReviewNode({
               <span className="text-sm font-semibold text-[var(--color-text)]">
                 {node.author_name ?? "Anonymous"}
               </span>
+              {node.source === "google" && (
+                <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border)] px-2 py-0.5 text-[10px] font-medium text-[var(--color-text-muted)]">
+                  <GoogleG size={11} /> Google
+                </span>
+              )}
               <span className="text-xs text-[var(--color-text-muted)]">
                 {formatDate(node.created_at)}
               </span>
             </div>
+            {node.author_role && (
+              <p className="text-xs text-[var(--color-text-muted)]">{node.author_role}</p>
+            )}
             {node.rating ? (
               <div className="mt-1">
                 <StarRatingDisplay value={node.rating} />

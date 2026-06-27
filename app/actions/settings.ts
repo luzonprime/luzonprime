@@ -25,6 +25,11 @@ export async function updateSiteSettings(formData: FormData) {
     ? featuredAreasRaw.split(",").map((a) => a.trim()).filter(Boolean)
     : [];
 
+  const ratingRaw = str(formData, "google_rating");
+  const countRaw = str(formData, "google_review_count");
+  const google_rating = ratingRaw ? Number(ratingRaw) : null;
+  const google_review_count = countRaw ? Number(countRaw) : null;
+
   const { error } = await supabase
     .from("site_settings")
     .update({
@@ -36,6 +41,11 @@ export async function updateSiteSettings(formData: FormData) {
       twitter_url: str(formData, "twitter_url"),
       linkedin_url: str(formData, "linkedin_url"),
       featured_areas,
+      google_reviews_url: str(formData, "google_reviews_url"),
+      google_rating: Number.isFinite(google_rating as number) ? google_rating : null,
+      google_review_count: Number.isInteger(google_review_count as number)
+        ? google_review_count
+        : null,
     })
     .eq("id", 1);
 

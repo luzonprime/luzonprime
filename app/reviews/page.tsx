@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { ReviewsBoard } from "@/components/reviews/ReviewsBoard";
+import { GoogleReviewsCta } from "@/components/shared/GoogleReviews";
 import type { Review } from "@/types";
 
 export const metadata: Metadata = {
@@ -18,9 +19,15 @@ export default async function ReviewsPage() {
       data: { user },
     },
     { data },
+    { data: settingsData },
   ] = await Promise.all([
     supabase.auth.getUser(),
     supabase.from("reviews").select("*").order("created_at", { ascending: true }),
+    supabase
+      .from("site_settings")
+      .select("google_reviews_url, google_rating, google_review_count")
+      .eq("id", 1)
+      .single(),
   ]);
 
   const reviews = (data ?? []) as Review[];
@@ -46,6 +53,14 @@ export default async function ReviewsPage() {
           Hear from people who found their prime property with us — and share
           your own story. Join the conversation by replying to any review.
         </p>
+
+        <div className="mt-5">
+          <GoogleReviewsCta
+            url={settingsData?.google_reviews_url ?? null}
+            rating={settingsData?.google_rating ?? null}
+            count={settingsData?.google_review_count ?? null}
+          />
+        </div>
       </header>
 
       <div className="mt-10">

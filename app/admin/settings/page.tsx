@@ -38,6 +38,9 @@ export default async function AdminSettingsPage() {
               twitter_url: null,
               linkedin_url: null,
               featured_areas: [],
+              google_reviews_url: null,
+              google_rating: null,
+              google_review_count: null,
             }
           }
         />

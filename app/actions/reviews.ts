@@ -46,6 +46,8 @@ export async function createReview(input: {
   if (error) throw new Error(error.message);
 
   revalidatePath("/reviews");
+  revalidatePath("/");
+  revalidatePath("/admin/reviews");
 }
 
 export async function deleteReview(id: string) {
@@ -60,4 +62,48 @@ export async function deleteReview(id: string) {
   if (error) throw new Error(error.message);
 
   revalidatePath("/reviews");
+  revalidatePath("/");
+  revalidatePath("/admin/reviews");
+}
+
+// ---- Admin moderation ---------------------------------------------------
+
+async function requireAdmin() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("You must be signed in to do this.");
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .single();
+  if (profile?.role !== "admin") throw new Error("Only admins can manage reviews.");
+  return { supabase, user };
+}
+
+export async function updateReview(
+  id: string,
+  patch: { body?: string; is_featured?: boolean; is_hidden?: boolean }
+) {
+  const { supabase } = await requireAdmin();
+
+  const update: Record<string, unknown> = {};
+  if (patch.body !== undefined) {
+    const body = patch.body.trim();
+    if (!body) throw new Error("Review body can’t be empty.");
+    update.body = body.slice(0, MAX_BODY);
+  }
+  if (patch.is_featured !== undefined) update.is_featured = patch.is_featured;
+  if (patch.is_hidden !== undefined) update.is_hidden = patch.is_hidden;
+  if (Object.keys(update).length === 0) return;
+
+  // RLS update policy is own-or-admin; admin role passes for any row.
+  const { error } = await supabase.from("reviews").update(update).eq("id", id);
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/reviews");
+  revalidatePath("/");
+  revalidatePath("/admin/reviews");
 }

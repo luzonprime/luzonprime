@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/admin/interior-projects", label: "Interior Projects" },
   { href: "/admin/shop-items", label: "Shop Items" },
   { href: "/admin/inquiries", label: "Inquiries" },
+  { href: "/admin/reviews", label: "Reviews" },
   { href: "/admin/buy-ability", label: "Buy-Ability" },
   { href: "/admin/bookings", label: "Bookings" },
   { href: "/admin/subscribers", label: "Subscribers" },

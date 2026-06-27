@@ -197,14 +197,20 @@ export interface Post {
   created_at: string;
 }
 
+export type ReviewSource = "site" | "google";
+
 export interface Review {
   id: string;
   parent_id: string | null;
-  user_id: string;
+  user_id: string | null;
   author_name: string | null;
   author_avatar: string | null;
+  author_role: string | null;
   rating: number | null;
   body: string;
+  source: ReviewSource;
+  is_featured: boolean;
+  is_hidden: boolean;
   created_at: string;
 }
 
@@ -218,4 +224,7 @@ export interface SiteSettings {
   twitter_url: string | null;
   linkedin_url: string | null;
   featured_areas: string[] | null;
+  google_reviews_url: string | null;
+  google_rating: number | null;
+  google_review_count: number | null;
 }
