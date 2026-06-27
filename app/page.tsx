@@ -31,7 +31,7 @@ export default async function Home() {
         .eq("is_featured", true)
         .is("parent_id", null)
         .order("created_at", { ascending: false })
-        .limit(6),
+        .limit(2),
       supabase
         .from("reviews")
         .select("id", { count: "exact", head: true })
