@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Logo } from "@/components/shared/Logo";
 import { SkylineSketch } from "@/components/home/SkylineSketch";
+import { createClient } from "@/lib/supabase/client";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -46,20 +47,58 @@ const FOOTER_LINKS = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/agents", label: "Agents" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
-const SOCIALS = [
-  { href: "https://facebook.com", icon: FacebookIcon, label: "Facebook" },
-  { href: "https://instagram.com", icon: InstagramIcon, label: "Instagram" },
-  { href: "https://twitter.com", icon: XIcon, label: "Twitter" },
-  { href: "https://linkedin.com", icon: LinkedinIcon, label: "LinkedIn" },
-];
+// Fallback contact details, used until/unless admin overrides them in site_settings.
+const DEFAULT_EMAIL = "support@luzonprime.com";
+const DEFAULT_PHONE_DISPLAY = "0906 679 2730";
+const DEFAULT_PHONE_TEL = "+2349066792730";
+
+type FooterSettings = {
+  contact_email: string | null;
+  contact_phone: string | null;
+  facebook_url: string | null;
+  instagram_url: string | null;
+  twitter_url: string | null;
+  linkedin_url: string | null;
+};
+
+// Strip spaces/dashes so a display phone like "0906 679 2730" still makes a valid tel: link.
+function telHref(phone: string) {
+  return `tel:${phone.replace(/[^\d+]/g, "")}`;
+}
 
 export function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [settings, setSettings] = useState<FooterSettings | null>(null);
+
+  // site_settings is publicly readable (RLS: select for anyone). Mirror the
+  // Navbar's pattern of loading admin-managed config client-side.
+  useEffect(() => {
+    const supabase = createClient();
+    supabase
+      .from("site_settings")
+      .select("contact_email, contact_phone, facebook_url, instagram_url, twitter_url, linkedin_url")
+      .eq("id", 1)
+      .single()
+      .then(({ data }) => setSettings(data as FooterSettings | null));
+  }, []);
+
+  const contactEmail = settings?.contact_email ?? DEFAULT_EMAIL;
+  const contactPhone = settings?.contact_phone ?? null;
+  const phoneDisplay = contactPhone ?? DEFAULT_PHONE_DISPLAY;
+  const phoneTel = contactPhone ? telHref(contactPhone) : `tel:${DEFAULT_PHONE_TEL}`;
+
+  const socials = [
+    { href: settings?.facebook_url, icon: FacebookIcon, label: "Facebook" },
+    { href: settings?.instagram_url, icon: InstagramIcon, label: "Instagram" },
+    { href: settings?.twitter_url, icon: XIcon, label: "Twitter" },
+    { href: settings?.linkedin_url, icon: LinkedinIcon, label: "LinkedIn" },
+  ].filter((s): s is { href: string; icon: typeof FacebookIcon; label: string } => Boolean(s.href));
 
   async function handleSubscribe(e: React.FormEvent) {
     e.preventDefault();
@@ -156,37 +195,39 @@ export function Footer() {
             </h3>
             <ul className="mt-3 flex flex-col gap-2 text-sm text-[var(--color-text-muted)]">
               <li>
-                <a href="mailto:support@luzonprime.com" className="hover:text-[var(--color-primary)]">
-                  support@luzonprime.com
+                <a href={`mailto:${contactEmail}`} className="hover:text-[var(--color-primary)]">
+                  {contactEmail}
                 </a>
               </li>
               <li>
-                <a href="tel:+2349066792730" className="hover:text-[var(--color-primary)]">
-                  0906 679 2730
+                <a href={phoneTel} className="hover:text-[var(--color-primary)]">
+                  {phoneDisplay}
                 </a>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-[var(--color-text)]">
-              Follow us on
-            </h3>
-            <div className="mt-3 flex w-fit gap-3">
-              {SOCIALS.map(({ href, icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary)] hover:text-white"
-                >
-                  <Icon width={16} height={16} />
-                </a>
-              ))}
+          {socials.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-[var(--color-text)]">
+                Follow us on
+              </h3>
+              <div className="mt-3 flex w-fit gap-3">
+                {socials.map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary)] hover:text-white"
+                  >
+                    <Icon width={16} height={16} />
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="mt-10 text-center text-xs text-[var(--color-text-muted)] sm:text-left">

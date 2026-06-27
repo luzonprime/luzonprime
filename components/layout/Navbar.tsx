@@ -25,6 +25,7 @@ const DEFAULT_MORE: NavLink[] = [
   { href: "/buy-ability", label: "Buy-Ability" },
   { href: "/about", label: "About" },
   { href: "/members", label: "Members" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

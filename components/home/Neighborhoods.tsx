@@ -26,7 +26,7 @@ export function Neighborhoods() {
             Find your ideal location
           </h2>
           <p className="mt-2 max-w-xl text-sm text-[var(--color-text-muted)]">
-            From Lagos to London — explore prime property in the cities our
+            From Abuja to London — explore prime property in the cities our
             clients call home.
           </p>
         </AnimatedSection>

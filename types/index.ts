@@ -197,6 +197,17 @@ export interface Post {
   created_at: string;
 }
 
+export interface Review {
+  id: string;
+  parent_id: string | null;
+  user_id: string;
+  author_name: string | null;
+  author_avatar: string | null;
+  rating: number | null;
+  body: string;
+  created_at: string;
+}
+
 export interface SiteSettings {
   id: number;
   contact_email: string | null;
