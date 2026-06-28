@@ -11,6 +11,7 @@ export async function AgentsPreview() {
     .from("profiles")
     .select("*")
     .eq("role", "agent")
+    .eq("verified", true)
     .order("created_at", { ascending: false })
     .limit(4);
 

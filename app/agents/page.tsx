@@ -30,7 +30,7 @@ export default async function AgentsPage() {
     .from("profiles")
     .select("*")
     .eq("role", "agent")
-    .order("verified", { ascending: false })
+    .eq("verified", true)
     .order("created_at", { ascending: false });
 
   const agents = (data ?? []) as Profile[];
