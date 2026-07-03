@@ -1,16 +1,16 @@
 # Graph Report - luzonprime  (2026-07-03)
 
 ## Corpus Check
-- 202 files · ~84,728 words
+- 202 files · ~84,781 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 687 nodes · 1580 edges · 45 communities (36 shown, 9 thin omitted)
+- 687 nodes · 1582 edges · 43 communities (34 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `175fb519`
+- Built from commit: `ec5feb6a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -53,9 +53,7 @@
 - [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
-- [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
-- [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 44|Community 44]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -85,23 +83,23 @@
 ## Import Cycles
 - None detected.
 
-## Communities (45 total, 9 thin omitted)
+## Communities (43 total, 9 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.19
 Nodes (11): assignInquiry(), requireAdmin(), updateInquiryStatus(), DataTable(), DataTableColumn, InquiriesDataTable(), STATUS_OPTIONS, STATUS_STYLES (+3 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.07
-Nodes (34): ContactInput, contactSchema, NewsletterBanner(), Footer(), FOOTER_LINKS, FooterSettings, telHref(), ForgotPasswordInput (+26 more)
+Cohesion: 0.05
+Nodes (42): ContactInput, contactSchema, ImageDropzone(), MediaDropzone(), DEFAULT_LISTING_TYPES, DEFAULT_PROPERTY_TYPES, DEFAULT_STATUSES, Term (+34 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.15
 Nodes (16): contactSchema, POST(), inquireSchema, POST(), AdminLeadAlertParams, BookingConfirmationParams, EmailTemplateMap, getTransporter() (+8 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (19): createReview(), deleteReview(), requireAdmin(), updateReview(), AdminReviewsManager(), Node, ReviewRow(), metadata (+11 more)
+Cohesion: 0.10
+Nodes (25): createReview(), deleteReview(), requireAdmin(), updateReview(), AdminReviewsManager(), Node, ReviewRow(), ClientReviews() (+17 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
@@ -112,8 +110,8 @@ Cohesion: 0.07
 Nodes (37): deleteBuyAbilitySubmission(), matchBuyAbility(), requireAdmin(), respondBuyAbility(), submitBuyAbility(), SubmitBuyAbilityInput, updateBuyAbilityStatus(), metadata (+29 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.07
-Nodes (37): deleteBooking(), requireAdmin(), updateBookingStatus(), createProperty(), dbClientFor(), deleteProperty(), features(), fileList() (+29 more)
+Cohesion: 0.08
+Nodes (37): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+29 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.22
@@ -148,8 +146,8 @@ Cohesion: 0.47
 Nodes (4): config, proxy(), ROLE_PREFIXES, updateSession()
 
 ### Community 15 - "Community 15"
-Cohesion: 0.07
-Nodes (36): ALLOWED, crudCreate(), crudDelete(), crudUpdate(), pick(), requireAdmin(), revalidate(), TableConfig (+28 more)
+Cohesion: 0.08
+Nodes (29): signOutAction(), updateAvatar(), updateOwnProfile(), updateSiteSettings(), generateMetadata(), generateMetadata(), Home(), AdminAwardsPage() (+21 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.50
@@ -160,16 +158,16 @@ Cohesion: 0.09
 Nodes (20): metadata, organizationJsonLd, playfair, plusJakartaSans, websiteJsonLd, DEFAULT_INLINE, DEFAULT_MORE, DEFAULT_POPULAR (+12 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.21
-Nodes (10): CategoryCurations(), FALLBACK, PropertyMarquee(), SectionHeader(), InteriorDesignsPage(), metadata, ShopGrid(), cn() (+2 more)
+Cohesion: 0.25
+Nodes (8): FALLBACK, HomePartner, SectionHeader(), cn(), metadata, PartnerTile(), Marquee(), Partner
 
 ### Community 30 - "Community 30"
 Cohesion: 0.25
 Nodes (9): AgentListings(), ClientFavouritesPage(), metadata, FeaturedListings(), AgentDetailPage(), generateMetadata(), getAgent(), PropertyCard() (+1 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.15
-Nodes (14): AWARDS, metadata, PILLARS, TIMELINE, metadata, AgentsPreview(), STATS, StatsBar() (+6 more)
+Cohesion: 0.16
+Nodes (10): AWARDS, metadata, PILLARS, TIMELINE, AgentsPreview(), STATS, StatsBar(), POINTS (+2 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.19
@@ -177,7 +175,7 @@ Nodes (9): BlueprintStatement(), DEFAULT_AWARDS, HeroSection(), BEDROOMS, LISTIN
 
 ### Community 33 - "Community 33"
 Cohesion: 0.24
-Nodes (7): BuyAbilityBanner(), Neighborhoods(), PLACES, HomePartner, PartnersStrip(), ITEMS, TrustMarquee()
+Nodes (7): BuyAbilityBanner(), CategoryCurations(), Neighborhoods(), PartnersStrip(), PropertyMarquee(), ITEMS, TrustMarquee()
 
 ### Community 34 - "Community 34"
 Cohesion: 0.31
@@ -196,28 +194,20 @@ Cohesion: 0.39
 Nodes (6): generateMetadata(), ImageGallery(), MediaItem, youTubeEmbed(), getItem(), ShopItemPage()
 
 ### Community 38 - "Community 38"
-Cohesion: 0.43
-Nodes (4): metadata, PartnerTile(), AnimatedSection(), Partner
+Cohesion: 0.47
+Nodes (4): InteriorDesignsPage(), metadata, ShopGrid(), ShopItem
 
 ### Community 39 - "Community 39"
-Cohesion: 0.25
-Nodes (4): BlogPage(), metadata, BlogPreview(), Post
+Cohesion: 0.15
+Nodes (13): metadata, metadata, BlogPreview(), PLACES, metadata, SERVICES, AnimatedSection(), AnimatedStagger() (+5 more)
 
 ### Community 40 - "Community 40"
 Cohesion: 0.36
 Nodes (5): AdminBookingsPage(), BookingsManager(), STATUS_STYLES, DashboardCardGrid(), Booking
 
-### Community 41 - "Community 41"
-Cohesion: 0.36
-Nodes (6): ClientReviews(), HomeReview, initials(), ReviewCard(), GoogleG(), GoogleReviewsCta()
-
 ### Community 42 - "Community 42"
 Cohesion: 0.33
 Nodes (4): metadata, ShowMoreText(), ShowMoreTextProps, Member
-
-### Community 43 - "Community 43"
-Cohesion: 0.33
-Nodes (4): metadata, SERVICES, CtaBanner(), CtaLink
 
 ## Knowledge Gaps
 - **188 isolated node(s):** `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN`, `metadata`, `PILLARS` (+183 more)
@@ -229,15 +219,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `createClient()` connect `Community 15` to `Community 0`, `Community 2`, `Community 3`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 10`, `Community 11`, `Community 29`, `Community 30`, `Community 31`, `Community 33`, `Community 34`, `Community 35`, `Community 37`, `Community 38`, `Community 39`, `Community 40`, `Community 42`?**
   _High betweenness centrality (0.168) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Community 29` to `Community 0`, `Community 1`, `Community 34`, `Community 3`, `Community 35`, `Community 5`, `Community 38`, `Community 7`, `Community 8`, `Community 28`, `Community 30`, `Community 31`?**
+- **Why does `cn()` connect `Community 29` to `Community 0`, `Community 1`, `Community 34`, `Community 3`, `Community 35`, `Community 5`, `Community 38`, `Community 7`, `Community 8`, `Community 39`, `Community 28`, `Community 30`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 2`, `Community 5`, `Community 11`, `Community 15`, `Community 30`?**
+- **Why does `createAdminClient()` connect `Community 6` to `Community 0`, `Community 2`, `Community 5`, `Community 11`, `Community 30`?**
   _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `createAdminClient()` (e.g. with `AdminAgentsPage()` and `generateStaticParams()`) actually correct?**
   _`createAdminClient()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@supabase/mcp-server-supabase`, `@vercel/mcp-adapter`, `VERCEL_TOKEN` to the rest of the system?**
   _188 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.06656426011264721 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.11827956989247312 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09581646423751687 - nodes in this community are weakly interconnected._

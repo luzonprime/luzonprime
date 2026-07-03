@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "components/layout/Navbar.tsx": {
-    "mtime": 1782596329.6237035,
-    "ast_hash": "15e55958385e84c0105faf512bdaf612",
+    "mtime": 1783090364.3245804,
+    "ast_hash": "b62f788e1fcf80cd9182d171fd99e805",
     "semantic_hash": ""
   },
   "components/layout/SiteChrome.tsx": {
@@ -995,8 +995,8 @@
     "semantic_hash": ""
   },
   "components/home/PartnersStrip.tsx": {
-    "mtime": 1783089274.6477945,
-    "ast_hash": "636f58584aba9cc3d8b2a5b545013631",
+    "mtime": 1783090380.7673738,
+    "ast_hash": "20d83fa5556b0c2cce919aa082c3c392",
     "semantic_hash": ""
   },
   "components/partners/PartnerTile.tsx": {
