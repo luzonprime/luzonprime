@@ -153,6 +153,17 @@ export interface Member {
   created_at: string;
 }
 
+export interface Partner {
+  id: string;
+  name: string;
+  logo_url: string | null;
+  website_url: string | null;
+  bg_color: string | null;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface Inquiry {
   id: string;
   property_id: string | null;

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "create-admin": "tsx --env-file=.env scripts/create-admin.ts",
     "generate-logo-variant": "tsx scripts/generate-logo-variant.ts",
-    "seed": "tsx --env-file=.env scripts/seed.ts"
+    "seed": "tsx --env-file=.env scripts/seed.ts",
+    "seed-partners": "tsx --env-file=.env scripts/seed-partners.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

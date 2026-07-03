@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Award } from "@/types";
+import { PartnersStrip, type HomePartner } from "@/components/home/PartnersStrip";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustMarquee } from "@/components/home/TrustMarquee";
 import { StatsBar } from "@/components/home/StatsBar";
@@ -17,8 +18,15 @@ import { NewsletterBanner } from "@/components/home/NewsletterBanner";
 
 export default async function Home() {
   const supabase = await createClient();
-  const [{ data: awardData }, { data: reviewData }, { count: reviewTotal }, { data: settingsData }] =
-    await Promise.all([
+  const HOME_PARTNERS_LIMIT = 6;
+  const [
+    { data: awardData },
+    { data: reviewData },
+    { count: reviewTotal },
+    { data: settingsData },
+    { data: partnerData },
+    { count: partnerTotal },
+  ] = await Promise.all([
       supabase
         .from("awards")
         .select("year, title, image_url")
@@ -41,6 +49,16 @@ export default async function Home() {
         .select("google_reviews_url, google_rating, google_review_count")
         .eq("id", 1)
         .single(),
+      supabase
+        .from("partners")
+        .select("id, name, logo_url, website_url, bg_color")
+        .eq("is_active", true)
+        .order("sort_order")
+        .limit(HOME_PARTNERS_LIMIT),
+      supabase
+        .from("partners")
+        .select("id", { count: "exact", head: true })
+        .eq("is_active", true),
     ]);
   const awards = (awardData ?? []) as Pick<Award, "year" | "title" | "image_url">[];
   const reviews = (reviewData ?? []) as HomeReview[];
@@ -49,6 +67,7 @@ export default async function Home() {
     rating: settingsData?.google_rating ?? null,
     count: settingsData?.google_review_count ?? null,
   };
+  const partners = (partnerData ?? []) as HomePartner[];
 
   return (
     <>
@@ -63,6 +82,7 @@ export default async function Home() {
       <BlueprintStatement />
       <WhyUs />
       <AgentsPreview />
+      <PartnersStrip partners={partners} totalCount={partnerTotal ?? partners.length} />
       <ClientReviews
         reviews={reviews}
         totalCount={reviewTotal ?? reviews.length}

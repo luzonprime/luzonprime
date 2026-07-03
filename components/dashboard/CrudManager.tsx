@@ -23,7 +23,7 @@ export type CrudRow = { id: string } & Record<string, unknown>;
 export type CrudField = {
   name: string;
   label: string;
-  type?: "text" | "number" | "textarea" | "select" | "checkbox" | "image" | "gallery" | "video";
+  type?: "text" | "number" | "textarea" | "select" | "checkbox" | "image" | "gallery" | "video" | "color";
   options?: { value: string; label: string }[];
   placeholder?: string;
 };
@@ -558,6 +558,39 @@ export function CrudManager({
                             ))}
                           </ul>
                         )}
+                      </div>
+                    );
+                  }
+                  if (f.type === "color") {
+                    const hex = String(value ?? "");
+                    return (
+                      <div key={f.name} className="flex flex-col gap-1.5">
+                        <label className="text-sm font-medium text-[var(--color-text)]">{f.label}</label>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="color"
+                            aria-label={`${f.label} colour picker`}
+                            value={/^#[0-9a-fA-F]{6}$/.test(hex) ? hex : "#ffffff"}
+                            onChange={(e) => setForm((s) => ({ ...s, [f.name]: e.target.value }))}
+                            className="h-10 w-12 shrink-0 cursor-pointer rounded-lg border border-[var(--color-border)] bg-transparent p-1"
+                          />
+                          <input
+                            type="text"
+                            value={hex}
+                            placeholder={f.placeholder ?? "#FFFFFF — leave blank for white"}
+                            onChange={(e) => setForm((s) => ({ ...s, [f.name]: e.target.value }))}
+                            className="w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 text-sm text-[var(--color-text)] outline-none focus:border-[var(--color-primary)]"
+                          />
+                          {hex && (
+                            <button
+                              type="button"
+                              onClick={() => setForm((s) => ({ ...s, [f.name]: "" }))}
+                              className="shrink-0 text-xs text-red-500 hover:underline"
+                            >
+                              Clear
+                            </button>
+                          )}
+                        </div>
                       </div>
                     );
                   }

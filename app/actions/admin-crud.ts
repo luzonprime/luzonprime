@@ -23,6 +23,10 @@ const ALLOWED: Record<string, TableConfig> = {
     columns: ["name", "title", "image_url", "about", "sort_order", "is_active"],
     revalidate: ["/admin/members", "/members"],
   },
+  partners: {
+    columns: ["name", "logo_url", "website_url", "bg_color", "sort_order", "is_active"],
+    revalidate: ["/admin/partners", "/partners", "/"],
+  },
   categories: {
     columns: ["title", "description", "image_url", "link", "sort_order", "is_active"],
     revalidate: ["/admin/categories", "/"],
