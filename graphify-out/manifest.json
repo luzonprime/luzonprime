@@ -185,8 +185,8 @@
     "semantic_hash": ""
   },
   "app/contact/page.tsx": {
-    "mtime": 1781759608.6002123,
-    "ast_hash": "c5a3ec54701ddc4b2a1c35fb3dd53611",
+    "mtime": 1783162435.279828,
+    "ast_hash": "cb22bcac4ef40dfe1fe3f6ac8d0203e5",
     "semantic_hash": ""
   },
   "app/forgot-password/page.tsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": ""
   },
   "components/layout/Footer.tsx": {
-    "mtime": 1782596144.5935571,
-    "ast_hash": "d7423bf607af19fc8efdbfc2a408da2b",
+    "mtime": 1783162448.7408712,
+    "ast_hash": "d8422e41858d773824d284917d58e31a",
     "semantic_hash": ""
   },
   "components/layout/Navbar.tsx": {
@@ -975,8 +975,8 @@
     "semantic_hash": ""
   },
   "app/partners/page.tsx": {
-    "mtime": 1783089328.2943854,
-    "ast_hash": "bbc3939761c8514f8dcc964ff6f5d7ba",
+    "mtime": 1783162429.0744967,
+    "ast_hash": "c8246666f94cc882b28c9d3bf9dbb157",
     "semantic_hash": ""
   },
   "app/reviews/page.tsx": {
@@ -995,8 +995,8 @@
     "semantic_hash": ""
   },
   "components/home/PartnersStrip.tsx": {
-    "mtime": 1783090380.7673738,
-    "ast_hash": "20d83fa5556b0c2cce919aa082c3c392",
+    "mtime": 1783162409.5561438,
+    "ast_hash": "3a7396d2725db9e10ebf6100b2ffcb51",
     "semantic_hash": ""
   },
   "components/partners/PartnerTile.tsx": {
@@ -1035,8 +1035,8 @@
     "semantic_hash": ""
   },
   "scripts/seed-partners.ts": {
-    "mtime": 1783089402.1373975,
-    "ast_hash": "8eff9a1874047b8bf659b498ddcbc88e",
+    "mtime": 1783162507.9376855,
+    "ast_hash": "049e5922dab3198482bd18e04459e3d1",
     "semantic_hash": ""
   },
   "supabase/migrations/015_reviews.sql": {
@@ -1087,6 +1087,11 @@
   "partners/6.jpg": {
     "mtime": 1783088584.3548033,
     "ast_hash": "ad587c96f64a1527a4ca0cd3696be04a",
+    "semantic_hash": ""
+  },
+  "partners/7.jpg": {
+    "mtime": 1783162174.219785,
+    "ast_hash": "cd7831217ec85651327c3163d5ed1456",
     "semantic_hash": ""
   }
 }

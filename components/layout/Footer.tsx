@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Logo } from "@/components/shared/Logo";
@@ -194,6 +195,14 @@ export function Footer() {
               Contact
             </h3>
             <ul className="mt-3 flex flex-col gap-2 text-sm text-[var(--color-text-muted)]">
+              <li className="flex items-start gap-2">
+                <MapPin size={15} className="mt-0.5 shrink-0 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
+                <span>
+                  1 Kudang Street, Wuse 2
+                  <br />
+                  Abuja, Nigeria
+                </span>
+              </li>
               <li>
                 <a href={`mailto:${contactEmail}`} className="hover:text-[var(--color-primary)]">
                   {contactEmail}

@@ -60,7 +60,13 @@ export default function ContactPage() {
             <MapPin size={18} className="mt-0.5 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
             <div>
               <p className="font-semibold text-[var(--color-text)]">Office</p>
-              <p className="text-sm text-[var(--color-text-muted)]">Lagos, Nigeria</p>
+              <p className="text-sm text-[var(--color-text-muted)]">
+                1 Kudang Street
+                <br />
+                Wuse 2
+                <br />
+                Abuja, Nigeria
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">

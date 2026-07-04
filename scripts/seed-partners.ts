@@ -27,6 +27,7 @@ const PARTNERS: Seed[] = [
   { file: "4.jpg", name: "HugeDream Properties", website_url: null, bg_color: "#1B2A4E" },
   { file: "5.jpg", name: "Pearllike Consulting & Management Services", website_url: null, bg_color: "#FFFFFF" },
   { file: "6.jpg", name: "VoltWhales", website_url: null, bg_color: "#000000" },
+  { file: "7.jpg", name: "7 Fifteen", website_url: null, bg_color: "#FFFFFF" },
 ];
 
 async function main() {

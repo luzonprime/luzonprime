@@ -29,7 +29,7 @@ export function PartnersStrip({
           <SectionHeader
             eyebrow="Our partners"
             title="Trusted by leading brands"
-            description="We collaborate with developers, consultants, and industry partners to deliver exceptional real estate outcomes."
+            description="We collaborate with developers, consultants, clients, and industry partners to deliver exceptional real estate outcomes."
             seeAllHref={totalCount > partners.length ? "/partners" : undefined}
             seeAllLabel="View all partners"
           />

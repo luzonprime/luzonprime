@@ -1,7 +1,7 @@
-# Graph Report - luzonprime  (2026-07-03)
+# Graph Report - luzonprime  (2026-07-04)
 
 ## Corpus Check
-- 202 files · ~84,781 words
+- 202 files · ~86,192 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ec5feb6a`
+- Built from commit: `1f533904`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

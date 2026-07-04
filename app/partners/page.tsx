@@ -11,12 +11,12 @@ import { PartnerTile } from "@/components/partners/PartnerTile";
 export const metadata: Metadata = {
   title: "Partners | Luzon Prime Realtors",
   description:
-    "The developers, consultants, and industry partners we collaborate with to deliver exceptional real estate outcomes.",
+    "The developers, consultants, clients, and industry partners we collaborate with to deliver exceptional real estate outcomes.",
   alternates: { canonical: "/partners" },
   openGraph: {
     title: "Partners | Luzon Prime Realtors",
     description:
-      "The developers, consultants, and industry partners we collaborate with.",
+      "The developers, consultants, clients, and industry partners we collaborate with.",
     url: "/partners",
     type: "website",
   },
@@ -40,8 +40,8 @@ export default async function PartnersPage() {
             Our partners
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-[var(--color-text-muted)] sm:text-base">
-            The developers, consultants, and industry partners we collaborate
-            with to deliver exceptional real estate outcomes.
+            The developers, consultants, clients, and industry partners we
+            collaborate with to deliver exceptional real estate outcomes.
           </p>
         </AnimatedSection>
       </section>
