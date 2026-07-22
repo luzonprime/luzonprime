@@ -12,12 +12,12 @@ import { CtaBanner } from "@/components/shared/CtaBanner";
 export const metadata: Metadata = {
   title: "Services | Luzon Prime Realtors",
   description:
-    "Buy, sell, rent, invest off-plan, manage, or value property with Luzon Prime Realtors — full-service real estate across multiple cities and currencies.",
+    "Investment advisory, acquisition & disposition, development advisory, capital raising, and transaction & legal advisory from Luzon Prime Realtors.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services | Luzon Prime Realtors",
     description:
-      "Full-service real estate: buying, selling, rentals, off-plan advisory, property management, and valuation.",
+      "Real estate investment, development, capital, and transaction advisory from Luzon Prime Realtors.",
     url: "/services",
     type: "website",
   },

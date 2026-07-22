@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "app/admin/layout.tsx": {
-    "mtime": 1783089229.8919673,
-    "ast_hash": "53de0525fdd11ea332a7e44e81423528",
+    "mtime": 1784732146.3284142,
+    "ast_hash": "a038a9113dc0ffcc658385543a1f6d55",
     "semantic_hash": ""
   },
   "app/admin/page.tsx": {
@@ -235,8 +235,8 @@
     "semantic_hash": ""
   },
   "app/services/page.tsx": {
-    "mtime": 1781784349.5550601,
-    "ast_hash": "cc643fed7a447091b890d783bbe07dfc",
+    "mtime": 1784736575.1343212,
+    "ast_hash": "f246f7aa95159c4c00d9cbb9f76243d1",
     "semantic_hash": ""
   },
   "app/signup/page.tsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "components/home/HeroSection.tsx": {
-    "mtime": 1781797985.3504822,
-    "ast_hash": "a71f7fe17e39f0a05b5f8d003d0b6871",
+    "mtime": 1784732602.5930505,
+    "ast_hash": "2d7238076e7faa24e32ef1da88ed0e54",
     "semantic_hash": ""
   },
   "components/home/Neighborhoods.tsx": {
@@ -395,13 +395,13 @@
     "semantic_hash": ""
   },
   "components/home/StatsBar.tsx": {
-    "mtime": 1781784245.4282944,
-    "ast_hash": "6d1cfd81696a6754b469c9c2b202b1c1",
+    "mtime": 1784732348.899351,
+    "ast_hash": "26a1ba7590d30b05e2327e5029bef83d",
     "semantic_hash": ""
   },
   "components/home/TrustMarquee.tsx": {
-    "mtime": 1781755143.453529,
-    "ast_hash": "6b511b92d09c6f512c7d941e33a4ea1b",
+    "mtime": 1784736126.2374885,
+    "ast_hash": "4465cb74820b818a2fc05401b225f9e2",
     "semantic_hash": ""
   },
   "components/home/WhyUs.tsx": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "types/index.ts": {
-    "mtime": 1783089159.9788384,
-    "ast_hash": "48f1b0ea89c4172dac0c8dad742513a9",
+    "mtime": 1784732125.7497156,
+    "ast_hash": "e79cde181feba17f6c5130286a635c7f",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "app/actions/admin-crud.ts": {
-    "mtime": 1783089182.3733718,
-    "ast_hash": "c10638dc1628834ef8412405f424f07a",
+    "mtime": 1784732133.916602,
+    "ast_hash": "4622b8e885527bda35032ebdc42b7442",
     "semantic_hash": ""
   },
   "app/actions/bookings.ts": {
@@ -1092,6 +1092,26 @@
   "partners/7.jpg": {
     "mtime": 1783162174.219785,
     "ast_hash": "cd7831217ec85651327c3163d5ed1456",
+    "semantic_hash": ""
+  },
+  "app/admin/services/page.tsx": {
+    "mtime": 1784732268.229378,
+    "ast_hash": "663ea53c69b7037afeeb63f77e60d714",
+    "semantic_hash": ""
+  },
+  "app/admin/stats/page.tsx": {
+    "mtime": 1784732279.1119487,
+    "ast_hash": "9fcb6ab368541272e93d118884546f50",
+    "semantic_hash": ""
+  },
+  "components/services/icons.tsx": {
+    "mtime": 1784732158.6854744,
+    "ast_hash": "98bcfaf45c940b0f21e4bf497a2698ea",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/019_services_and_stats.sql": {
+    "mtime": 1784732115.4436922,
+    "ast_hash": "a813ee0ee85506dcce210aef9e997a0d",
     "semantic_hash": ""
   }
 }
