@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import {
-  Building2,
-  ClipboardCheck,
-  Home,
-  KeyRound,
-  LineChart,
-  Wrench,
-} from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import type { Service } from "@/types";
+import { serviceIcon } from "@/components/services/icons";
 import {
   AnimatedSection,
   AnimatedStagger,
@@ -28,46 +23,15 @@ export const metadata: Metadata = {
   },
 };
 
-const SERVICES = [
-  {
-    icon: Home,
-    title: "Buy a property",
-    description:
-      "Hand-picked homes and investments matched to your budget, lifestyle, and goals — with guidance at every step.",
-  },
-  {
-    icon: KeyRound,
-    title: "Sell with confidence",
-    description:
-      "Accurate pricing, professional marketing, and qualified buyers so your property sells faster and for more.",
-  },
-  {
-    icon: Building2,
-    title: "Rent & lease",
-    description:
-      "Verified rentals for tenants and reliable, vetted occupants for landlords across every neighbourhood.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Off-plan advisory",
-    description:
-      "Get in early on trusted developments and build wealth before completion with data-backed advice.",
-  },
-  {
-    icon: Wrench,
-    title: "Property management",
-    description:
-      "End-to-end management — rent collection, maintenance, and reporting — so your asset runs itself.",
-  },
-  {
-    icon: LineChart,
-    title: "Valuation & insight",
-    description:
-      "Know what your property is really worth with market valuations grounded in real transaction data.",
-  },
-];
+export default async function ServicesPage() {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("services")
+    .select("*")
+    .eq("is_active", true)
+    .order("sort_order");
+  const services = (data ?? []) as Service[];
 
-export default function ServicesPage() {
   return (
     <div className="bg-[var(--color-bg)]">
       <section className="mx-auto max-w-6xl px-4 pt-12 pb-4 sm:px-[1.125rem] lg:px-8">
@@ -85,23 +49,34 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-[1.125rem] lg:px-8">
-        <AnimatedStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map(({ icon: Icon, title, description }) => (
-            <AnimatedStaggerItem key={title}>
-              <div className="group h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-shadow hover:shadow-lg">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-heading)]">
-                  <Icon size={22} />
-                </div>
-                <h2 className="mt-4 text-lg font-semibold text-[var(--color-text)]">
-                  {title}
-                </h2>
-                <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-                  {description}
-                </p>
-              </div>
-            </AnimatedStaggerItem>
-          ))}
-        </AnimatedStagger>
+        {services.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-[var(--color-border)] p-12 text-center text-sm text-[var(--color-text-muted)]">
+            Our services will appear here soon.
+          </div>
+        ) : (
+          <AnimatedStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => {
+              const Icon = serviceIcon(service.icon);
+              return (
+                <AnimatedStaggerItem key={service.id}>
+                  <div className="group h-full rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-shadow hover:shadow-lg">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-heading)]">
+                      <Icon size={22} />
+                    </div>
+                    <h2 className="mt-4 text-lg font-semibold text-[var(--color-text)]">
+                      {service.title}
+                    </h2>
+                    {service.description && (
+                      <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+                        {service.description}
+                      </p>
+                    )}
+                  </div>
+                </AnimatedStaggerItem>
+              );
+            })}
+          </AnimatedStagger>
+        )}
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-[1.125rem] lg:px-8">

@@ -6,20 +6,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Award } from "lucide-react";
 import { SearchBar } from "./SearchBar";
 
-// Fallback awards if none are configured in the admin dashboard.
-const DEFAULT_AWARDS = [
-  { year: "2020", title: "Africa's Most Innovative Real Estate Firm" },
-  { year: "2020", title: "Real Estate Newcomer of the Year" },
-  { year: "'22/'23", title: "African Property Awards — Winner" },
-  { year: "2025", title: "Luxury Lifestyle Award — Winner" },
-];
-
 export function HeroSection({
   awards,
 }: {
   awards?: { year: string | null; title: string; image_url?: string | null }[];
 }) {
-  const items = awards && awards.length > 0 ? awards : DEFAULT_AWARDS;
+  // DB-driven: no fallback. When there are no award records, the awards panel
+  // simply doesn't render and the hero content spans full width.
+  const items = (awards ?? []).slice(0, 4);
+  const hasAwards = items.length > 0;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -54,8 +49,14 @@ export function HeroSection({
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-[1.125rem] sm:pt-32 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.45fr_1fr]">
-          <motion.div style={{ y: textY }}>
+        <div
+          className={
+            hasAwards
+              ? "grid items-center gap-10 lg:grid-cols-[1.45fr_1fr]"
+              : "block"
+          }
+        >
+          <motion.div style={{ y: textY }} className={hasAwards ? "" : "max-w-3xl"}>
             <span className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-[var(--color-accent)] backdrop-blur-sm">
               Global Real Estate, Intelligently Curated
             </span>
@@ -75,34 +76,36 @@ export function HeroSection({
             </div>
           </motion.div>
 
-          {/* Awards panel */}
-          <div className="grid grid-cols-2 gap-3 lg:gap-4">
-            {items.slice(0, 4).map((a, i) => {
-              const image = "image_url" in a ? a.image_url : null;
-              return (
-                <div
-                  key={`${a.year}-${a.title}-${i}`}
-                  className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
-                >
-                  {image ? (
-                    <span className="relative h-12 w-12 shrink-0">
-                      <Image src={image} alt="" fill sizes="48px" className="object-contain" />
-                    </span>
-                  ) : (
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
-                      <Award size={20} className="text-[var(--color-accent)]" />
-                    </span>
-                  )}
-                  <div className="min-w-0">
-                    {!image && (
-                      <span className="text-base font-bold text-white">{a.year}</span>
+          {/* Awards panel — only rendered when award records exist */}
+          {hasAwards && (
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
+              {items.map((a, i) => {
+                const image = "image_url" in a ? a.image_url : null;
+                return (
+                  <div
+                    key={`${a.year}-${a.title}-${i}`}
+                    className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm"
+                  >
+                    {image ? (
+                      <span className="relative h-12 w-12 shrink-0">
+                        <Image src={image} alt="" fill sizes="48px" className="object-contain" />
+                      </span>
+                    ) : (
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                        <Award size={20} className="text-[var(--color-accent)]" />
+                      </span>
                     )}
-                    <p className="text-xs leading-snug text-white/85">{a.title}</p>
+                    <div className="min-w-0">
+                      {!image && a.year && (
+                        <span className="text-base font-bold text-white">{a.year}</span>
+                      )}
+                      <p className="text-xs leading-snug text-white/85">{a.title}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </section>

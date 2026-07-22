@@ -153,6 +153,26 @@ export interface Member {
   created_at: string;
 }
 
+export interface Service {
+  id: string;
+  title: string;
+  description: string | null;
+  icon: string | null;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface Stat {
+  id: string;
+  label: string;
+  value: number;
+  suffix: string | null;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface Partner {
   id: string;
   name: string;
