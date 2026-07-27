@@ -235,7 +235,7 @@ export default async function PropertyDetailPage({
                   </div>
                   <AgentContactButtons
                     phone="09066792730"
-                    email="support@luzonprime.com"
+                    email={["legal.team@luzonprime.com", "support@luzonprime.com"]}
                     name="Luzon Prime Realtors"
                   />
                 </div>

@@ -16,12 +16,13 @@ export function AgentContactButtons({
   className,
 }: {
   phone?: string | null;
-  email?: string | null;
+  email?: string | string[] | null;
   name?: string | null;
   className?: string;
 }) {
   const wa = phone ? toWhatsApp(phone) : "";
   const label = name ?? "this agent";
+  const emails = email ? (Array.isArray(email) ? email : [email]) : [];
 
   return (
     <div className={`flex items-center gap-2 ${className ?? ""}`}>
@@ -47,15 +48,16 @@ export function AgentContactButtons({
           </svg>
         </a>
       )}
-      {email && (
+      {emails.map((e) => (
         <a
-          href={`mailto:${email}`}
-          aria-label={`Email ${label}`}
+          key={e}
+          href={`mailto:${e}`}
+          aria-label={`Email ${label} at ${e}`}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary)] hover:text-white"
         >
           <Mail size={17} />
         </a>
-      )}
+      ))}
     </div>
   );
 }
