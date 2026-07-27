@@ -72,18 +72,6 @@ export default function ContactPage() {
           <div className="flex items-start gap-3">
             <Mail size={18} className="mt-0.5 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
             <div>
-              <p className="font-semibold text-[var(--color-text)]">Legal</p>
-              <a
-                href="mailto:legal.team@luzonprime.com"
-                className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
-              >
-                legal.team@luzonprime.com
-              </a>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <Mail size={18} className="mt-0.5 text-[var(--color-primary)] dark:text-[var(--color-accent)]" />
-            <div>
               <p className="font-semibold text-[var(--color-text)]">Email</p>
               <a
                 href="mailto:support@luzonprime.com"

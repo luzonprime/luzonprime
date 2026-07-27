@@ -54,7 +54,6 @@ const FOOTER_LINKS = [
 ];
 
 // Fallback contact details, used until/unless admin overrides them in site_settings.
-const LEGAL_EMAIL = "legal.team@luzonprime.com";
 const DEFAULT_EMAIL = "support@luzonprime.com";
 const DEFAULT_PHONE_DISPLAY = "0906 679 2730";
 const DEFAULT_PHONE_TEL = "+2349066792730";
@@ -203,11 +202,6 @@ export function Footer() {
                   <br />
                   Abuja, Nigeria
                 </span>
-              </li>
-              <li>
-                <a href={`mailto:${LEGAL_EMAIL}`} className="hover:text-[var(--color-primary)]">
-                  {LEGAL_EMAIL}
-                </a>
               </li>
               <li>
                 <a href={`mailto:${contactEmail}`} className="hover:text-[var(--color-primary)]">
