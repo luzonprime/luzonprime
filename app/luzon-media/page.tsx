@@ -137,15 +137,24 @@ const DEFINING_WORDS = [
   },
 ];
 
-const PARTNERS = [
-  {
-    name: "Nigerian Breweries Plc",
-    logo: "/luzon-media/partner-nigerian-breweries.png",
-  },
-  {
-    name: "Zee World",
-    logo: "/luzon-media/partner-zee-world.png",
-  },
+const CLIENTS = [
+  { name: "Nigerian Breweries Plc", logo: "/luzon-media/partner-nigerian-breweries.png" },
+];
+
+// The networks, stations and titles Luzon Media books airtime and space with.
+const MEDIA_PARTNERS = [
+  { name: "AIT — Africa Independent Television", logo: "/luzon-media/partner-ait.png" },
+  { name: "Channels Television", logo: "/luzon-media/partner-channels-tv.png" },
+  { name: "The Guardian", logo: "/luzon-media/partner-the-guardian.png" },
+  { name: "Nigeria Info FM", logo: "/luzon-media/partner-nigeria-info-fm.png" },
+  { name: "Silverbird Television", logo: "/luzon-media/partner-silverbird-tv.png" },
+  { name: "Soundcity", logo: "/luzon-media/partner-soundcity.png" },
+  { name: "Cool FM", logo: "/luzon-media/partner-cool-fm.png" },
+  { name: "StarTimes", logo: "/luzon-media/partner-startimes.png" },
+  { name: "CNN", logo: "/luzon-media/partner-cnn.png" },
+  { name: "Zee World", logo: "/luzon-media/partner-zee-world.png" },
+  { name: "Zee TV", logo: "/luzon-media/partner-zee-tv.png" },
+  { name: "NTA — Nigerian Television Authority", logo: "/luzon-media/partner-nta.png" },
 ];
 
 const ACCREDITATION = [
@@ -155,6 +164,31 @@ const ACCREDITATION = [
   { label: "Registered", value: "28 September 2023" },
   { label: "In the name of", value: "Odusanya Lucy Folasade" },
 ];
+
+/**
+ * Logo tile for a client or media partner.
+ *
+ * The logos come in wildly different aspect ratios (a tall Soundcity mark next
+ * to a very wide Guardian masthead), so each sits object-contained in a fixed
+ * frame — the same normalising trick PartnerTile uses on /partners. They all
+ * carry a white background of their own, so the tile is white in both themes.
+ */
+function PartnerLogoTile({ name, logo }: { name: string; logo: string }) {
+  return (
+    <div
+      title={name}
+      className="relative flex h-24 items-center justify-center overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm sm:h-28"
+    >
+      <Image
+        src={logo}
+        alt={name}
+        fill
+        sizes="(max-width: 640px) 45vw, (max-width: 1280px) 22vw, 180px"
+        className="object-contain p-4"
+      />
+    </div>
+  );
+}
 
 export default function LuzonMediaPage() {
   return (
@@ -380,7 +414,10 @@ export default function LuzonMediaPage() {
       </section>
 
       {/* Partners ----------------------------------------------------------- */}
-      <section className="bg-[var(--color-bg-muted)] px-4 py-16 sm:px-[1.125rem]">
+      <section
+        id="partners"
+        className="scroll-mt-24 bg-[var(--color-bg-muted)] px-4 py-16 sm:px-[1.125rem]"
+      >
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <span className="inline-block h-1 w-10 rounded-full bg-[#12A5C6]" />
@@ -388,25 +425,29 @@ export default function LuzonMediaPage() {
               Clients &amp; media partners
             </h2>
             <p className="mt-3 max-w-2xl text-sm text-[var(--color-text-muted)] sm:text-base">
-              Brands and networks we plan, negotiate and place campaigns with.
+              Brands we work for, and the networks, stations and titles we plan,
+              negotiate and place campaigns with.
             </p>
           </AnimatedSection>
 
-          <AnimatedStagger className="mt-8 grid grid-cols-2 gap-4 sm:max-w-2xl sm:gap-5">
-            {PARTNERS.map((partner) => (
+          <h3 className="mt-10 text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
+            Clients
+          </h3>
+          <AnimatedStagger className="mt-4 grid grid-cols-2 gap-4 sm:max-w-xs">
+            {CLIENTS.map((client) => (
+              <AnimatedStaggerItem key={client.name}>
+                <PartnerLogoTile {...client} />
+              </AnimatedStaggerItem>
+            ))}
+          </AnimatedStagger>
+
+          <h3 className="mt-10 text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
+            Notable media partners
+          </h3>
+          <AnimatedStagger className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+            {MEDIA_PARTNERS.map((partner) => (
               <AnimatedStaggerItem key={partner.name}>
-                <div className="relative flex h-28 items-center justify-center overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:h-32">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    sizes="(max-width: 640px) 45vw, 300px"
-                    className="object-contain p-5"
-                  />
-                </div>
-                <p className="mt-2 text-center text-xs text-[var(--color-text-muted)]">
-                  {partner.name}
-                </p>
+                <PartnerLogoTile {...partner} />
               </AnimatedStaggerItem>
             ))}
           </AnimatedStagger>
