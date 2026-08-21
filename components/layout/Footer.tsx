@@ -136,7 +136,7 @@ export function Footer() {
               Your trusted partner for buying, selling, and renting prime real
               estate — across multiple cities and currencies.
             </p>
-            {/* Sister brand: the 360° media arm of the group. */}
+            {/* The group's media & communications division. */}
             <Link
               href="/luzon-media"
               className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3 py-1.5 text-xs font-medium text-[var(--color-text-muted)] transition-colors hover:border-[#12A5C6] hover:text-[var(--color-text)]"
@@ -148,7 +148,7 @@ export function Footer() {
                 height={17}
                 className="h-4 w-4 object-contain"
               />
-              Also from the group — Luzon Media
+              Luzon Media — our media &amp; communications division
               <ArrowUpRight size={13} />
             </Link>
           </div>

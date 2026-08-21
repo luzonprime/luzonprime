@@ -10,8 +10,8 @@ const CHANNELS = [
 ];
 
 /**
- * Homepage entry point to Luzon Media, the group's 360° marketing communication
- * arm. Follows the same rounded-banner shape as BuyAbilityBanner, but carries
+ * Homepage entry point to Luzon Media, the group's media & communications
+ * division. Follows the same rounded-banner shape as BuyAbilityBanner, but carries
  * Luzon Media's own navy/cyan identity so the two brands read as related rather
  * than identical.
  */
@@ -44,15 +44,15 @@ export function LuzonMediaBanner() {
                 className="h-16 w-auto"
               />
               <span className="mt-5 block text-xs font-semibold uppercase tracking-widest text-[#4FC8E4]">
-                Also from the group
+                Our media &amp; communications division
               </span>
               <h2 className="font-heading mt-2 text-2xl font-bold text-white sm:text-3xl">
-                Your 360° media powerhouse
+                Connecting brands to audiences
               </h2>
               <p className="mt-3 text-sm text-white/70">
-                Luzon Media is our 360° marketing communication agency —
+                Luzon Media is our 360° marketing communication division —
                 outdoor, radio, television, digital and full media planning &amp;
-                buying for brands that need to be seen, heard and remembered.
+                buying that turns media spend into measurable impact.
               </p>
 
               <ul className="mt-5 flex flex-wrap gap-2">

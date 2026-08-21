@@ -31,12 +31,12 @@ import { CertificateViewer } from "@/components/luzon-media/CertificateViewer";
 export const metadata: Metadata = {
   title: "Luzon Media | Luzon Prime Realtors",
   description:
-    "Luzon Media is the group's 360° marketing communication agency — outdoor (OOH), radio, television, digital marketing, media planning & buying, communications strategy and media consultancy. ARCON registered, Abuja.",
+    "Luzon Media is the media & communications division of Luzon Prime Realtors — outdoor (OOH), radio, television, digital marketing, media planning & buying, communications strategy and media consultancy. ARCON registered, Abuja.",
   alternates: { canonical: "/luzon-media" },
   openGraph: {
-    title: "Luzon Media — Your 360° Powerhouse",
+    title: "Luzon Media — Connecting Brands to Audiences",
     description:
-      "Outdoor, radio, television, digital, media planning & buying and communications strategy from Luzon Media, ARCON-registered and headquartered in Abuja.",
+      "The media & communications division of Luzon Prime Realtors: outdoor, radio, television, digital, media planning & buying and communications strategy. ARCON-registered, headquartered in Abuja.",
     url: "/luzon-media",
     type: "website",
   },
@@ -183,7 +183,7 @@ export default function LuzonMediaPage() {
               href="/"
               className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-white/55 transition-colors hover:text-white"
             >
-              A Luzon Prime Realtors company
+              The Media &amp; Communications Division of Luzon Prime Realtors
             </Link>
 
             <Image
@@ -195,11 +195,12 @@ export default function LuzonMediaPage() {
               className="mt-6 h-28 w-auto sm:h-36"
             />
 
-            <h1 className="font-heading mt-7 max-w-2xl text-3xl font-bold leading-tight text-white sm:text-5xl">
-              Your 360° Powerhouse
+            <h1 className="font-heading mt-7 max-w-3xl text-3xl font-bold leading-tight text-white sm:text-5xl">
+              Connecting Brands to Audiences.
+              <br className="hidden sm:block" /> Turning Media into Impact.
             </h1>
-            <p className="mt-3 text-base font-medium text-[#4FC8E4] sm:text-lg">
-              Where ideas meet impact.
+            <p className="mt-4 text-base font-medium text-[#4FC8E4] sm:text-lg">
+              Your 360° Powerhouse — where ideas meet impact.
             </p>
             <p className="mt-5 max-w-2xl text-sm text-white/70 sm:text-base">
               A bold, forward-thinking 360° marketing communication agency
