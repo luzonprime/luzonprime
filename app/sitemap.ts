@@ -8,6 +8,7 @@ const STATIC_ROUTES: { path: string; priority: number; changeFrequency: Metadata
   { path: "/listings", priority: 0.9, changeFrequency: "daily" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/services", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/luzon-media", priority: 0.7, changeFrequency: "monthly" },
   { path: "/agents", priority: 0.6, changeFrequency: "weekly" },
   { path: "/reviews", priority: 0.6, changeFrequency: "weekly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },

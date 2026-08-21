@@ -4,6 +4,7 @@ import { PartnersStrip, type HomePartner } from "@/components/home/PartnersStrip
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustMarquee } from "@/components/home/TrustMarquee";
 import { StatsBar } from "@/components/home/StatsBar";
+import { LuzonMediaBanner } from "@/components/home/LuzonMediaBanner";
 import { FeaturedListings } from "@/components/home/FeaturedListings";
 import { CategoryCurations } from "@/components/home/CategoryCurations";
 import { BuyAbilityBanner } from "@/components/home/BuyAbilityBanner";
@@ -74,6 +75,7 @@ export default async function Home() {
       <HeroSection awards={awards} />
       <TrustMarquee />
       <StatsBar />
+      <LuzonMediaBanner />
       <FeaturedListings />
       <CategoryCurations />
       <BuyAbilityBanner />

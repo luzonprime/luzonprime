@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Logo } from "@/components/shared/Logo";
@@ -47,6 +48,7 @@ const FOOTER_LINKS = [
   { href: "/listings", label: "Listings" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/luzon-media", label: "Luzon Media" },
   { href: "/agents", label: "Agents" },
   { href: "/reviews", label: "Reviews" },
   { href: "/blog", label: "Blog" },
@@ -134,6 +136,21 @@ export function Footer() {
               Your trusted partner for buying, selling, and renting prime real
               estate — across multiple cities and currencies.
             </p>
+            {/* Sister brand: the 360° media arm of the group. */}
+            <Link
+              href="/luzon-media"
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3 py-1.5 text-xs font-medium text-[var(--color-text-muted)] transition-colors hover:border-[#12A5C6] hover:text-[var(--color-text)]"
+            >
+              <Image
+                src="/luzon-media/spiral-mark.png"
+                alt=""
+                width={16}
+                height={17}
+                className="h-4 w-4 object-contain"
+              />
+              Also from the group — Luzon Media
+              <ArrowUpRight size={13} />
+            </Link>
           </div>
 
           <div>

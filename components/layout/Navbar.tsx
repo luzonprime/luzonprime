@@ -19,6 +19,7 @@ const DEFAULT_POPULAR: NavLink = { href: "/listings", label: "Listings" };
 const DEFAULT_INLINE: NavLink[] = [
   { href: "/agents", label: "Agents" },
   { href: "/services", label: "Services" },
+  { href: "/luzon-media", label: "Luzon Media" },
 ];
 const DEFAULT_MORE: NavLink[] = [
   { href: "/interior-designs", label: "Interior Designs" },
